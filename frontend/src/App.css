@@ -1,0 +1,13 @@
+
+    body {
+        background: #000000df; 
+        color: #ffffffe2; 
+        margin: 50px;
+    }
+
+    a{
+        color: rgb(252, 246, 235);
+    }
+    a:hover{
+        color: rgb(156, 0, 253);
+    }
