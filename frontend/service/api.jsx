@@ -239,11 +239,40 @@ export const createStudent = async (data) => {
   
 
 
+// export const loginUser = async (data) => {
+//     const URL = "https://localhost:3001/api/login"; // Assurez-vous de mettre à jour l'URL avec la route correcte pour la connexion
+  
+//     const request = new Request(URL, {
+//       method: "POST", // Utilisez la méthode HTTP appropriée pour la connexion
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(data),
+//     });
+  
+//     try {
+//       const response = await fetch(request);
+  
+//       if (response.status === 200) { // Assurez-vous que le statut de réussite est correct selon votre implémentation
+//         const userData = await response.json();
+//         return {
+//           success: true,
+//           userData, // Ajoutez les données de l'utilisateur à l'objet renvoyé
+//         };
+//       } else {
+//         const errorData = await response.json();
+//         throw new Error(errorData.message); // Lève une exception avec le message d'erreur renvoyé par le serveur
+//       }
+//     } catch (error) {
+//       throw new Error('Erreur lors de la communication avec le serveur.');
+//     }
+//   };
+
 export const loginUser = async (data) => {
-    const URL = "https://localhost:3001/api/login"; // Assurez-vous de mettre à jour l'URL avec la route correcte pour la connexion
+    const URL = "https://localhost:3001/api/student/login";
   
     const request = new Request(URL, {
-      method: "POST", // Utilisez la méthode HTTP appropriée pour la connexion
+      method: "POST",
       headers: {
         'Content-Type': 'application/json',
       },
@@ -253,17 +282,19 @@ export const loginUser = async (data) => {
     try {
       const response = await fetch(request);
   
-      if (response.status === 200) { // Assurez-vous que le statut de réussite est correct selon votre implémentation
-        const userData = await response.json();
-        return {
-          success: true,
-          userData, // Ajoutez les données de l'utilisateur à l'objet renvoyé
-        };
-      } else {
-        const errorData = await response.json();
-        throw new Error(errorData.message); // Lève une exception avec le message d'erreur renvoyé par le serveur
+      if (!response.ok) {
+          const errorData = await response.text();
+          console.log('Error response from server:', errorData);
+        throw new Error(errorData.message || 'Erreur lors de la connexion.');
       }
+  
+      const userData = await response.json();
+      return {
+        success: true,
+        userData,
+      };
     } catch (error) {
-      throw new Error('Erreur lors de la communication avec le serveur.');
+      throw new Error(`Erreur lors de la communication avec le serveur: ${error.message}`);
     }
   };
+  

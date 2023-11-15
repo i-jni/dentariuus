@@ -1,3 +1,4 @@
+import { hash } from 'bcrypt';
 import { createNewStudent, getStudent, getStudentById } from "../repositories/studentsRepo.js";
 
 const index = (req, res) => {
@@ -40,38 +41,70 @@ const getStudentId = (req, res) => {
 
 // ...
 
-const createStudent = (req, res) => {
-    const { firstname, lastname, email, password, role, level_id, country_id } = req.body;
 
-    if (!firstname || !lastname || !email || !password || !role || !level_id || !country_id) {
+
+    // create student
+    const createStudent = async (req, res) => {
+      const { firstname, lastname, email, password, role, level_id, country_id } = req.body;
+    
+      if (!firstname || !lastname || !email || !password || !role || !level_id || !country_id) {
         return res.status(400).json({
-            status: 400,
-            message: "Bad Request",
-            error: "Missing required data.",
+          status: 400,
+          message: "Bad Request",
+          error: "Missing required data.",
         });
+      }
+    
+      try {
+        // Hache le mot de passe avant de le stocker dans la base de données
+        const hashedPassword = await hash(password, 10); // 10 est le coût du hachage, tu peux ajuster selon tes besoins
+    
+        const newStudentId = await createNewStudent({
+          firstname,
+          lastname,
+          email,
+          password: hashedPassword, // Stocke le mot de passe haché dans la base de données
+          role,
+          level_id,
+          country_id,
+        });
+    
+        return res.status(201).json({
+          status: 201,
+          message: "Created",
+          data: {
+            id: newStudentId,
+          },
+        });
+      } catch (error) {
+        return res.status(500).json({
+          status: 500,
+          message: "Internal Server Error",
+          error: error.message,
+        });
+      }
+    };
+    
+
+
+// login student by email
+
+const getStudentByEmail = async (email) => {
+    const query = 'SELECT * FROM students WHERE email = ?';
+    const values = [email];
+  
+    try {
+      const result = await pool.query(query, values); // Assure-toi d'adapter cela à ton client SQL
+  
+      if (result.length === 0) {
+        return null; // Aucun étudiant trouvé avec cet e-mail
+      }
+  
+      return result[0]; // Retourne le premier résultat (supposant qu'il n'y a qu'un seul étudiant avec cet e-mail)
+    } catch (error) {
+      throw error;
     }
+  };
 
-    createNewStudent({ firstname, lastname, email, password, role, level_id, country_id })
-        .then((newStudentId) => {
-            return res.status(201).json({
-                status: 201,
-                message: "Created",
-                data: {
-                    id: newStudentId,
-                }
-            });
-        })
-        .catch(error => {
-            return res.status(500).json({
-                status: 500,
-                message: "Internal Server Error",
-                error: error.message,
-            });
-        });
-};
-
-// login
-
-
-
-export { index, getStudentId, createStudent }
+    
+    export { index, getStudentId, createStudent, getStudentByEmail }
