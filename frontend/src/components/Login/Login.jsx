@@ -15,10 +15,10 @@ function Login() {
 
     try {
       const result = await loginUser({ email, password });
-
+      const studentId = result.userData.data.id;
       if (result.success) {
         // Gérer la réussite de la connexion
-        navigate(`/`);
+        navigate(`/students/${studentId}`);
       } else {
         setError(result.message);
       }

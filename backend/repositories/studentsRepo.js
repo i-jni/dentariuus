@@ -80,5 +80,40 @@ const createNewStudent = async (studentData) => {
     }
 };
 
+// delete student:
 
-export { getStudent, getStudentById, createNewStudent };
+const deleteStudentById = async (studentId) => {
+    const sql = `
+      DELETE FROM dentarius.student
+      WHERE id = :studentId;
+    `;
+  
+    try {
+      const [results] = await dbConnection.query(sql, { studentId });
+      return results.affectedRows > 0; // Renvoie true si au moins une ligne a été supprimée
+    } catch (error) {
+      console.error('Error deleting student by ID:', error);
+      throw error;
+    }
+  };
+
+//   update
+
+const updateStudentById = async (studentId, updatedData) => {
+    const { firstname, lastname, email, role, level_id, country_id } = updatedData;
+  
+    const sql = `
+      UPDATE dentarius.student
+      SET firstname = :firstname, lastname = :lastname, email = :email, role = :role, level_id = :level_id, country_id = :country_id
+      WHERE id = :studentId;
+    `;
+  
+    try {
+      await dbConnection.query(sql, { studentId, firstname, lastname, email, role, level_id, country_id });
+    } catch (error) {
+      console.error('Error updating student:', error);
+      throw error;
+    }
+};
+  
+export { getStudent, getStudentById, createNewStudent, deleteStudentById, updateStudentById };

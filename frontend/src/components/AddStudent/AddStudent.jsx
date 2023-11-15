@@ -4,7 +4,7 @@ import Allcountrys from "../Countrys/Countrys";
 import { Link, useNavigate } from "react-router-dom";
 import { createStudent } from "../../../service/api.jsx";
 
-const AddStudent = () => {
+const Register = () => {
   const navigate = useNavigate();
 
   const [successMessage, setSuccessMessage] = useState('');
@@ -87,4 +87,4 @@ const AddStudent = () => {
   );
 };
 
-export default AddStudent;
+export default Register;

@@ -130,31 +130,6 @@ export async function getStudent(id) {
 }
 
 // post
-// delete this:
-export async function createStudentd() {
-    const URL = "https://localhost:3001/api/student";
-
-    try {
-        const requestInfos = new Request(URL, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(),
-        });
-
-        const req = await fetch(requestInfos);
-
-        if (!req.ok) {
-            throw new Error(`Erreur lors de la création de l'étudiant : ${req.status}`);
-        }
-
-        const res = await req.json();
-        return res;
-    } catch (error) {
-        throw new Error(`Erreur lors de la création de l'étudiant : ${error.message}`);
-    }
-}
 
 export async function getAllCountries() {
     const URL = "https://localhost:3001/api/country";
@@ -298,3 +273,63 @@ export const loginUser = async (data) => {
     }
   };
   
+//   delete student :
+export const deleteStudentById = async (id) => {
+    const URL = `https://localhost:3001/api/student/${id}`;
+  
+    const request = new Request(URL, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  
+    try {
+      const response = await fetch(request);
+  
+      if (!response.ok) {
+        const errorData = await response.text();
+        console.log('Error response from server:', errorData);
+        throw new Error(errorData.message || 'Erreur lors de la suppression.');
+      }
+  
+      return {
+        success: true,
+        message: 'Suppression réussie.',
+      };
+    } catch (error) {
+      throw new Error(`Erreur lors de la communication avec le serveur: ${error.message}`);
+    }
+  };
+  
+
+//   update put
+
+export const updateStudent = async (id, data) => {
+    const URL = `https://localhost:3001/api/student/${id}`;
+  
+    const request = new Request(URL, {
+      method: 'PUT', // Utilise la méthode PUT pour la mise à jour
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+  
+    try {
+      const response = await fetch(request);
+  
+      if (!response.ok) {
+        const errorData = await response.text();
+        console.log('Error response from server:', errorData);
+        throw new Error(errorData.message || 'Erreur lors de la mise à jour.');
+      }
+  
+      return {
+        success: true,
+        message: 'Mise à jour réussie.',
+      };
+    } catch (error) {
+      throw new Error(`Erreur lors de la communication avec le serveur: ${error.message}`);
+    }
+  };

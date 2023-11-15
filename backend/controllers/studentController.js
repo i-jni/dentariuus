@@ -1,5 +1,5 @@
 import { hash } from 'bcrypt';
-import { createNewStudent, getStudent, getStudentById } from "../repositories/studentsRepo.js";
+import { createNewStudent, getStudent, getStudentById, deleteStudentById, updateStudentById } from "../repositories/studentsRepo.js";
 
 const index = (req, res) => {
     getStudent().then( data => {
@@ -106,5 +106,59 @@ const getStudentByEmail = async (email) => {
     }
   };
 
+// delete:
+const deleteStudent = async (req, res) => {
+  const studentId = req.params.id;
+
+  try {
+    const deleted = await deleteStudentById(studentId);
+
+    if (deleted) {
+      return res.status(200).json({
+        status: 200,
+        message: "Student deleted successfully",
+      });
+    } else {
+      return res.status(404).json({
+        status: 404,
+        message: "Student not found",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
     
-    export { index, getStudentId, createStudent, getStudentByEmail }
+const updateStudent = async (req, res) => {
+  const studentId = req.params.id;
+  const { firstname, lastname, email, role, level_id, country_id } = req.body;
+
+  if (!firstname || !lastname || !email || !role || !level_id || !country_id) {
+    return res.status(400).json({
+      status: 400,
+      message: "Bad Request",
+      error: "Missing required data.",
+    });
+  }
+
+  try {
+    // Update student data in the database
+    await updateStudentById(studentId, { firstname, lastname, email, role, level_id, country_id });
+
+    return res.status(200).json({
+      status: 200,
+      message: "Updated",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+    export { index, getStudentId, createStudent, getStudentByEmail, deleteStudent, updateStudent }
