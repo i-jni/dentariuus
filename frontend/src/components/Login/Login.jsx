@@ -12,20 +12,24 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
+  
     try {
       const result = await loginUser({ email, password });
-      const studentId = result.userData.data.id;
-      if (result.success) {
-        // Gérer la réussite de la connexion
+      const studentId = result.userData?.data?.id;
+      const token = result.userData?.data?.token;
+  
+      if (result.success && studentId && token) {
+        // Gestion de réussite de la connexion:
+        localStorage.setItem('jwtToken', token);
         navigate(`/students/${studentId}`);
       } else {
-        setError(result.message);
+        
+        setError(result.message || "Une erreur s'est produite");
       }
     } catch (err) {
-      setError(err.message);
+      setError("Une erreur s'est produite");
     }
-
+  
     setIsLoading(false);
   };
 

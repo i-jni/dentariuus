@@ -1,3 +1,5 @@
+import { getToken } from "./token";
+
 // courses:
 export async function getAllCourses() {
     const URL = "https://localhost:3001/api/courses";
@@ -245,10 +247,11 @@ export const createStudent = async (data) => {
 
 export const loginUser = async (data) => {
     const URL = "https://localhost:3001/api/student/login";
-  
+    const token = getToken();
     const request = new Request(URL, {
       method: "POST",
       headers: {
+        'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),

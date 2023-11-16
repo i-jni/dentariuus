@@ -1,4 +1,5 @@
 import { compare } from 'bcrypt';
+import jwt from 'jsonwebtoken';
 import { getStudentByEmail } from '../repositories/authRepo.js'
 
 const loginUser = async (req, res) => {
@@ -25,7 +26,20 @@ const loginUser = async (req, res) => {
       });
     }
 
-    // Si les identifiants sont valides, renvoyez les informations de l'utilisateur (vous pouvez personnaliser cela en fonction de vos besoins)
+    const token = jwt.sign(
+      { userId: student.id, email: student.email }, // Contenu du token (payload)
+      'secretKey', // Clé secrète pour signer le token (peut être n'importe quelle chaîne secrète)
+      { expiresIn: '2h' } // Optionnel : expiration du token (dans cet exemple, le token expirera après 1 heure)
+    );
+
+      // Vérifie si le token peut être déchiffré avec la clé secrète
+  try {
+    const decodedToken = jwt.verify(token, 'secretKey');
+    console.log(decodedToken);
+  } catch (error) {
+    console.error('Error decoding token:', error);
+  }
+   
     return res.status(200).json({
       status: 200,
       message: "Connexion réussie",
@@ -33,7 +47,7 @@ const loginUser = async (req, res) => {
         id: student.id,
         firstname: student.firstname,
         lastname: student.lastname,
-        // ... d'autres données si nécessaire
+        token
       },
     });
   } catch (error) {

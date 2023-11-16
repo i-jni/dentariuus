@@ -29,6 +29,8 @@ const StudentDetail = () => {
           if (result.success) {
             // Rediriger ou mettre à jour l'interface utilisateur après la suppression réussie
             console.log(result.message);
+            localStorage.removeItem('jwtToken');
+            setIsDeleted(true);
             navigate('/'); // Redirige vers la liste des étudiants ou une autre page
           } else {
             console.error(result.message);
@@ -55,13 +57,31 @@ const StudentDetail = () => {
           </div>
         )}
         <button onClick={handleDelete}>Supprimer</button>
-            </section>
+        </section>
         
-                <Link to={`/setting/${student.id}`}>editer</Link>
+        {/* go to setting */}
+        <Link to={`/setting/${student.id}`}>editer</Link>
+
+        {/* logout */}
+        <button onClick={() => { localStorage.removeItem('jwtToken'); navigate('/login'); }}>
+        Déconnexion </button>
             
-        
         </>
     )
 }
 
 export default StudentDetail;
+// user space: profil avec info -> 2 action : suppression immediate, edition vers les setting
+
+// setiing: tout est editable, 2 action : valider -> msg succes -> btn retour vers le profile 
+
+// registration 
+// authentifiaction 
+// ok hashage 
+// pas ok token!!
+// ajouter : deconnexion mais d'abord le token
+// gerer les autorisation: a faire 
+
+// ----
+// add courses, edit detele, afficher all courses
+// ----

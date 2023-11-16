@@ -1,4 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
+import {PrivateRoute,LoggedinRestriction} from './privateRoute.jsx';
+
 import Homepage from '../src/page/homepage/Homepage.jsx';
 import RootLayout from '../src/layout/RootLayout.jsx';
 import AllCourses from '../src/components/AllCourses/AllCourses.jsx';
@@ -42,27 +44,47 @@ const router = createBrowserRouter([
                 path: 'students',
                 element: <AllStudents />
             },
-            {
-                path: 'students/:id',
-                element: <StudentDetail />
-            },
-            {
-                path: 'register',
-                element: <Register />
-            },
-            {
-                path: 'login',
-                element: <Login />
-            },
+    
             {
                 path: 'userspace',
                 element: <UserSpace />
             },
+
+
+            // privates routes -------------------------
+            // si user pas connecter = pas acces au profil, !ajouter liste de cours!
             {
                 path: 'setting/:id',
-                element: <StudentSetting />
+                element: (
+                    <PrivateRoute>
+                        <StudentSetting />
+                    </PrivateRoute>
+                ),
+            },
+            {
+                path: 'students/:id',
+                element: (
+                    <PrivateRoute>
+                        <StudentDetail />
+                    </PrivateRoute>)
             },
 
+            // si user est connecté : ne peut pas acceder a ces pages:
+            {
+                path: 'register',
+                element: (
+                    <LoggedinRestriction>
+                        <Register />
+                    </LoggedinRestriction>)
+            },
+            {
+                path: 'login',
+                element: (
+                    <LoggedinRestriction>
+                        <Login />
+                    </LoggedinRestriction>)
+            },
+            
         ],
     },
 ]);
