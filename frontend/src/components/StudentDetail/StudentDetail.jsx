@@ -78,9 +78,9 @@ export default StudentDetail;
 // registration 
 // authentifiaction 
 // ok hashage 
-// pas ok token!!
-// ajouter : deconnexion mais d'abord le token
-// gerer les autorisation: a faire 
+//  ok token
+// ok deconnexion
+// gerer les autorisation: a faire : ok a moitié
 
 // ----
 // add courses, edit detele, afficher all courses

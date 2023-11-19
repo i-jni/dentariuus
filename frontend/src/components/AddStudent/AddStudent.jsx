@@ -69,6 +69,7 @@ const Register = () => {
           <Allcountrys displayAsDropdown={true} onSelectCountry={handleCountrySelection} />
         </div>
 
+        {/* make default: user, and hide it: */}
         <div>
           <label htmlFor="role">Rôle:</label>
           <select name="role">

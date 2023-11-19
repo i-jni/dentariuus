@@ -39,4 +39,20 @@ const getCourseById = async (courseId) => {
     } 
 };
 
-export { getCourses, getCourseById };
+// create
+
+const createCourse = async ({ course_name, title, content, document, student_id, level_id }) => {
+    const sql = `
+      INSERT INTO dentarius.course (course_name, title, content, document, student_id, level_id)
+      VALUES (:course_name, :title, :content, :document, :student_id, :level_id);
+    `;
+  
+    try {
+      const [results] = await dbConnection.query(sql, { course_name, title, content, document, student_id, level_id });
+      return results.insertId;
+    } catch (error) {
+      console.error('Error creating a new course:', error);
+      throw error;
+    }
+  };
+export { getCourses, getCourseById, createCourse };

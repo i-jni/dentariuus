@@ -10,6 +10,7 @@ import topicsRouter from "./routes/topics.js";
 import levelsRouter from "./routes/levels.js";
 import coursesTopicRouter from "./routes/coursesTopic.js"
 import countrysRouter from "./routes/country.js";
+import errorRouter from "./routes/error.js";
 
 // configuration du serveur
 const options = {
@@ -45,6 +46,9 @@ router.use("/country", countrysRouter )
 // router.use('/topics_courses', coursesTopicRouter);
 
 // router.get('/', (req, res) => res.send('ok'));
+
+// placer cette route après toutes les autres routes:
+router.use(errorRouter);
 
 // création du serveur
 const server = https.createServer(options, app);

@@ -1,5 +1,125 @@
 import { getToken } from "./token";
 
+
+// topics
+
+export async function getAllTopics() {
+  const URL = "https://localhost:3001/api/topics/liste";
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la récupération des topics : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la récupération des topics : ${error.message}`);
+  }
+}
+
+export async function getTopic(id) {
+  const URL = `https://localhost:3001/api/topics/liste/${id}`;
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la récupération du topic precis : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la récupération du topic precis : ${error.message}`);
+  }
+}
+
+// recuperation des cours liés a chaque topic
+
+export async function getAllCoursesByTopics() {
+  const URL = "https://localhost:3001/api/topics/courses";
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la récupération des cours by topic : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la récupération des cours by topic: ${error.message}`);
+  }
+}
+
+export async function getAllCoursesByTopicsId(id) {
+  const URL = `https://localhost:3001/api/topics/courses/${id}`;
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la récupération des cours du topic precis du topic precis : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la récupération des cours du topic precis : ${error.message}`);
+  }
+}
+
+// create course :
+export async function createNewCourse(courseData) {
+  const URL = "https://localhost:3001/api/courses";
+
+  try {
+    const formData = new FormData();
+    formData.append('course_name', courseData.course_name);
+    formData.append('title', courseData.title);
+    formData.append('content', courseData.content);
+    formData.append('document', courseData.document);
+    formData.append('student_id', courseData.student_id);
+    formData.append('level_id', courseData.level_id);
+    formData.append('topics', JSON.stringify(courseData.topics)); // Convertir le tableau en chaîne JSON
+
+    const requestInfos = new Request(URL, {
+      method: "post",
+      body: formData,
+    });
+
+    const req = await fetch(requestInfos);
+
+    if (!req.ok) {
+      throw new Error(`Erreur lors de la création du cours : ${req.status}`);
+    }
+
+    const res = await req.json();
+    return res;
+  } catch (error) {
+    throw new Error(`Erreur lors de la création du cours : ${error.message}`);
+  }
+}
 // courses:
 export async function getAllCourses() {
     const URL = "https://localhost:3001/api/courses";
@@ -87,49 +207,6 @@ export async function getLevel(id) {
     }
 }
 
-// students:
-
-export async function getAllStudents() {
-    const URL = "https://localhost:3001/api/student";
-
-    try {
-        const requestInfos = new Request(URL, {
-            method: "get",
-        });
-
-        const req = await fetch(requestInfos);
-
-        if (!req.ok) {
-            throw new Error(`Erreur lors de la récupération des Students : ${req.status}`);
-        }
-
-        const res = await req.json();
-        return res;
-    } catch (error) {
-        throw new Error(`Erreur lors de la récupération des Students : ${error.message}`);
-    }
-}
-
-export async function getStudent(id) {
-    const URL = `https://localhost:3001/api/student/${id}`;
-
-    try {
-        const requestInfos = new Request(URL, {
-            method: "get",
-        });
-
-        const req = await fetch(requestInfos);
-
-        if (!req.ok) {
-            throw new Error(`Erreur lors de la récupération du Student : ${req.status}`);
-        }
-
-        const res = await req.json();
-        return res;
-    } catch (error) {
-        throw new Error(`Erreur lors de la récupération du Student : ${error.message}`);
-    }
-}
 
 // post
 
@@ -155,7 +232,49 @@ export async function getAllCountries() {
 }
 
 
-// 
+// -------------------- STUDENT -----------------------------------
+
+export async function getAllStudents() {
+  const URL = "https://localhost:3001/api/student";
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la récupération des Students : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la récupération des Students : ${error.message}`);
+  }
+}
+
+export async function getStudent(id) {
+  const URL = `https://localhost:3001/api/student/${id}`;
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la récupération du Student : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la récupération du Student : ${error.message}`);
+  }
+}
 
 export const createStudent = async (data) => {
     const URL = "https://localhost:3001/api/student";
@@ -185,65 +304,6 @@ export const createStudent = async (data) => {
     }
   };
 
-
-//   login
-//   export const loginUser = async (data) => {
-//     const URL = "https://localhost:3001/api/student"; // Assurez-vous de mettre à jour l'URL avec la route correcte pour la connexion
-  
-//     const request = new Request(URL, {
-//       method: "POST", // Utilisez la méthode HTTP appropriée pour la connexion
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     });
-  
-//     try {
-//       const response = await fetch(request);
-  
-//       if (response.status === 200) { // Assurez-vous que le statut de réussite est correct selon votre implémentation
-//         return {
-//           success: true,
-//           // D'autres données à retourner si nécessaire
-//         };
-//       } else {
-//         throw new Error('Erreur lors de la connexion.');
-//       }
-//     } catch (error) {
-//       throw new Error('Erreur lors de la communication avec le serveur.');
-//     }
-//   };
-  
-
-
-// export const loginUser = async (data) => {
-//     const URL = "https://localhost:3001/api/login"; // Assurez-vous de mettre à jour l'URL avec la route correcte pour la connexion
-  
-//     const request = new Request(URL, {
-//       method: "POST", // Utilisez la méthode HTTP appropriée pour la connexion
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     });
-  
-//     try {
-//       const response = await fetch(request);
-  
-//       if (response.status === 200) { // Assurez-vous que le statut de réussite est correct selon votre implémentation
-//         const userData = await response.json();
-//         return {
-//           success: true,
-//           userData, // Ajoutez les données de l'utilisateur à l'objet renvoyé
-//         };
-//       } else {
-//         const errorData = await response.json();
-//         throw new Error(errorData.message); // Lève une exception avec le message d'erreur renvoyé par le serveur
-//       }
-//     } catch (error) {
-//       throw new Error('Erreur lors de la communication avec le serveur.');
-//     }
-//   };
 
 export const loginUser = async (data) => {
     const URL = "https://localhost:3001/api/student/login";
@@ -306,7 +366,7 @@ export const deleteStudentById = async (id) => {
   };
   
 
-//   update put
+//   update put student:
 
 export const updateStudent = async (id, data) => {
     const URL = `https://localhost:3001/api/student/${id}`;

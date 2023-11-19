@@ -32,6 +32,21 @@ const getCoursesIdTopic = async (idTopic) => {
 };
 
 // ;
+const addTopicsToCourse = async (courseId, topics) => {
+  const sql = `
+    INSERT INTO dentarius.course_topic (course_id, topic_id)
+    VALUES (:courseId, :topicId);
+  `;
+
+  try {
+    for (const topicId of topics) {
+      await dbConnection.query(sql, { courseId, topicId });
+    }
+  } catch (error) {
+    console.error('Error adding topics to course:', error);
+    throw error;
+  }
+};
 
 
-export { getCoursesIdTopic };
+export { getCoursesIdTopic, addTopicsToCourse };

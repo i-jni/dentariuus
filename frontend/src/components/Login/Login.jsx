@@ -75,6 +75,7 @@ function Login() {
               Pas membre ? <Link to="/register">Inscription</Link>{" "}
               <span className="fa fa-arrow-right" />
             </p>
+            <a href="">Mot de passe oublié ?</a>
           </div>
          
         </section>

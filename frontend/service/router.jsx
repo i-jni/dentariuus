@@ -13,6 +13,11 @@ import Allcountrys from '../src/components/Countrys/Countrys.jsx';
 import Login from '../src/components/Login/Login.jsx';
 import UserSpace from '../src/page/user-space/Userspace.jsx';
 import StudentSetting from '../src/components/editStudent/editStudent.jsx';
+import CourseForm from '../src/components/addCourse/AddCourse.jsx';
+import AllTopics from '../src/components/topics/allTopics.jsx';
+import TopicDetail from '../src/components/TopicsDetail/TopicsDetaiL.jsx';
+import AllCoursesByTopic from '../src/components/AllCoursesBytopics/AllCoursesByTopics.jsx';
+import TopicCourseDetail from '../src/components/CoursesByTopicId/CoursesByTopicId.jsx';
 
 
 const router = createBrowserRouter([
@@ -33,6 +38,10 @@ const router = createBrowserRouter([
                 element: <CourseDetail />
             },
             {
+                path: 'addcourse',
+                element: <CourseForm />
+            },
+            {
                 path: 'levels',
                 element: <Alllevels />
             },
@@ -41,10 +50,27 @@ const router = createBrowserRouter([
                 element: <Allcountrys />
             },
             {
+                path: 'topics',
+                element: <AllTopics />
+            },
+            {
+                path: 'topics/:id',
+                element: <TopicDetail />
+            },
+            {
+                path: 'topics_courses/',
+                element: <AllCoursesByTopic />
+            },
+            {
+                path: 'topics_courses/:id',
+                element: <TopicCourseDetail/>
+            },
+
+            {
                 path: 'students',
                 element: <AllStudents />
             },
-    
+            // elle est pas utiliser :!!
             {
                 path: 'userspace',
                 element: <UserSpace />
