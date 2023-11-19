@@ -91,7 +91,7 @@ export async function getAllCoursesByTopicsId(id) {
 
 // create course :
 export async function createNewCourse(courseData) {
-  const URL = "https://localhost:3001/api/courses";
+  const URL = "https://localhost:3001/api/courses/create";
 
   try {
     const formData = new FormData();
@@ -101,7 +101,7 @@ export async function createNewCourse(courseData) {
     formData.append('document', courseData.document);
     formData.append('student_id', courseData.student_id);
     formData.append('level_id', courseData.level_id);
-    formData.append('topics', JSON.stringify(courseData.topics)); // Convertir le tableau en chaîne JSON
+    formData.append('topics', JSON.stringify(courseData.topics)); 
 
     const requestInfos = new Request(URL, {
       method: "post",

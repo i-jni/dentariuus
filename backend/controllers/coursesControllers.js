@@ -40,37 +40,46 @@ const getCourse = (req, res) => {
             });
         });
 };
+
+// ici le probleme: comparer les champs requis.....
 const createNewCourse = async (req, res) => {
-    const { course_name, title, content, document, student_id, level_id, topics } = req.body;
-  
-    if (!course_name || !title || !content || !document || !student_id || !level_id || !topics) {
+  const { course_name, title, content, document, student_id, level_id, topics } = req.body;
+
+  if (!course_name || !title || !content || !document || !student_id || !level_id || !topics) {
       return res.status(400).json({
-        status: 400,
-        message: "Bad Request",
-        error: "Missing required data.",
+          status: 400,
+          message: "Bad Request",
+          error: "Missing required data.",
       });
-    }
-  
-    try {
-      const newCourseId = await createCourse({ course_name, title, content, document, student_id, level_id });
+  }
+
+  try {
+      const newCourseId = await createCourse([
+          course_name,
+          title,
+          content,
+          document,
+          student_id,
+          level_id,
+      ]);
       await addTopicsToCourse(newCourseId, topics);
-  
+
       return res.status(201).json({
-        status: 201,
-        message: "Created",
-        data: {
-          id: newCourseId,
-        }
+          status: 201,
+          message: "Created",
+          data: {
+              id: newCourseId,
+          },
       });
-    } catch (error) {
+  } catch (error) {
       console.error('Error creating a new course:', error);
       return res.status(500).json({
-        status: 500,
-        message: "Internal Server Error",
-        error: error.message,
+          status: 500,
+          message: "Internal Server Error",
+          error: error.message,
       });
-    }
-  };
+  }
+};
 
 export { courses, getCourse, createNewCourse };
 

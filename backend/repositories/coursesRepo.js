@@ -39,20 +39,29 @@ const getCourseById = async (courseId) => {
     } 
 };
 
-// create
+// create : les ? ?, sont des paramaetre preparé pour eviter les injection sql
 
-const createCourse = async ({ course_name, title, content, document, student_id, level_id }) => {
+const createCourse = async ([course_name, title, content, document, student_id, level_id]) => {
     const sql = `
       INSERT INTO dentarius.course (course_name, title, content, document, student_id, level_id)
-      VALUES (:course_name, :title, :content, :document, :student_id, :level_id);
+      VALUES (?, ?, ?, ?, ?, ?);
     `;
   
     try {
-      const [results] = await dbConnection.query(sql, { course_name, title, content, document, student_id, level_id });
-      return results.insertId;
+        const [results] = await dbConnection.query(sql, [
+            course_name,
+            title,
+            content,
+            document,
+            student_id,
+            level_id,
+        ]);
+        return results.insertId;
     } catch (error) {
-      console.error('Error creating a new course:', error);
-      throw error;
+        console.error('Error creating a new course:', error);
+        throw error;
     }
-  };
+};
+
+  
 export { getCourses, getCourseById, createCourse };

@@ -6,6 +6,6 @@ const coursesRouter = express.Router();
 coursesRouter.get('/', courses);
 coursesRouter.get('/:id', getCourse);
 
-coursesRouter.post('/', createNewCourse);
+coursesRouter.post('/create', createNewCourse);
 
 export default coursesRouter;
