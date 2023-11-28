@@ -1,27 +1,38 @@
-import { useState } from "react";
+import {useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../../service/api.jsx";
+import { UserContext } from "../../context/UserProvider.jsx";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  // const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
   
+    // note : si je retire token ici , privateRoute ne fonctionne plus: a revoir----
     try {
       const result = await loginUser({ email, password });
       const studentId = result.userData?.data?.id;
       const token = result.userData?.data?.token;
   
-      if (result.success && studentId && token) {
+      console.log(result, studentId);
+      console.log(result.success &&  studentId !== null );
+
+      if (result.success && studentId !== null) {
         // Gestion de réussite de la connexion:
         localStorage.setItem('jwtToken', token);
+        
+        setUser( result.userData?.data );
+        
         navigate(`/students/${studentId}`);
+        // navigate('/');
       } else {
         
         setError(result.message || "Une erreur s'est produite");

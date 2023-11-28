@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getStudent, deleteStudentById } from '../../../service/api.jsx';
+import Navigation from '../navigation/Navigation.jsx';
 
 const StudentDetail = () => {
   const navigate = useNavigate();
 
     const [student, setstudent] = useState({});
     const [isDeleted, setIsDeleted] = useState(false); 
-      // {/* recuperer l'id:  de l'url*/}
     const { id } = useParams();
     
     useEffect(() => {
@@ -38,9 +38,13 @@ const StudentDetail = () => {
         } catch (error) {
           console.error(error.message);
         }
-      };
+  };
+  
+
+  console.log("student:", student);
     return (
-        <>
+      <>
+            <Navigation/>
             <article>
                 <h2>id: {student.id}</h2>
                 <h2>complet name : {student.firstname} {student.lastname}</h2>

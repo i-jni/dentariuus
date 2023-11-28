@@ -84,7 +84,8 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <StudentSetting />
-                    </PrivateRoute>
+                    </PrivateRoute >
+
                 ),
             },
             {
@@ -92,7 +93,8 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <StudentDetail />
-                    </PrivateRoute>)
+                    </PrivateRoute >
+                    )
             },
 
             // si user est connecté : ne peut pas acceder a ces pages:

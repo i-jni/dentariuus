@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 
 export const PrivateRoute = ({ children }) => {
-  const isLoggedIn = localStorage.getItem('jwtToken') !== null;
+  const jwtToken = localStorage.getItem('jwtToken');
+  console.log('jwtToken:', jwtToken);
+
+  const isLoggedIn = jwtToken !== null;
+  console.log('isLoggedIn:', isLoggedIn);
 
   return isLoggedIn ? children : <Navigate to="/login" />;
 };
@@ -10,6 +14,7 @@ PrivateRoute.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
   
+
 // redirect homepage when he click in login or register:
 
 export const LoggedinRestriction = ({ children }) => {

@@ -11,7 +11,7 @@ export async function getAllTopics() {
           method: "get",
       });
 
-      const req = await fetch(requestInfos);
+      const req = await fetch(requestInfos); 
 
       if (!req.ok) {
           throw new Error(`Erreur lors de la récupération des topics : ${req.status}`);
@@ -307,11 +307,11 @@ export const createStudent = async (data) => {
 
 export const loginUser = async (data) => {
     const URL = "https://localhost:3001/api/student/login";
-    const token = getToken();
+    // const token = getToken();
     const request = new Request(URL, {
       method: "POST",
       headers: {
-        'Authorization': `Bearer ${token}`,
+        // 'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
@@ -372,7 +372,7 @@ export const updateStudent = async (id, data) => {
     const URL = `https://localhost:3001/api/student/${id}`;
   
     const request = new Request(URL, {
-      method: 'PUT', // Utilise la méthode PUT pour la mise à jour
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },

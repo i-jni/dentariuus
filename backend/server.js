@@ -22,11 +22,11 @@ const options = {
 // créer une application express
 const app = express();
 
-app.use(cors());
 // routage de l'application
 const router = express.Router();
 
 app.use('/api', router);
+router.use(cors());
 
 // dossier des ressources externes
 router.use(express.static("public"));
