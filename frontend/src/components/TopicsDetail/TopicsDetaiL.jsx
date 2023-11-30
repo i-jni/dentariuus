@@ -9,7 +9,7 @@ const TopicDetail = () => {
   useEffect(() => {
     getTopic(id)
       .then((data) => {
-        console.log("data-topics", data);
+        // console.log("data-topics", data);
         if (data && data.data) {
           setTopic(data.data);
         }

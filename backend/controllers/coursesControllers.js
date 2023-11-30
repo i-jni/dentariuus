@@ -54,7 +54,7 @@ const createNewCourse = async (req, res) => {
   
     await fs.rename(file.path, `${file.destination}/${newFileName}`);
   
-    console.log(req.body, "req.body");
+    // console.log(req.body, "req.body");
     
     if (!course_name || !title || !content || !student_id || !level_id || !topics) {
       return res.status(400).json({
@@ -101,7 +101,7 @@ const deleteCourse = async (req, res) => {
   try {
     const deleted = await deleteCourseById(courseId);
     const fileName = course.document;
-    console.log(course, "COURSE file");
+    // console.log(course, "COURSE file");
 
     await fs.rm(`public/pdf/${fileName}`);
     if (deleted) {

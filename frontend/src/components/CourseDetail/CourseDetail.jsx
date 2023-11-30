@@ -16,7 +16,7 @@ const CourseDetail = () => {
     useEffect(() => {
         getCourse(id)
             .then((data) => {
-                console.log("data-courses", data);
+                // console.log("data-courses", data);
                 if (data && data.data) { 
                     setCourse(data.data);
                 }

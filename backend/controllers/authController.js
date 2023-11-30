@@ -35,7 +35,7 @@ const loginUser = async (req, res) => {
       // Vérifie si le token peut être déchiffré avec la clé secrète
   try {
     const decodedToken = jwt.verify(token, 'secretKey');
-    console.log(decodedToken);
+    // console.log(decodedToken);
   } catch (error) {
     console.error('Error decoding token:', error);
   }

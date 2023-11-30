@@ -8,7 +8,7 @@ const AllCoursesByTopic = () => {
   useEffect(() => {
     getAllCoursesByTopics()
       .then((data) => {
-        console.log("data-courses-by-topic", data);
+        // console.log("data-courses-by-topic", data);
         if (data && data.data) {
           setCoursesByTopic(data.data);
         }
