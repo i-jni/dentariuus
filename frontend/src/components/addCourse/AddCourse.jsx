@@ -1,15 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { getAllLevels } from '../../../service/api';
 import { getAllTopics } from '../../../service/api';
 import { createNewCourse } from '../../../service/api';
+import { UserContext } from '../../context/UserProvider';
+import Navigation from '../navigation/Navigation';
 
 const AddCourse = () => {
+  const { user, setUser } = useContext(UserContext);
+  
   const [courseData, setCourseData] = useState({
     course_name: '',
     title: '',
     content: '',
     document: null,
-    student_id: 34,
+    student_id: user.id,
     level_id: '',
     topics: [],
   });
@@ -18,7 +22,6 @@ const AddCourse = () => {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
-    // Récupérer la liste des niveaux lors du chargement du composant
     getAllLevels()
       .then(data => {
         if (data && data.data) {
@@ -29,7 +32,7 @@ const AddCourse = () => {
         console.error(error);
       });
 
-    // Récupérer la liste des sujets lors du chargement du composant
+    // Récupérer la liste des topicss lors du chargement
     getAllTopics()
       .then(data => {
         if (data && data.data) {
@@ -39,10 +42,10 @@ const AddCourse = () => {
       .catch(error => {
         console.error(error);
       });
-  }, []); // Le tableau vide signifie que cette effectue est exécutée une seule fois après le rendu initial
+  }, []);
 
   const handleInputChange = e => {
-    const { name, value } = e.target;
+    const { name, value } = e.currentTarget;
     setCourseData(prevData => ({
       ...prevData,
       [name]: value,
@@ -50,14 +53,24 @@ const AddCourse = () => {
   };
 
   const handleDocumentChange = e => {
-    const file = e.target.files[0];
+    const file = e.currentTarget.files[0];
     setCourseData(prevData => ({
       ...prevData,
       document: file,
     }));
   };
-
+  
+  // const handleStudentChange = () => {
+  //   console.log('user.id avant la mise à jour :', user.id);
+  //   setCourseData(prevData => ({
+  //     ...prevData,
+  //     student_id: user.id,
+  //   }));
+  //   console.log('student_id après la mise à jour :', courseData.student_id);
+  // };
+  
   const handleLevelChange = levelId => {
+    console.log("click level");
     setCourseData(prevData => ({
       ...prevData,
       level_id: levelId,
@@ -65,6 +78,7 @@ const AddCourse = () => {
   };
 
   const handleTopicChange = topicId => {
+    console.log('click');
     setCourseData(prevData => ({
       ...prevData,
       topics: [...prevData.topics, topicId],
@@ -73,31 +87,43 @@ const AddCourse = () => {
   const handleSubmit = e => {
     e.preventDefault();
   
-    // Vérifiez que toutes les données obligatoires sont présentes dans courseData
     if (!courseData.course_name || !courseData.title || !courseData.content || !courseData.document || !courseData.student_id || !courseData.level_id || !courseData.topics.length) {
+      console.log('datas du formulaire avant envoi :', courseData);
       alert("Veuillez remplir tous les champs obligatoires.");
       return;
     }
+
+    // const formData = new FormData();
+    // formData.append('course_name', courseData.course_name);
+    // formData.append('title', courseData.title);
+    // formData.append('content', courseData.content);
+    // formData.append('document', courseData.document);
+    // formData.append('student_id', courseData.student_id);
+    // formData.append('level_id', courseData.level_id);
+    // formData.append('topics', courseData.topics);
+
+    // console.log(formData);
+
   
-    // Appeler la fonction pour créer un nouveau cours avec les données du formulaire
+    // create nouveau cours avec les données du form:
     createNewCourse(courseData)
       .then(data => {
         console.log('Nouveau cours créé avec succès :', data);
-        // Rediriger ou effectuer d'autres actions après la création du cours
       })
       .catch(error => {
-        console.error('Erreur lors de la création du cours :', error);
+        console.error('Erreur addcourse lors de la création du cours :', error);
   
-        // Afficher l'erreur
-        alert(`Erreur lors de la création du cours : ${error.message}`);
+        alert(`Erreur addcourses lors de la création du cours : ${error.message}`);
       });
   };
   
 
   return (
     <div>
+      <Navigation />
+      
       <h2>Ajouter un nouveau cours</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType='multipart/form-data'>
         <label>
           Nom du cours:
           <input
@@ -133,16 +159,15 @@ const AddCourse = () => {
         </label>
         <br />
 
-        <label>
-          Étudiant ID:
+        {/* <label>
+          studentID:
           <input
-            type="text"
             name="student_id"
-            value={courseData.student_id}
-            onChange={handleInputChange}
+            value={user?.id}
+            onChange={handleStudentChange}
             required
           />
-        </label> 
+        </label>  */}
         <br />
         <label>
           Document (PDF):
@@ -160,7 +185,7 @@ const AddCourse = () => {
           <select
             name="level_id"
             value={courseData.level_id}
-            onChange={e => handleLevelChange(e.target.value)}
+            onChange={e => handleLevelChange(e.currentTarget.value)}
             required
           >
             <option value="">Sélectionnez un niveau</option>
@@ -174,14 +199,14 @@ const AddCourse = () => {
         <br />
 
         <label>
-          Sujets:
+          topics:
           <div>
             {topics.map(topic => (
               <label key={topic.id}>
                 <input
                   type="checkbox"
                   value={topic.id}
-                  onChange={e => handleTopicChange(e.target.value)}
+                  onChange={e => handleTopicChange(e.currentTarget.value)}
                 />
                 {topic.topic_name}
               </label>

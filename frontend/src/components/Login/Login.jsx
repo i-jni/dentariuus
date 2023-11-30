@@ -76,7 +76,6 @@ function Login() {
                 type="submit"
                 value="Se connecter"
                 disabled={isLoading}
-                style={{ marginBottom: "20px" }}
               />
               {error && <div className="error" style={{ color: "red" }}>{error}</div>}
             </form>

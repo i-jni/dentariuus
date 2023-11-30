@@ -63,5 +63,21 @@ const createCourse = async ([course_name, title, content, document, student_id, 
     }
 };
 
+// DELETE:
+
+const deleteCourseById = async (courseId) => {
+    const sql = `
+      DELETE FROM dentarius.course
+      WHERE id = :courseId;
+    `;
   
-export { getCourses, getCourseById, createCourse };
+    try {
+      const [results] = await dbConnection.query(sql, { courseId });
+      return results.affectedRows > 0; 
+    } catch (error) {
+      console.error('Error deleting course by ID:', error);
+      throw error;
+    }
+  };
+  
+export { getCourses, getCourseById, createCourse, deleteCourseById };

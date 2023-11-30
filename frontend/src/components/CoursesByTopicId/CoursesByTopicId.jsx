@@ -29,7 +29,7 @@ const TopicCourseDetail = () => {
             
           <div key={course.id}>
                 <Link to={`/courses/${course.id}`}>{course.title}</Link>
-            {/* Ajouter d'autre data */}
+            {/* Ajoute d'autre data */}
           </div>
         ))
       ) : (

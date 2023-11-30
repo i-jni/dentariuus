@@ -34,11 +34,11 @@ CREATE TABLE dentarius.course(
     title VARCHAR(255),
     content TEXT,
     document VARCHAR(255),
-    date_creation DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
     date_edit TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     student_id TINYINT UNSIGNED NOT NULL,
     level_id TINYINT UNSIGNED NOT NULL,
-    FOREIGN KEY (student_id) REFERENCES student(id),
+    FOREIGN KEY (student_id) REFERENCES student(id) ON DELETE CASCADE,
     FOREIGN KEY (level_id) REFERENCES level(id)
 );
 
@@ -50,7 +50,7 @@ CREATE TABLE dentarius.topic(
 CREATE TABLE dentarius.course_topic (
     course_id TINYINT UNSIGNED,
     topic_id TINYINT UNSIGNED,
-    FOREIGN KEY (course_id) REFERENCES course(id),
+    FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE,
     FOREIGN KEY (topic_id) REFERENCES topic(id)
 );
 

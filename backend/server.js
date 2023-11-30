@@ -26,14 +26,15 @@ const app = express();
 const router = express.Router();
 
 app.use('/api', router);
+
 router.use(cors());
 
 // dossier des ressources externes
 router.use(express.static("public"));
 
+
 // acceder a une propriete body d'une req dont les donné sont en json
 router.use(express.json());
-router.use(cors());
 
 
 // appel des routeurs avec un préfixe

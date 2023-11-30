@@ -1,0 +1,15 @@
+- user = student-id dans courses = ok
+-ajout de cours = ok
+delete cours = 
+
+--
+-mdp oublié, temps d'attente apres 3 saisi de mdp incorrect
+
+- dynamiser parti role dans le studentadd
+- acces a liste de cours uniququmnt si t'es connecter
+-
+
+--addcourse: 
+checkout radio : limité a 1 seul topic
+
+-- obliger l'utilisateur a poster uniquement des fichier .pdf -> faire la verif necessaire : raiosn -> securité

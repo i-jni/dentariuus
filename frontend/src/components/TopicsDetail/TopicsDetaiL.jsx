@@ -24,7 +24,6 @@ const TopicDetail = () => {
       <article>
         <h2>ID : {topic.id}</h2>
         <h2>Nom du sujet : {topic.topic_name}</h2>
-        {/* Ajoutez d'autres détails du sujet en fonction de votre structure de données */}
       </article>
     </>
   );

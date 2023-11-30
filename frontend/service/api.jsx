@@ -1,4 +1,4 @@
-import { getToken } from "./token";
+// import { getToken } from "./token";
 
 
 // topics
@@ -101,7 +101,7 @@ export async function createNewCourse(courseData) {
     formData.append('document', courseData.document);
     formData.append('student_id', courseData.student_id);
     formData.append('level_id', courseData.level_id);
-    formData.append('topics', JSON.stringify(courseData.topics)); 
+    formData.append('topics', courseData.topics); 
 
     const requestInfos = new Request(URL, {
       method: "post",
@@ -111,7 +111,7 @@ export async function createNewCourse(courseData) {
     const req = await fetch(requestInfos);
 
     if (!req.ok) {
-      throw new Error(`Erreur lors de la création du cours : ${req.status}`);
+      throw new Error(`Erreur create cours  lors de la création du cours : ${req.status}`);
     }
 
     const res = await req.json();
@@ -120,7 +120,7 @@ export async function createNewCourse(courseData) {
     throw new Error(`Erreur lors de la création du cours : ${error.message}`);
   }
 }
-// courses:
+// All courses:
 export async function getAllCourses() {
     const URL = "https://localhost:3001/api/courses";
 
@@ -162,6 +162,38 @@ export async function getCourse(id) {
         throw new Error(`Erreur lors de la récupération du cours : ${error.message}`);
     }
 }
+
+// Delete course:
+
+export const deleteCourseById = async (id) => {
+  const URL = `https://localhost:3001/api/courses/${id}`;
+
+  const request = new Request(URL, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  try {
+    const response = await fetch(request);
+
+    if (!response.ok) {
+      const errorData = await response.text();
+      console.log('Error response from server:', errorData);
+      throw new Error(errorData.message || 'Erreur lors de la suppression du cours..');
+    }
+
+    return {
+      success: true,
+      message: 'Suppression cours réussie!',
+    };
+  } catch (error) {
+    throw new Error(`Erreur lors de la communication avec le serveur: ${error.message}`);
+  }
+};
+
+
 
 // levels
 
