@@ -13,3 +13,9 @@ delete cours =
 checkout radio : limité a 1 seul topic
 
 -- obliger l'utilisateur a poster uniquement des fichier .pdf -> faire la verif necessaire : raiosn -> securité
+
+
+--  raiting
+soit faire une ligne dans la table cours : rainting de type integer (1-5)
+soit table avec user id course id et rainting
+

@@ -13,7 +13,7 @@ const AddCourse = () => {
     title: '',
     content: '',
     document: null,
-    student_id: user.id,
+    student_id: user?.id,
     level_id: '',
     topics: [],
   });
