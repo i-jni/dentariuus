@@ -18,6 +18,7 @@ import AllTopics from '../src/components/topics/allTopics.jsx';
 import TopicDetail from '../src/components/TopicsDetail/TopicsDetaiL.jsx';
 import AllCoursesByTopic from '../src/components/AllCoursesBytopics/AllCoursesByTopics.jsx';
 import TopicCourseDetail from '../src/components/CoursesByTopicId/CoursesByTopicId.jsx';
+import EditCourse from '../src/components/editCourse/EditCourse.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: 'addcourse',
                 element: <CourseForm />
+            },
+            {
+                path: 'editcourse/:id',
+                element: <EditCourse />
             },
             {
                 path: 'levels',

@@ -48,5 +48,32 @@ const addTopicsToCourse = async (courseId, topics) => {
   }
 };
 
+const updateTopicsOfCourse = async (courseId, topics) => {
+  try {
+    // Supprimez les sujets existants liés à ce cours
+    await removeTopicsFromCourse(courseId);
 
-export { getCoursesIdTopic, addTopicsToCourse };
+    // Ajoutez les sujets mis à jour au cours
+    await addTopicsToCourse(courseId, topics);
+  } catch (error) {
+    console.error("Error updating topics of course:", error);
+    throw error;
+  }
+};
+
+const removeTopicsFromCourse = async (courseId) => {
+  const sql = `
+    DELETE FROM dentarius.course_topic
+    WHERE course_id = ?;
+  `;
+
+  try {
+    await dbConnection.query(sql, [courseId]);
+  } catch (error) {
+    console.error("Error removing topics from course:", error);
+    throw error;
+  }
+};
+
+
+export { getCoursesIdTopic, addTopicsToCourse, removeTopicsFromCourse, updateTopicsOfCourse };

@@ -78,6 +78,32 @@ const deleteCourseById = async (courseId) => {
       console.error('Error deleting course by ID:', error);
       throw error;
     }
-  };
+};
   
-export { getCourses, getCourseById, createCourse, deleteCourseById };
+const updateCourseById = async (id, [course_name, title, content, document, student_id, level_id]) => {
+  const sql = `
+    UPDATE dentarius.course
+    SET course_name = ?, title = ?, content = ?, document = ?, student_id = ?, level_id = ?
+    WHERE id = ?;
+  `;
+
+  try {
+    await dbConnection.query(sql, [
+      course_name,
+      title,
+      content,
+      document,
+      student_id,
+      level_id,
+      id,
+    ]);
+  } catch (error) {
+    console.error("Error updating course:", error);
+    throw error;
+  }
+};
+
+
+  
+  
+export { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById };

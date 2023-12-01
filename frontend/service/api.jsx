@@ -120,6 +120,40 @@ export async function createNewCourse(courseData) {
     throw new Error(`Erreur lors de la création du cours : ${error.message}`);
   }
 }
+
+export async function updateCourse(courseId, courseData) {
+  const URL = `https://localhost:3001/api/courses/update/${courseId}`;
+
+  try {
+    const formData = new FormData();
+    formData.append('course_name', courseData.course_name);
+    formData.append('title', courseData.title);
+    formData.append('content', courseData.content);
+    if (courseData.document) {
+      formData.append('document', courseData.document);
+    }
+    formData.append('student_id', courseData.student_id);
+    formData.append('level_id', courseData.level_id);
+    formData.append('topics', courseData.topics);
+
+    const requestInfos = new Request(URL, {
+      method: "PUT",
+      body: formData,
+    });
+
+    const req = await fetch(requestInfos);
+
+    if (!req.ok) {
+      throw new Error(`Erreur lors de la mise à jour du cours : ${req.status}`);
+    }
+
+    const res = await req.json();
+    return res;
+  } catch (error) {
+    throw new Error(`Erreur lors de la mise à jour du cours : ${error.message}`);
+  }
+}
+
 // All courses:
 export async function getAllCourses() {
     const URL = "https://localhost:3001/api/courses";

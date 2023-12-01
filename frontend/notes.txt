@@ -12,10 +12,19 @@ delete cours =
 --addcourse: 
 checkout radio : limité a 1 seul topic
 
+
 -- obliger l'utilisateur a poster uniquement des fichier .pdf -> faire la verif necessaire : raiosn -> securité
 
+- coursedetail:
+ajout partage reseau sociaux
 
 --  raiting
 soit faire une ligne dans la table cours : rainting de type integer (1-5)
 soit table avec user id course id et rainting
 
+
+___
+
+interdire de laisser champs vide lors de la somission du update: => regler grace a required
+-recuperer les champs deja saisi : => ok sauf sur pdf 
+tester 

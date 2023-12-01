@@ -29,7 +29,7 @@ const CourseDetail = () => {
             .then((data) => {
                 // console.log("data-courses", data);
                 if (data && data.data) { 
-                    setCourse(data.data);
+                  setCourse(data.data);
                 }
             })
             .catch((error) => {
@@ -88,6 +88,9 @@ const CourseDetail = () => {
             </article>
             <div>
                 <Link to={'/courses'}> <button onClick={handleDelete}> Delete  </button></Link>
+        </div>
+        <div>
+          <Link to={`/editcourse/${course.id}`} > <button> Edit  </button></Link>
             </div>
         
         </>

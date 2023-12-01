@@ -1,5 +1,5 @@
 import express from "express";
-import { courses, createNewCourse, deleteCourse, getCourse } from "../controllers/coursesControllers.js";
+import { courses, createNewCourse, deleteCourse, getCourse, updateCourse} from "../controllers/coursesControllers.js";
 import multer from 'multer';
 
 const coursesRouter = express.Router();
@@ -23,6 +23,7 @@ coursesRouter.post('/create', multerService.any(), createNewCourse);
 
 // deleteCourse
 coursesRouter.delete('/:id', deleteCourse);
-
+// update
+coursesRouter.put('/update/:id', multerService.any(), updateCourse);
 
 export default coursesRouter;

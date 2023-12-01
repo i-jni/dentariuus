@@ -1,6 +1,6 @@
 
-import { addTopicsToCourse } from "../repositories/courseTopicRepo.js";
-import { getCourses, getCourseById, createCourse, deleteCourseById } from "../repositories/coursesRepo.js";
+import { updateTopicsOfCourse } from "../repositories/courseTopicRepo.js";
+import { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById } from "../repositories/coursesRepo.js";
 import fs from 'fs/promises';
 
 
@@ -125,5 +125,54 @@ const deleteCourse = async (req, res) => {
 };
   
 
-export { courses, getCourse, createNewCourse, deleteCourse };
+const updateCourse = async (req, res) => {
+  const { course_name, title, content, student_id, level_id, topics } = req.body;
+  const courseId = req.params.id;
+
+  // Vérifiez si le cours existe
+  const course = await getCourseById(courseId);
+  if (!course) {
+    return res.status(404).json({
+      status: 404,
+      message: "Course not found",
+    });
+  }
+
+  // Si un fichier est présent dans la requête, mettez à jour le nom du fichier
+  const file = req.files[0];
+  let newFileName;
+  if (file) {
+    newFileName = `${file.filename}.pdf`;
+    await fs.rename(file.path, `${file.destination}/${newFileName}`);
+  }
+
+  try {
+    await updateCourseById(courseId, [
+      course_name,
+      title,
+      content,
+      newFileName,
+      student_id,
+      level_id,
+    ]);
+
+    // Mettre à jour les sujets liés au cours
+    await updateTopicsOfCourse(courseId, topics);
+
+    return res.status(200).json({
+      status: 200,
+      message: "Course updated successfully",
+    });
+  } catch (error) {
+    console.error("Controller: Error updating course:", error);
+    return res.status(500).json({
+      status: 500,
+      message: "Internal Server Error",
+      error: error.message,
+    });
+  }
+};
+
+
+export { courses, getCourse, createNewCourse, deleteCourse, updateCourse };
 

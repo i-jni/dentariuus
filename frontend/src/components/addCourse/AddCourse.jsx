@@ -60,15 +60,7 @@ const AddCourse = () => {
     }));
   };
   
-  // const handleStudentChange = () => {
-  //   console.log('user.id avant la mise à jour :', user.id);
-  //   setCourseData(prevData => ({
-  //     ...prevData,
-  //     student_id: user.id,
-  //   }));
-  //   console.log('student_id après la mise à jour :', courseData.student_id);
-  // };
-  
+
   const handleLevelChange = levelId => {
     console.log("click level");
     setCourseData(prevData => ({
@@ -93,18 +85,7 @@ const AddCourse = () => {
       return;
     }
 
-    // const formData = new FormData();
-    // formData.append('course_name', courseData.course_name);
-    // formData.append('title', courseData.title);
-    // formData.append('content', courseData.content);
-    // formData.append('document', courseData.document);
-    // formData.append('student_id', courseData.student_id);
-    // formData.append('level_id', courseData.level_id);
-    // formData.append('topics', courseData.topics);
 
-    // console.log(formData);
-
-  
     // create nouveau cours avec les données du form:
     createNewCourse(courseData)
       .then(data => {
@@ -159,15 +140,6 @@ const AddCourse = () => {
         </label>
         <br />
 
-        {/* <label>
-          studentID:
-          <input
-            name="student_id"
-            value={user?.id}
-            onChange={handleStudentChange}
-            required
-          />
-        </label>  */}
         <br />
         <label>
           Document (PDF):

@@ -1,0 +1,214 @@
+import PropTypes from 'prop-types';
+import { useState, useEffect, useContext } from 'react';
+import { getAllLevels, getCourse, updateCourse } from '../../../service/api';
+import { getAllTopics } from '../../../service/api';
+import { UserContext } from '../../context/UserProvider';
+import {  useParams } from 'react-router-dom';
+
+const EditCourse = () => {
+
+  const [course, setCourse] = useState({});
+
+  const { user, setUser } = useContext(UserContext);
+    const { id: courseId } = useParams();
+
+  
+  const [courseData, setCourseData] = useState({
+    course_name: '',
+    title: '',
+    content: '',
+    document: null,
+    student_id: user?.id,
+    level_id: '',
+    topics: [],
+  });
+
+  // remplissage champs avec datas actuelles:
+  useEffect(() => {
+    getCourse(courseId)
+      .then((data) => {
+        console.log("data-courseid!!", data);
+        if (data && data.data) {
+          setCourse(data.data);
+          setCourseData({
+            course_name: data.data.course_name,
+            title: data.data.title,
+            content: data.data.content,
+            student_id: data.data.student_id,
+            level_id: data.data.level_id,
+            document: data.data.document,
+            topics: data.data.topics,
+          });
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [courseId]);
+
+
+  const [levels, setLevels] = useState([]);
+  const [topics, setTopics] = useState([]);
+
+  useEffect(() => {
+    getAllLevels()
+      .then(data => {
+        if (data && data.data) {
+          setLevels(data.data);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    // Récupérer la liste des topicss lors du chargement
+    getAllTopics()
+      .then(data => {
+        if (data && data.data) {
+          console.log('topic', data);
+          setTopics(data.data);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
+  const handleInputChange = e => {
+    const { name, value } = e.currentTarget;
+    setCourseData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleDocumentChange = e => {
+    const file = e.currentTarget.files[0];
+    setCourseData(prevData => ({
+      ...prevData,
+      document: file,
+    }));
+  };
+  
+
+  const handleLevelChange = levelId => {
+    console.log("click level");
+    setCourseData(prevData => ({
+      ...prevData,
+      level_id: levelId,
+    }));
+  };
+
+  const handleTopicChange = topicId => {
+    console.log('click');
+    setCourseData(prevData => ({
+      ...prevData,
+      topics: [...(prevData.topics || []), topicId],
+    }));
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+  
+    console.log(courseData, 'courseData');
+
+    // Mettre à jour le cours avec les données du formulaire
+    updateCourse(courseId, courseData)
+      .then(data => {
+        console.log('Cours mis à jour avec succès :', data);
+      })
+      .catch(error => {
+        console.error('Erreur lors de la mise à jour du cours :', error);
+        alert(`Erreur lors de la mise à jour du cours : ${error.message}`);
+      });
+  };
+  
+  return (
+        <form onSubmit={handleSubmit} encType='multipart/form-data'>
+          <label>
+            Course Name:
+            <input
+              type="text"
+              name="course_name"
+              value={courseData.course_name}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+    
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              value={courseData.title}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+    
+          <label>
+            Content:
+            <textarea
+              name="content"
+              value={courseData.content}
+              onChange={handleInputChange}
+              required
+            />
+          </label>
+    
+            <label>
+            Document (PDF):
+            {courseData.document ? (
+              <p> Nom du fichier : {courseData.document.name} </p>
+            ) : (
+              <p> Aucun fichier sélectionné </p>
+            )}
+            <input
+              type="file"
+              accept=".pdf"
+              name="document"
+              onChange={handleDocumentChange}
+              required
+            />
+          </label>
+    
+          
+              <select
+                name="level_id"
+                value={courseData.level_id}
+                onChange={e => handleLevelChange(e.currentTarget.value)}
+                required
+              >
+                <option value="">Sélectionnez un niveau</option>
+                {levels.map(level => (
+                  <option key={level.id} value={level.id}>
+                    {level.name}
+                  </option>
+                ))}
+              </select>
+    
+              <label>
+              topics:
+              <div>
+                {topics.map(topic => (
+                  <label key={topic.id}>
+                    <input
+                      type="checkbox"
+                      value={topic.id}
+                      onChange={e => handleTopicChange(e.currentTarget.value)}
+                    />
+                    {topic.topic_name}
+                  </label>
+                ))}
+              </div>
+            </label>
+    
+          
+          <button type="submit">Update Course</button>
+        </form>
+      );
+};
+
+
+
+export default EditCourse;
