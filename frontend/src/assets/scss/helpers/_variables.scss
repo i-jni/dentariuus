@@ -1,0 +1,38 @@
+// $browser-context: 16;
+// $transition-speed: 0.75s;
+
+// $flame: 'FlameRegular';
+// $flameSans: 'FlameSans';
+// $flameVF: 'FlameVF';
+// $flameBold: 'FlameBold';
+
+/**
+  RESPONSIVE BREAKPOINTS (in relative units to take account of the font-size or zoom in on the webpage)
+**/
+$mobile:36em; //576px
+$tablet:48em; //768px
+$desktop:64em; //1024px
+$widescreen: 75em; //1200px
+$widescreen-xl:87.5em; //1400px
+
+$desktop-max-width: 1440px;
+
+$body_bg: #FFFFFF;
+
+$primaryColor: #AC9F76;
+$secondaryColor: #FFFFFF;
+$thirdColor: #503B1B;
+
+$blue: #003D72;
+$brownlight: #F7F5F1;
+$greylight: #CFCECC;
+$greyslick: #F3F1EB;
+$greyevent: #A8A8A7;
+$beige: #EEECE4;
+$darkgrey: #797C7F;
+$dark: #191919;
+$brownMedium: #575551;
+$darkBlue: #243356;
+$bgGrey: #F9F9F9;
+$white: #ffffff;
+$grey: #f3f1ea;

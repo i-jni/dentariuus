@@ -29,7 +29,7 @@ const loginUser = async (req, res) => {
     const token = jwt.sign(
       { userId: student.id, email: student.email }, // Contenu du token (payload)
       'secretKey', // Clé secrète pour signer le token (peut être n'importe quelle chaîne secrète)
-      { expiresIn: '2h' } // Optionnel : expiration du token (dans cet exemple, le token expirera après 1 heure)
+      { expiresIn: '2h' } // Optionnel : expiration du token (dans cet exemple, le token expirera après 2 heure)
     );
 
       // Vérifie si le token peut être déchiffré avec la clé secrète

@@ -1,9 +1,13 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useState, useEffect, useContext } from 'react';
 import { getAllLevels, getCourse, updateCourse } from '../../../service/api';
 import { getAllTopics } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
-import {  useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Page, Document } from 'react-pdf';
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const EditCourse = () => {
 
@@ -27,7 +31,7 @@ const EditCourse = () => {
   useEffect(() => {
     getCourse(courseId)
       .then((data) => {
-        console.log("data-courseid!!", data);
+        console.log("data-data.data.document!!", data.data.document);
         if (data && data.data) {
           setCourse(data.data);
           setCourseData({
@@ -36,7 +40,7 @@ const EditCourse = () => {
             content: data.data.content,
             student_id: data.data.student_id,
             level_id: data.data.level_id,
-            document: data.data.document,
+            document: data.data.document || null,
             topics: data.data.topics,
           });
         }
@@ -49,6 +53,8 @@ const EditCourse = () => {
 
   const [levels, setLevels] = useState([]);
   const [topics, setTopics] = useState([]);
+  const [selectedTopic, setSelectedTopic] = useState(null);
+
 
   useEffect(() => {
     getAllLevels()
@@ -72,7 +78,7 @@ const EditCourse = () => {
       .catch(error => {
         console.error(error);
       });
-  }, []);
+  },[selectedTopic]);
 
   const handleInputChange = e => {
     const { name, value } = e.currentTarget;
@@ -84,11 +90,13 @@ const EditCourse = () => {
 
   const handleDocumentChange = e => {
     const file = e.currentTarget.files[0];
+    console.log("Nouveau document sélectionné :", file);
     setCourseData(prevData => ({
       ...prevData,
       document: file,
     }));
   };
+  
   
 
   const handleLevelChange = levelId => {
@@ -109,7 +117,8 @@ const EditCourse = () => {
   const handleSubmit = e => {
     e.preventDefault();
   
-    console.log(courseData, 'courseData');
+    console.log("Données du formulaire lors de la soumission :", courseData);
+
 
     // Mettre à jour le cours avec les données du formulaire
     updateCourse(courseId, courseData)
@@ -154,10 +163,18 @@ const EditCourse = () => {
               onChange={handleInputChange}
               required
             />
-          </label>
-    
+      </label>
+
+      <label>
+        document actuel:
+          <Document
+         file={`${apiUrl}/pdf/${course.document}`}
+         >
+         <Page pageNumber={1}   renderAnnotationLayer={false} />
+        </Document>
+      </label>
             <label>
-            Document (PDF):
+            nouveau Document (PDF):
             {courseData.document ? (
               <p> Nom du fichier : {courseData.document.name} </p>
             ) : (
@@ -166,7 +183,6 @@ const EditCourse = () => {
             <input
               type="file"
               accept=".pdf"
-              name="document"
               onChange={handleDocumentChange}
               required
             />

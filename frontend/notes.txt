@@ -1,6 +1,6 @@
 - user = student-id dans courses = ok
 -ajout de cours = ok
-delete cours = 
+-delete cours = ok
 
 --
 -mdp oublié, temps d'attente apres 3 saisi de mdp incorrect

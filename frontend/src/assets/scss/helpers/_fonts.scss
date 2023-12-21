@@ -1,0 +1,44 @@
+/**
+* Flame
+**/
+@font-face {
+    font-family: 'FlameBold';
+    src: url('../fonts/Flame-Bold.eot');
+    src: url('../fonts/Flame-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Flame-Bold.woff2') format('woff2'),
+        url('../fonts/Flame-Bold.woff') format('woff'),
+        url('../fonts/Flame-Bold.ttf') format('truetype'),
+        url('../fonts/Flame-Bold.svg#Flame-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FlameRegular';
+    src: url('../fonts/Flame-Regular.eot');
+    src: url('../fonts/Flame-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Flame-Regular.woff2') format('woff2'),
+        url('../fonts/Flame-Regular.woff') format('woff'),
+        url('../fonts/Flame-Regular.ttf') format('truetype'),
+        url('../fonts/Flame-Regular.svg#Flame-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+* FlameSans
+**/
+@font-face {
+    font-family: 'FlameSans';
+    src: url('../fonts/FlameSans-Regular.eot');
+    src: url('../fonts/FlameSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FlameSans-Regular.woff2') format('woff2'),
+        url('../fonts/FlameSans-Regular.woff') format('woff'),
+        url('../fonts/FlameSans-Regular.ttf') format('truetype'),
+        url('../fonts/FlameSans-Regular.svg#FlameSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

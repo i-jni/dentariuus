@@ -138,23 +138,25 @@ const updateCourse = async (req, res) => {
     });
   }
 
-  // Si un fichier est présent dans la requête, mettez à jour le nom du fichier
+  // Si un fichier est présent dans la requête, effectuez les validations nécessaires
   const file = req.files[0];
   let newFileName;
   if (file) {
+    // Validez que le fichier est un PDF, ajustez cette vérification selon vos besoins
+    if (file.mimetype !== 'application/pdf') {
+      return res.status(400).json({
+        status: 400,
+        message: "Invalid file format. Please provide a PDF file.",
+      });
+    }
+
     newFileName = `${file.filename}.pdf`;
     await fs.rename(file.path, `${file.destination}/${newFileName}`);
   }
 
   try {
-    await updateCourseById(courseId, [
-      course_name,
-      title,
-      content,
-      newFileName,
-      student_id,
-      level_id,
-    ]);
+    // Mettez à jour le cours
+    await updateCourseById(courseId, [course_name, title, content, newFileName, student_id, level_id]);
 
     // Mettre à jour les sujets liés au cours
     await updateTopicsOfCourse(courseId, topics);
@@ -172,7 +174,6 @@ const updateCourse = async (req, res) => {
     });
   }
 };
-
 
 export { courses, getCourse, createNewCourse, deleteCourse, updateCourse };
 

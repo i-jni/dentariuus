@@ -2,9 +2,10 @@
 
 
 // topics
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export async function getAllTopics() {
-  const URL = "https://localhost:3001/api/topics/liste";
+  const URL = `${apiUrl}/topics/liste`;
 
   try {
       const requestInfos = new Request(URL, {
@@ -25,7 +26,7 @@ export async function getAllTopics() {
 }
 
 export async function getTopic(id) {
-  const URL = `https://localhost:3001/api/topics/liste/${id}`;
+  const URL = `${apiUrl}/topics/liste/${id}`;
 
   try {
       const requestInfos = new Request(URL, {
@@ -48,7 +49,7 @@ export async function getTopic(id) {
 // recuperation des cours liés a chaque topic
 
 export async function getAllCoursesByTopics() {
-  const URL = "https://localhost:3001/api/topics/courses";
+  const URL = `${apiUrl}/topics/courses`;
 
   try {
       const requestInfos = new Request(URL, {
@@ -69,7 +70,7 @@ export async function getAllCoursesByTopics() {
 }
 
 export async function getAllCoursesByTopicsId(id) {
-  const URL = `https://localhost:3001/api/topics/courses/${id}`;
+  const URL = `${apiUrl}/topics/courses/${id}`;
 
   try {
       const requestInfos = new Request(URL, {
@@ -91,7 +92,7 @@ export async function getAllCoursesByTopicsId(id) {
 
 // create course :
 export async function createNewCourse(courseData) {
-  const URL = "https://localhost:3001/api/courses/create";
+  const URL = `${apiUrl}/courses/create`;
 
   try {
     const formData = new FormData();
@@ -122,7 +123,7 @@ export async function createNewCourse(courseData) {
 }
 
 export async function updateCourse(courseId, courseData) {
-  const URL = `https://localhost:3001/api/courses/update/${courseId}`;
+  const URL = `${apiUrl}/courses/update/${courseId}`;
 
   try {
     const formData = new FormData();
@@ -135,6 +136,7 @@ export async function updateCourse(courseId, courseData) {
     formData.append('student_id', courseData.student_id);
     formData.append('level_id', courseData.level_id);
     formData.append('topics', courseData.topics);
+    // formData.append('topics', JSON.stringify(courseData.topics));
 
     const requestInfos = new Request(URL, {
       method: "PUT",
@@ -156,7 +158,7 @@ export async function updateCourse(courseId, courseData) {
 
 // All courses:
 export async function getAllCourses() {
-    const URL = "https://localhost:3001/api/courses";
+    const URL = `${apiUrl}/courses`;
 
     try {
         const requestInfos = new Request(URL, {
@@ -177,7 +179,7 @@ export async function getAllCourses() {
 }
 
 export async function getCourse(id) {
-    const URL = `https://localhost:3001/api/courses/${id}`;
+    const URL = `${apiUrl}/courses/${id}`;
 
     try {
         const requestInfos = new Request(URL, {
@@ -200,7 +202,7 @@ export async function getCourse(id) {
 // Delete course:
 
 export const deleteCourseById = async (id) => {
-  const URL = `https://localhost:3001/api/courses/${id}`;
+  const URL = `${apiUrl}/courses/${id}`;
 
   const request = new Request(URL, {
     method: 'DELETE',
@@ -232,7 +234,7 @@ export const deleteCourseById = async (id) => {
 // levels
 
 export async function getAllLevels() {
-    const URL = "https://localhost:3001/api/levels/";
+    const URL = `${apiUrl}/levels/`;
 
     try {
         const requestInfos = new Request(URL, {
@@ -253,7 +255,7 @@ export async function getAllLevels() {
 }
 
 export async function getLevel(id) {
-    const URL = `https://localhost:3001/api/levels/${id}`;
+    const URL = `${apiUrl}/api/levels/${id}`;
 
     try {
         const requestInfos = new Request(URL, {
@@ -277,7 +279,7 @@ export async function getLevel(id) {
 // post
 
 export async function getAllCountries() {
-    const URL = "https://localhost:3001/api/country";
+    const URL = `${apiUrl}/country`;
 
     try {
         const requestInfos = new Request(URL, {
@@ -301,7 +303,7 @@ export async function getAllCountries() {
 // -------------------- STUDENT -----------------------------------
 
 export async function getAllStudents() {
-  const URL = "https://localhost:3001/api/student";
+  const URL = `${apiUrl}/student`;
 
   try {
       const requestInfos = new Request(URL, {
@@ -322,7 +324,7 @@ export async function getAllStudents() {
 }
 
 export async function getStudent(id) {
-  const URL = `https://localhost:3001/api/student/${id}`;
+  const URL = `${apiUrl}/student/${id}`;
 
   try {
       const requestInfos = new Request(URL, {
@@ -343,7 +345,7 @@ export async function getStudent(id) {
 }
 
 export const createStudent = async (data) => {
-    const URL = "https://localhost:3001/api/student";
+    const URL = `${apiUrl}/student`;
   
     const request = new Request(URL, {
       method: "POST",
@@ -372,7 +374,7 @@ export const createStudent = async (data) => {
 
 
 export const loginUser = async (data) => {
-    const URL = "https://localhost:3001/api/student/login";
+    const URL = `${apiUrl}/student/login`;
     // const token = getToken();
     const request = new Request(URL, {
       method: "POST",
@@ -404,7 +406,7 @@ export const loginUser = async (data) => {
   
 //   delete student :
 export const deleteStudentById = async (id) => {
-    const URL = `https://localhost:3001/api/student/${id}`;
+    const URL = `${apiUrl}/student/${id}`;
   
     const request = new Request(URL, {
       method: 'DELETE',
@@ -435,7 +437,7 @@ export const deleteStudentById = async (id) => {
 //   update put student:
 
 export const updateStudent = async (id, data) => {
-    const URL = `https://localhost:3001/api/student/${id}`;
+    const URL = `${apiUrl}/student/${id}`;
   
     const request = new Request(URL, {
       method: 'PUT',

@@ -10,7 +10,10 @@ const CourseDetail = () => {
     const Navigate = useNavigate()
     const [downloadCount, setDownloadCount] = useState(
       parseInt(localStorage.getItem('downloadCount')) || 0
-    );
+  );
+  
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
   const [numPages, setNumPages] = useState(null);
   
@@ -76,13 +79,13 @@ const CourseDetail = () => {
           <h2> student: {course.student_id}</h2>
           
           <Document
-         file={`https://localhost:3001/api/pdf/${course.document}`}
+         file={`${apiUrl}/pdf/${course.document}`}
          onLoadSuccess={onDocumentLoadSuccess}>
 
          <Page pageNumber={1}   renderAnnotationLayer={false} />
        </Document>
           <p>Page 1 of {numPages}</p>
-          <a href={`https://localhost:3001/api/pdf/${course.document}`} onClick={handleDownloadClick}>Telecharger</a>
+          <a href={`${apiUrl}/pdf/${course.document}`} onClick={handleDownloadClick}>Telecharger</a>
           <p>Nombre de telechargement : {downloadCount} </p>
                 
             </article>

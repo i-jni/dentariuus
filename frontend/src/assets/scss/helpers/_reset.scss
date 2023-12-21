@@ -1,0 +1,62 @@
+@import 'mixins';
+
+*{
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    // border: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    text-decoration: none;
+}
+
+strong, b {
+    color: inherit;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+img{
+    @include user-select();
+    vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p{
+    padding: 0px;
+    margin: 0px;
+}
+
+button:not(:disabled) {
+    cursor:pointer;
+}
+
+img {
+    width: 100%;
+    height:auto;
+}
+
+a {
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: underline;
+    }
+}

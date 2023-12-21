@@ -1,0 +1,65 @@
+// // src/App.scss 
+//   header {
+//     background-color: #333;
+//     padding: 15px;
+//     color: #fff;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+  
+//     .logo {
+//       font-size: 1.5em;
+//     }
+  
+//     .nav-links {
+//       list-style: none;
+//       display: flex;
+  
+//       ul {
+//         display: flex;
+//       }
+  
+//       li {
+//         margin-right: 20px;
+  
+//         a {
+//           text-decoration: none;
+//           color: #fff;
+//           font-weight: bold;
+//         }
+//       }
+//     }
+  
+//     .burger {
+//       display: none;
+//       font-size: 1.5em;
+//       cursor: pointer;
+//     }
+  
+//     @media only screen and (max-width: 768px) {
+//       .nav-links {
+//         display: none;
+//         flex-direction: column;
+//         position: absolute;
+//         top: 60px;
+//         left: 0;
+//         width: 100%;
+//         background-color: #333;
+  
+//         &.show {
+//           display: flex;
+//         }
+  
+//         li {
+//           margin: 0;
+//           text-align: center;
+//           padding: 10px;
+//         }
+//       }
+  
+//       .burger {
+//         display: block;
+//       }
+//     }
+//   }
+  
