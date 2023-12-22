@@ -1,5 +1,6 @@
 import * as fs from "node:fs/promises";
 import https from "node:https";
+import http from "node:http";
 import express from "express";
 // import publicRouter from "./routes/public.js";
 import * as dotenv from 'dotenv';
@@ -52,6 +53,10 @@ router.use("/country", countrysRouter )
 router.use(errorRouter);
 
 // création du serveur
-const server = https.createServer(options, app);
+
+// 
+const server = process.env.NODE_ENV === "dev"
+	? https.createServer(options, app)
+	: http.createServer(app);
 
 export default server;
