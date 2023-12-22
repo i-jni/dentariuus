@@ -1,20 +1,20 @@
 import { createBrowserRouter } from 'react-router-dom';
-import {PrivateRoute,LoggedinRestriction} from './privateRoute.jsx';
+import {PrivateRoute,LoggedinRestriction} from './PrivateRoute.jsx';
 
 import Homepage from '../src/page/homepage/Homepage.jsx';
 import RootLayout from '../src/layout/RootLayout.jsx';
 import AllCourses from '../src/components/AllCourses/AllCourses.jsx';
 import CourseDetail from '../src/components/CourseDetail/CourseDetail.jsx';
-import Alllevels from '../src/components/AllLevels/AllLevels.jsx';
+import Alllevells from '../src/components/Alllevells/Alllevells.jsx';
 import AllStudents from '../src/components/AllStudents/AllStudents.jsx';
 import StudentDetail from '../src/components/StudentDetail/StudentDetail.jsx';
 import Register from '../src/components/AddStudent/AddStudent.jsx';
 import Allcountrys from '../src/components/Countrys/Countrys.jsx';
 import Login from '../src/components/Login/Login.jsx';
 import UserSpace from '../src/page/user-space/Userspace.jsx';
-import StudentSetting from '../src/components/editStudent/editStudent.jsx';
+import StudentSetting from '../src/components/EditStudent/EditStudent.jsx';
 import CourseForm from '../src/components/addCourse/AddCourse.jsx';
-import AllTopics from '../src/components/topics/allTopics.jsx';
+import AllTopics from '../src/components/topics/AllTopics.jsx';
 import TopicDetail from '../src/components/TopicsDetail/TopicsDetaiL.jsx';
 import AllCoursesByTopic from '../src/components/AllCoursesBytopics/AllCoursesByTopics.jsx';
 import TopicCourseDetail from '../src/components/CoursesByTopicId/CoursesByTopicId.jsx';
