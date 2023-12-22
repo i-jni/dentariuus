@@ -4,7 +4,7 @@ CREATE DATABASE dentarius;
 
 ALTER DATABASE dentarius CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-CREATE TABLE dentarius.level(
+CREATE TABLE dentarius.levell(
     id TINYINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL
 );
@@ -21,9 +21,9 @@ CREATE TABLE dentarius.student(
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     role ENUM('visitor', 'user', 'admin') NOT NULL DEFAULT 'visitor',
-    level_id TINYINT UNSIGNED NOT NULL,
+    levell_id TINYINT UNSIGNED NOT NULL,
     country_id TINYINT UNSIGNED NOT NULL,
-    FOREIGN KEY (level_id) REFERENCES level(id),
+    FOREIGN KEY (levell_id) REFERENCES levell(id),
     FOREIGN KEY (country_id) REFERENCES country(id),
     UNIQUE KEY unique_email (email)
 );
@@ -34,12 +34,12 @@ CREATE TABLE dentarius.course(
     title VARCHAR(255),
     content TEXT,
     document VARCHAR(255),
-    date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
-    date_edit TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-      TINYINT UNSIGNED NOT NULL,
-    level_id TINYINT UNSIGNED NOT NULL,
+    creation_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    edit_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    student_id TINYINT UNSIGNED NOT NULL,
+    levell_id TINYINT UNSIGNED NOT NULL,
     FOREIGN KEY (student_id) REFERENCES student(id) ON DELETE CASCADE,
-    FOREIGN KEY (level_id) REFERENCES level(id)
+    FOREIGN KEY (levell_id) REFERENCES levell(id)
 );
 
 CREATE TABLE dentarius.topic(
@@ -55,7 +55,7 @@ CREATE TABLE dentarius.course_topic (
 );
 
 
-INSERT INTO dentarius.level
+INSERT INTO dentarius.levell
 VALUES
     (NULL, 'bac1'),
     (NULL, 'bac2')
@@ -77,7 +77,7 @@ VALUES
     (NULL, 'tutu', 'nomtutu', 'tutu@mail.fr', '1234', 'user', 2, 1);
 
 
-INSERT INTO dentarius.course (course_name, title, content, document, date_creation, date_edit, student_id, level_id)
+INSERT INTO dentarius.course (course_name, title, content, document, creation_at, edit_at, student_id, levell_id)
 VALUES
     ('les molecules spé', 'title : molecules', 'lorem ipsum content', 'doc.pdf', '2023-11-03 14:35:00', '2023-11-03 14:37:00', 3, 2),
     ('la science des dent', 'title : science spé', 'lorem ipsum content science', 'doc2.pdf', '2023-11-03 14:38:00', '2023-11-03 14:26:00', 4, 1),

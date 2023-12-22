@@ -23,7 +23,7 @@ const EditCourse = () => {
     content: '',
     document: null,
     student_id: user?.id,
-    level_id: '',
+    levell_id: '',
     topics: [],
   });
 
@@ -39,7 +39,7 @@ const EditCourse = () => {
             title: data.data.title,
             content: data.data.content,
             student_id: data.data.student_id,
-            level_id: data.data.level_id,
+            levell_id: data.data.levell_id,
             document: data.data.document || null,
             topics: data.data.topics,
           });
@@ -103,7 +103,7 @@ const EditCourse = () => {
     console.log("click level");
     setCourseData(prevData => ({
       ...prevData,
-      level_id: levelId,
+      levell_id: levelId,
     }));
   };
 
@@ -190,8 +190,8 @@ const EditCourse = () => {
     
           
               <select
-                name="level_id"
-                value={courseData.level_id}
+                name="levell_id"
+                value={courseData.levell_id}
                 onChange={e => handleLevelChange(e.currentTarget.value)}
                 required
               >

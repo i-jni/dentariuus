@@ -26,7 +26,7 @@ const Register = () => {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
     data.country_id = selectedCountry;
-    data.level_id = selectedLevel;
+    data.levell_id = selectedLevel;
 
     try {
       const result = await createStudent(data);

@@ -14,7 +14,7 @@ const AddCourse = () => {
     content: '',
     document: null,
     student_id: user?.id,
-    level_id: '',
+    levell_id: '',
     topics: [],
   });
 
@@ -65,7 +65,7 @@ const AddCourse = () => {
     console.log("click level");
     setCourseData(prevData => ({
       ...prevData,
-      level_id: levelId,
+      levell_id: levelId,
     }));
   };
 
@@ -79,7 +79,7 @@ const AddCourse = () => {
   const handleSubmit = e => {
     e.preventDefault();
   
-    if (!courseData.course_name || !courseData.title || !courseData.content || !courseData.document || !courseData.student_id || !courseData.level_id || !courseData.topics.length) {
+    if (!courseData.course_name || !courseData.title || !courseData.content || !courseData.document || !courseData.student_id || !courseData.levell_id || !courseData.topics.length) {
       console.log('datas du formulaire avant envoi :', courseData);
       alert("Veuillez remplir tous les champs obligatoires.");
       return;
@@ -155,8 +155,8 @@ const AddCourse = () => {
         <label>
           Niveau:
           <select
-            name="level_id"
-            value={courseData.level_id}
+            name="levell_id"
+            value={courseData.levell_id}
             onChange={e => handleLevelChange(e.currentTarget.value)}
             required
           >

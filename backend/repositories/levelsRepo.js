@@ -2,8 +2,8 @@ import dbConnection from "../services/dbConnection.js";
 
 const getLevels = async() => {
     const sql = `
-        SELECT level.*
-        FROM dentarius.level;
+        SELECT levell.*
+        FROM dentarius.levell;
     `;
     
     try {
@@ -22,8 +22,8 @@ const getLevelById = async (levelId) => {
     try {
         const sql = `
             SELECT *
-            FROM dentarius.level
-            WHERE id = :levelId;
+            FROM dentarius.levell
+            WHERE id = :levellId;
         `;
 
         const [results] = await dbConnection.query(sql, { levelId });

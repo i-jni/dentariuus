@@ -41,9 +41,9 @@ const getCourseById = async (courseId) => {
 
 // create : les ? ?, sont des paramaetre preparé pour eviter les injection sql
 
-const createCourse = async ([course_name, title, content, document, student_id, level_id]) => {
+const createCourse = async ([course_name, title, content, document, student_id, levell_id]) => {
     const sql = `
-      INSERT INTO dentarius.course (course_name, title, content, document, student_id, level_id)
+      INSERT INTO dentarius.course (course_name, title, content, document, student_id, levell_id)
       VALUES (?, ?, ?, ?, ?, ?);
     `;
   
@@ -54,7 +54,7 @@ const createCourse = async ([course_name, title, content, document, student_id, 
             content,
             document,
             student_id,
-            level_id,
+            levell_id,
         ]);
         return results.insertId;
     } catch (error) {
@@ -80,10 +80,10 @@ const deleteCourseById = async (courseId) => {
     }
 };
   
-const updateCourseById = async (id, [course_name, title, content, document, student_id, level_id]) => {
+const updateCourseById = async (id, [course_name, title, content, document, student_id, levell_id]) => {
   const sql = `
     UPDATE dentarius.course
-    SET course_name = ?, title = ?, content = ?, document = ?, student_id = ?, level_id = ?
+    SET course_name = ?, title = ?, content = ?, document = ?, student_id = ?, levell_id = ?
     WHERE id = ?;
   `;
 
@@ -94,7 +94,7 @@ const updateCourseById = async (id, [course_name, title, content, document, stud
       content,
       document,
       student_id,
-      level_id,
+      levell_id,
       id,
     ]);
   } catch (error) {

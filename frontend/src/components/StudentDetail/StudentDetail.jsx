@@ -50,7 +50,7 @@ const StudentDetail = () => {
                 <h2>complet name : {student.firstname} {student.lastname}</h2>
                 <h2>email: {student.email}</h2>
                 <h2>country: {student.country_id}</h2>
-                <h2>level: {student.level_id}</h2>
+                <h2>level: {student.levell_id}</h2>
                 <h2>role: {student.role}</h2>
 
             </article>

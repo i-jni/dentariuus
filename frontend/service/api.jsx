@@ -101,7 +101,7 @@ export async function createNewCourse(courseData) {
     formData.append('content', courseData.content);
     formData.append('document', courseData.document);
     formData.append('student_id', courseData.student_id);
-    formData.append('level_id', courseData.level_id);
+    formData.append('levell_id', courseData.levell_id);
     formData.append('topics', courseData.topics); 
 
     const requestInfos = new Request(URL, {
@@ -134,7 +134,7 @@ export async function updateCourse(courseId, courseData) {
       formData.append('document', courseData.document);
     }
     formData.append('student_id', courseData.student_id);
-    formData.append('level_id', courseData.level_id);
+    formData.append('levell_id', courseData.levell_id);
     formData.append('topics', courseData.topics);
     // formData.append('topics', JSON.stringify(courseData.topics));
 

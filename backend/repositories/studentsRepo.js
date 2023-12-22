@@ -41,7 +41,7 @@ const getStudentById = async (studentId) => {
 // create user:
 
 const createNewStudent = async (studentData) => {
-    const { firstname, lastname, email, password, role, level_id, country_id } = studentData;
+    const { firstname, lastname, email, password, role, levell_id, country_id } = studentData;
 
     console.log('Data to be inserted:', {
         firstname,
@@ -49,13 +49,13 @@ const createNewStudent = async (studentData) => {
         email,
         password,
         role,
-        level_id,
+        levell_id,
         country_id,
     });
 
     const sql = `
-        INSERT INTO dentarius.student (firstname, lastname, email, password, role, level_id, country_id)
-        VALUES (:firstname, :lastname, :email, :password, :role, :level_id, :country_id);
+        INSERT INTO dentarius.student (firstname, lastname, email, password, role, levell_id, country_id)
+        VALUES (:firstname, :lastname, :email, :password, :role, :levell_id, :country_id);
     `;
 
     console.log('SQL Query:', sql);
@@ -67,7 +67,7 @@ const createNewStudent = async (studentData) => {
             email,
             password,
             role,
-            level_id,
+            levell_id,
             country_id,
         });
 
@@ -100,16 +100,16 @@ const deleteStudentById = async (studentId) => {
 //   update
 
 const updateStudentById = async (studentId, updatedData) => {
-    const { firstname, lastname, email, role, level_id, country_id } = updatedData;
+    const { firstname, lastname, email, role, levell_id, country_id } = updatedData;
   
     const sql = `
       UPDATE dentarius.student
-      SET firstname = :firstname, lastname = :lastname, email = :email, role = :role, level_id = :level_id, country_id = :country_id
+      SET firstname = :firstname, lastname = :lastname, email = :email, role = :role, levell_id = :level_id, country_id = :country_id
       WHERE id = :studentId;
     `;
   
     try {
-      await dbConnection.query(sql, { studentId, firstname, lastname, email, role, level_id, country_id });
+      await dbConnection.query(sql, { studentId, firstname, lastname, email, role, levell_id, country_id });
     } catch (error) {
       console.error('Error updating student:', error);
       throw error;

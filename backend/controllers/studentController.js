@@ -45,9 +45,9 @@ const getStudentId = (req, res) => {
 
     // create student
     const createStudent = async (req, res) => {
-      const { firstname, lastname, email, password, role, level_id, country_id } = req.body;
+      const { firstname, lastname, email, password, role, levell_id, country_id } = req.body;
     
-      if (!firstname || !lastname || !email || !password || !role || !level_id || !country_id) {
+      if (!firstname || !lastname || !email || !password || !role || !levell_id || !country_id) {
         return res.status(400).json({
           status: 400,
           message: "Bad Request",
@@ -65,7 +65,7 @@ const getStudentId = (req, res) => {
           email,
           password: hashedPassword, // Stocke le mot de passe haché dans la base de données
           role,
-          level_id,
+          levell_id,
           country_id,
         });
     
@@ -135,9 +135,9 @@ const deleteStudent = async (req, res) => {
     
 const updateStudent = async (req, res) => {
   const studentId = req.params.id;
-  const { firstname, lastname, email, role, level_id, country_id } = req.body;
+  const { firstname, lastname, email, role, levell_id, country_id } = req.body;
 
-  if (!firstname || !lastname || !email || !role || !level_id || !country_id) {
+  if (!firstname || !lastname || !email || !role || !levell_id || !country_id) {
     return res.status(400).json({
       status: 400,
       message: "Bad Request",
@@ -147,7 +147,7 @@ const updateStudent = async (req, res) => {
 
   try {
     // Update student data in the database
-    await updateStudentById(studentId, { firstname, lastname, email, role, level_id, country_id });
+    await updateStudentById(studentId, { firstname, lastname, email, role, levell_id, country_id });
 
     return res.status(200).json({
       status: 200,

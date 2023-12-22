@@ -45,7 +45,7 @@ const getCourse = (req, res) => {
 };
 
 const createNewCourse = async (req, res) => {
-    const { course_name, title, content, student_id, level_id, topics } = req.body;
+    const { course_name, title, content, student_id, levell_id, topics } = req.body;
   
     // verifs
     const file = req.files[0];
@@ -56,7 +56,7 @@ const createNewCourse = async (req, res) => {
   
     // console.log(req.body, "req.body");
     
-    if (!course_name || !title || !content || !student_id || !level_id || !topics) {
+    if (!course_name || !title || !content || !student_id || !levell_id || !topics) {
       return res.status(400).json({
         status: 400,
         message: "Bad Request",
@@ -71,7 +71,7 @@ const createNewCourse = async (req, res) => {
         content,
         newFileName, 
         student_id,
-        level_id,
+        levell_id,
       ]);
       await addTopicsToCourse(newCourseId, topics);
   
@@ -126,7 +126,7 @@ const deleteCourse = async (req, res) => {
   
 
 const updateCourse = async (req, res) => {
-  const { course_name, title, content, student_id, level_id, topics } = req.body;
+  const { course_name, title, content, student_id, levell_id, topics } = req.body;
   const courseId = req.params.id;
 
   // Vérifiez si le cours existe
@@ -156,7 +156,7 @@ const updateCourse = async (req, res) => {
 
   try {
     // Mettez à jour le cours
-    await updateCourseById(courseId, [course_name, title, content, newFileName, student_id, level_id]);
+    await updateCourseById(courseId, [course_name, title, content, newFileName, student_id, levell_id]);
 
     // Mettre à jour les sujets liés au cours
     await updateTopicsOfCourse(courseId, topics);

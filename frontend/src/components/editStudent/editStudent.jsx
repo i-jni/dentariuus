@@ -59,7 +59,7 @@ const StudentSetting = () => {
         <label>Nom: <input type="text" name="lastname" value={student.lastname} onChange={handleChange} /></label>
         <label>Email: <input type="text" name="email" value={student.email} onChange={handleChange} /></label>
         <label>Pays: <input type="text" name="country_id" value={student.country_id} onChange={handleChange} /></label>
-        <label>Niveau: <input type="text" name="level_id" value={student.level_id} onChange={handleChange} /></label>
+        <label>Niveau: <input type="text" name="levell_id" value={student.levell_id} onChange={handleChange} /></label>
       </article>
           <section>
               <button onClick={handleUpdate} >Enregistrer les modifications</button>

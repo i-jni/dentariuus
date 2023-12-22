@@ -75,7 +75,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
                 <h2>id:{course.id}</h2>
                 <h2>name:{course.course_name}</h2>
                 <h2>description : { course.content}</h2>
-                <h2> level: {course.level_id}</h2>
+                <h2> level: {course.levell_id}</h2>
           <h2> student: {course.student_id}</h2>
           
           <Document
