@@ -5,7 +5,7 @@ import Homepage from '../src/page/homepage/Homepage.jsx';
 import RootLayout from '../src/layout/RootLayout.jsx';
 import AllCourses from '../src/components/AllCourses/AllCourses.jsx';
 import CourseDetail from '../src/components/CourseDetail/CourseDetail.jsx';
-import Alllevells from '../src/components/Alllevells/Alllevells.jsx';
+import Alllevels from '../src/components/Alllevels/Alllevels.jsx';
 import AllStudents from '../src/components/AllStudents/AllStudents.jsx';
 import StudentDetail from '../src/components/StudentDetail/StudentDetail.jsx';
 import Register from '../src/components/AddStudent/AddStudent.jsx';
