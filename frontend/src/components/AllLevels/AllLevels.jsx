@@ -2,7 +2,7 @@ import  { useEffect, useState } from "react";
 import { getAllLevels } from "../../../service/api.jsx";
 import PropTypes from 'prop-types';
 
-const Alllevels = ({ displayAsDropdown = false , onSelectLevel}) => {
+const AllLevels = ({ displayAsDropdown = false , onSelectLevel}) => {
     const [levels, setlevels] = useState([]);
     const [selectedLevel, setSelectedLevel] = useState(''); // Pour la liste déroulante
 
@@ -54,7 +54,7 @@ const Alllevels = ({ displayAsDropdown = false , onSelectLevel}) => {
         </div>
     );
 }
-Alllevels.propTypes = {
+AllLevels.propTypes = {
     displayAsDropdown: PropTypes.bool
 };
-export default Alllevels;
+export default AllLevels;

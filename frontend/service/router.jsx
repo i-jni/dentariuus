@@ -5,14 +5,14 @@ import Homepage from '../src/page/homepage/Homepage.jsx';
 import RootLayout from '../src/layout/RootLayout.jsx';
 import AllCourses from '../src/components/AllCourses/AllCourses.jsx';
 import CourseDetail from '../src/components/CourseDetail/CourseDetail.jsx';
-import Alllevels from '../src/components/Alllevels/Alllevels.jsx';
+import AllLevels from '../src/components/Alllevels/AllLevels.jsx';
 import AllStudents from '../src/components/AllStudents/AllStudents.jsx';
 import StudentDetail from '../src/components/StudentDetail/StudentDetail.jsx';
 import Register from '../src/components/AddStudent/AddStudent.jsx';
 import Allcountrys from '../src/components/Countrys/Countrys.jsx';
 import Login from '../src/components/Login/Login.jsx';
 import UserSpace from '../src/page/user-space/Userspace.jsx';
-import StudentSetting from '../src/components/EditStudent/EditStudent.jsx';
+import StudentSetting from '../src/components/editStudent/EditStudent.jsx';
 import CourseForm from '../src/components/addCourse/AddCourse.jsx';
 import AllTopics from '../src/components/topics/AllTopics.jsx';
 import TopicDetail from '../src/components/TopicsDetail/TopicsDetaiL.jsx';
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'levels',
-                element: <Alllevels />
+                element: <AllLevels />
             },
             {
                 path: 'country',

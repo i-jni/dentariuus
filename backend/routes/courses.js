@@ -16,10 +16,10 @@ const coursesRouter = express.Router();
   
 const multerService = multer({ dest: 'public/pdf' })
 
+coursesRouter.post('/create', multerService.any(), createNewCourse);
 coursesRouter.get('/', courses);
 coursesRouter.get('/:id', getCourse);
 
-coursesRouter.post('/create', multerService.any(), createNewCourse);
 
 // deleteCourse
 coursesRouter.delete('/:id', deleteCourse);

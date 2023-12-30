@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Alllevels from "../AllLevels/AllLevels";
+import AllLevels from "../Alllevels/AllLevels";
 import Allcountrys from "../Countrys/Countrys";
 import { Link, useNavigate } from "react-router-dom";
 import { createStudent } from "../../../service/api.jsx";
@@ -61,7 +61,7 @@ const Register = () => {
 
         <div>
           <label>Niveau :</label>
-          <Alllevels displayAsDropdown={true} onSelectLevel={handleLevelSelection} />
+          <AllLevels displayAsDropdown={true} onSelectLevel={handleLevelSelection} />
         </div>
 
         <div>

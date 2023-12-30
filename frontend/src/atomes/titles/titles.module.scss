@@ -1,0 +1,34 @@
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
+
+
+.heading1{
+    font: 34px  $flameBold;
+    color: $blue;
+    letter-spacing: -0.3px;
+    @include responsive(desktop){
+        font-size: 42px;
+    }
+}
+.heading2{
+    font: 26px $flameBold;
+    color: $blue;
+    letter-spacing: -0.3px;
+    @include responsive(desktop){
+        font-size: 34px;
+    }
+
+}
+.heading3{
+    font: 18px $flameBold;
+    color: $blue;
+    @include responsive(desktop){
+        font-size: 22px;
+    }
+}
+.heading4{
+    font: 16px $flameBold;
+    color: $blue;
+    letter-spacing: 0.1px;
+
+}

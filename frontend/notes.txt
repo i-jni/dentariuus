@@ -28,3 +28,8 @@ ___
 interdire de laisser champs vide lors de la somission du update: => regler grace a required
 -recuperer les champs deja saisi : => ok sauf sur pdf 
 tester 
+
+-----
+style:
+mettre link dans le btn
+permettre 2 choix de couleur param

@@ -1,9 +1,35 @@
 /* navigation.module.scss */
+@import '../../../src/assets/scss/helpers/mixins';
 
 .siteHeader {
-    position: relative;
+  position: relative;
     background-color: #fff;
+
+    @include responsive(tablet) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffffaf;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+
   }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include responsive(tablet) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
   
   .wrapper {
     display: flex;
@@ -12,7 +38,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
   
-    @media (min-width: 961px) {
+    @include responsive(tablet) {
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -42,7 +68,7 @@
       margin-bottom: 6px;
     }
   
-    @media (min-width: 961px) {
+    @include responsive(tablet) {
       display: none;
     }
   }
@@ -54,15 +80,13 @@
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 60px; /* Adjust as needed */
-    left: 0;
+    top: 50px;
+    right: 0px;
     width: 100%;
     background-color: #fff;
     visibility: hidden;
     opacity: 0;
     transform: translateY(-100%);
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-    min-height: 100vh; 
   
     &.active {
       visibility: visible;
@@ -72,20 +96,23 @@
     //   height: auto;
     }
   
-    @media (min-width: 961px) {
+    @include responsive(tablet) {
       flex-direction: row;
       position: static;
       visibility: visible;
       opacity: 1;
       transform: translateY(0);
+      background-color: transparent;
+      backdrop-filter: blur(5px);
     }
   }
   
   .navItem {
     margin-bottom: 1rem;
     display: flex;
+    align-self: center;
   
-    @media (min-width: 961px) {
+    @include responsive(tablet) {
       margin-right: 1.4rem;
       margin-bottom: 0;
     }
@@ -93,12 +120,11 @@
   
   .navItem a {
     display: block;
-    padding: 1rem;
     border-left: 4px solid transparent;
     text-decoration: none;
     color: rgb(32, 62, 164);
   
-    @media (min-width: 961px) {
+    @include responsive(tablet) {
       text-align: center;
       border-left: 0;
       border-bottom: 4px solid transparent;
@@ -110,9 +136,9 @@
   }
   
   .auth {
-    display: none;
+    // display: none;
   
-    @media (min-width: 961px) {
+    @include responsive(tablet) {
       display: block;
       margin-right: 1.4rem;
     }

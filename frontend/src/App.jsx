@@ -1,6 +1,8 @@
 import { RouterProvider } from 'react-router-dom';
 import router from '../service/router';
-import './App.css';
+// import './App.css';
+// import '/src/assets/scss/style'
+
 import { UserProvider } from './context/UserProvider';
 
 const App = () => {

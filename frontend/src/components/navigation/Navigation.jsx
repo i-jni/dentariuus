@@ -16,7 +16,7 @@ const Navigation = () => {
 
   return (
     <header className={styles.siteHeader}>
-      <div className={`${styles.wrapper} ${styles.siteHeaderWrapper}`}>
+      <div className={`${styles.wrapper}`}>
         <a href="#" className={styles.brand}>
           Dentarius
         </a>
@@ -27,6 +27,8 @@ const Navigation = () => {
             type="button"
             onClick={handleNavToggle}
           >
+            <span></span>
+            <span></span>
             <span></span>
 
           </div>

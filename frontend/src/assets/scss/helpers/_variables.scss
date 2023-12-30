@@ -1,23 +1,23 @@
 // $browser-context: 16;
 // $transition-speed: 0.75s;
 
-// $flame: 'FlameRegular';
-// $flameSans: 'FlameSans';
-// $flameVF: 'FlameVF';
-// $flameBold: 'FlameBold';
+$RobotoSlab: 'RobotoSlab';
+$flameSans: 'FlameSans';
+$flameVF: 'FlameVF';
+$flameBold: 'FlameBold';
 
 /**
   RESPONSIVE BREAKPOINTS (in relative units to take account of the font-size or zoom in on the webpage)
 **/
-$mobile:36em; //576px
-$tablet:48em; //768px
-$desktop:64em; //1024px
-$widescreen: 75em; //1200px
-$widescreen-xl:87.5em; //1400px
+$mobile:576px; //576px
+$tablet:768px; //768px
+$desktop:1024px; //1024px
+$widescreen: 1200px; //1200px
+$widescreen-xl:1400px; //1400px
 
 $desktop-max-width: 1440px;
 
-$body_bg: #FFFFFF;
+$body_bg: #FAFAFA;
 
 $primaryColor: #AC9F76;
 $secondaryColor: #FFFFFF;

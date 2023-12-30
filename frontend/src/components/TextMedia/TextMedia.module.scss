@@ -1,0 +1,52 @@
+// TextMedia.module.scss
+
+.boxTextMedia {
+    display: flex;
+    flex-direction: column;  // Mobile-first : empiler les éléments par défaut
+    margin: auto;
+  
+    @media (min-width: 768px) {
+      flex-direction: row;  // Si la largeur d'écran est supérieure à 768px, utiliser la disposition en ligne
+      max-width: 1250px;
+      height: 100%;
+    }
+  }
+  
+  .media {
+    justify-content: space-evenly;
+    background-image: url("../../../public/images/boy-studi.png");
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: cover;
+    width: 100%;  // Remplacer 600px par 100% pour que l'image occupe la largeur de l'écran
+    height: 500px;
+    margin: auto;
+  
+    @media (min-width: 768px) {
+      width: 600px;  // Appliquer la largeur spécifique pour les écrans plus larges
+    }
+  }
+  
+  .text {
+    width: 100%;  // Remplacer 600px par 100% pour que le texte occupe la largeur de l'écran
+    height: auto;
+    margin: auto;
+  
+    // h3 {
+    //   // Ajouter des styles spécifiques au titre si nécessaire
+    // }
+  
+    // p {
+    //   text-align: justify;
+    //   // Ajouter des styles spécifiques au paragraphe si nécessaire
+    // }
+  
+    // button {
+    //   // Ajouter des styles spécifiques au bouton si nécessaire
+    // }
+  
+    @media (min-width: 768px) {
+      width: 600px;  // Appliquer la largeur spécifique pour les écrans plus larges
+    }
+  }
+  
