@@ -19,6 +19,7 @@ import TopicDetail from '../src/components/TopicsDetail/TopicsDetaiL.jsx';
 import AllCoursesByTopic from '../src/components/AllCoursesBytopics/AllCoursesByTopics.jsx';
 import TopicCourseDetail from '../src/components/CoursesByTopicId/CoursesByTopicId.jsx';
 import EditCourse from '../src/components/editCourse/EditCourse.jsx';
+import TopicCourseCard from '../src/components/topicsCourseCards/TopicCourseCard.jsx';
 
 
 const router = createBrowserRouter([
@@ -66,14 +67,18 @@ const router = createBrowserRouter([
                 path: 'topics_courses/',
                 element: <AllCoursesByTopic />
             },
-            {
-                path: 'topics_courses/:id',
-                element: <TopicCourseDetail/>
-            },
+            // {
+            //     path: 'topics_courses/:id',
+            //     element: <TopicCourseDetail/>
+            // },
 
             {
                 path: 'students',
                 element: <AllStudents />
+            },
+            {
+                path: 'card',
+                element: <TopicCourseCard />
             },
             // elle est pas utiliser :!!
             {
@@ -98,6 +103,14 @@ const router = createBrowserRouter([
                 element: (
                     <PrivateRoute>
                         <StudentDetail />
+                    </PrivateRoute >
+                    )
+            },
+            {
+                path: 'topics_courses/:id',
+                element: (
+                    <PrivateRoute>
+                        <TopicCourseDetail />
                     </PrivateRoute >
                     )
             },

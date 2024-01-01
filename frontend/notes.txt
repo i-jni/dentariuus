@@ -33,3 +33,22 @@ tester
 style:
 mettre link dans le btn
 permettre 2 choix de couleur param
+
+
+
+---
+ajouter ronds-objectif : solidarite, evolution, reussite avec animation? : OK! Revoir desktop (mettre img en + grand) revoir le text. Animation = peut etre ...
+
+ajouter: rejoignez nous : ok! ajout animation peut etre ?
+text media reverse: OK ! Ajouter padding txt
+Footer: ok: mettre liens
+List cards topics : ok redirection ok, si pas user -> login/register: ok! permettre de rajouter une liste pour nav: ?
+---
+card course: https://codepen.io/that_boy_curt/pen/mdbvxoW:
+---
+demain:
+page courses: card topics et en sous All course + barre de recherche:
+login et signiin form:
+page FAQ / 404
+----
+recherche

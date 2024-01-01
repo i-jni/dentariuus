@@ -9,8 +9,8 @@ const HeroBanner = () => {
       <div className={`${styles.innerherobanner} ${styles.flex}`}>
         {/* Logo */}
        <picture className={styles.logo}></picture>
-        <h1>Simple CSS Waves</h1>
-        <h2>Simple CSS Waves</h2>
+        <h1>Bienvenue Dentarius</h1>
+        <h2>Inscrivez vous</h2>
         {/* <SignInCta text="Custom Text banner"/> */}
         
       </div>

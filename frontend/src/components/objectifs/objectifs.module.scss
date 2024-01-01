@@ -1,0 +1,45 @@
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
+
+.objectifsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.objectifItem {
+  width: 100%;
+  max-width: 300px; 
+  margin: 10px;
+  text-align: center;
+
+  img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 5px;
+    object-fit: cover;
+  }
+
+  p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  // @media (min-width: 768px) {
+  //   width: calc(33.333% - 20px); 
+  // }
+  @include responsive(tablet){
+    width: calc(33.333% - 20px); 
+    .objectifItem{
+        max-width: 500px; 
+        border: red solid 2px;
+
+      img{
+        max-width: 300px ;
+      }
+    }
+    }
+
+}

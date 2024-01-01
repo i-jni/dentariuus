@@ -24,7 +24,9 @@ const AllCoursesByTopic = () => {
       {coursesByTopic && coursesByTopic.length > 0 ? (
         coursesByTopic.map((topic) => (
           <div key={topic.id}>
-            <h3>Sujet : {topic.topic_name}</h3>
+            <Link to={`/topics_courses/${topic.id}`}>
+              <h3>Sujet : {topic.topic_name}</h3></Link>
+
             <ul>
               {topic.courses.map((course) => (
                 <li key={course.id}>

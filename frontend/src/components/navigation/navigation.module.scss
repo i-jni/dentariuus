@@ -2,20 +2,18 @@
 @import '../../../src/assets/scss/helpers/mixins';
 
 .siteHeader {
-  position: relative;
     background-color: #fff;
-
-    @include responsive(tablet) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #ffffffaf;
-    backdrop-filter: blur(5px);
     z-index: 10;
 
+    @include responsive(tablet) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #ffffffaf;
+    backdrop-filter: blur(5px);
   }
 }
 

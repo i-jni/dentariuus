@@ -1,86 +1,10 @@
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
 
 
-$main: #F6A9BD;
-$light: #F4E0E1;
-$white: #FFFFFF;
-$dark: #F0386B;
-
-body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
+.joinUsBloc{
+img{
+  max-width: 700px;
+  max-height: 700px;
 }
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.effect1 {
-  position: absolute;
-  margin: 0;
-  top: 40%;
-  font-size: 2.3em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  z-index: 3;
-  color: $main;
-}
-
-.effect1 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
-.text {
-  position: absolute;
-  font-size: 1.8em;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  color: $dark;
-  font-weight: 100;
-  top: 50%;
-  z-index: 3;
-  opacity: 0;
-  top: 50%;
-}
-
-section {
-  display: grid;
-  grid-template-columns: repeat(10, auto);
-}
-
-.item {
-  background-color: $light;
-  height: 100vh;
-  z-index: 0;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: lighten($light, 5%);
-  width: 100%;
-  height: 40px;
-  font-size: 0.7em;
-  text-transform: uppercase;
-  p {
-    color: $main;
-    letter-spacing: 5px;
-    padding: 5px;
-  }
-  a {
-    color: $dark;
-    text-decoration: none;
-    transition: all .3s ease;
-    &:hover {
-      background: $main;
-      transition: all .3s ease;
-      color: $white;
-    }
-  }
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getAllTopics } from '../../../service/api.jsx';
+import styles from './allTopics.module.scss'
 
 const AllTopics = ({ displayAsDropdown = false, onSelectTopic }) => {
   const [topics, setTopics] = useState([]);
