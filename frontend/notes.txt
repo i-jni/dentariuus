@@ -47,7 +47,8 @@ List cards topics : ok redirection ok, si pas user -> login/register: ok! permet
 card course: https://codepen.io/that_boy_curt/pen/mdbvxoW:
 ---
 demain:
-page courses: card topics et en sous All course + barre de recherche:
+page courses: card topics et en sous All course + barre de recherche: ok
+
 login et signiin form:
 page FAQ / 404
 ----

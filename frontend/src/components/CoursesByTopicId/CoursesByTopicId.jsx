@@ -1,6 +1,8 @@
 import  { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { getAllCoursesByTopicsId } from '../../../service/api';
+import styles from './CourseTopicCard.module.scss';
+import { TitleH2, TitleH3 } from '../../atomes/titles/Titles';
 
 const TopicCourseDetail = () => {
   const [coursesByTopic, setCoursesByTopic] = useState({});
@@ -19,24 +21,35 @@ const TopicCourseDetail = () => {
       });
   }, [id]);
 
+  const limitText = (text, maxLength) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+};
+
+  
   return (
-    <>
-          <h2>Matière: {coursesByTopic.topic_name} </h2>
-          <h2> liste des cours :</h2>
-          
-      {coursesByTopic.courses && coursesByTopic.courses.length > 0 ? (
-        coursesByTopic.courses.map((course) => (
-            
-          <div key={course.id}>
-                <Link to={`/courses/${course.id}`}>{course.title}</Link>
-            {/* Ajoute d'autre data */}
+  <>
+    <TitleH2 h2={`Matiere: ${coursesByTopic.topic_name}`}/>
+  <section className={styles.containerCards}>
+
+    {coursesByTopic.courses && coursesByTopic.courses.length > 0 ? (
+      coursesByTopic.courses.map((course) => (
+        <div key={course.id} className={styles.itemCard}>
+          <div className={styles.img}></div>
+          <div className='centered'>
+            <TitleH3 h3={limitText(course.course_name, 100)} />
+            <p>{limitText(course.content, 120)}</p>
+            <Link to={`/courses/${course.id}`}>
+              <button>Learn more</button>
+            </Link>
           </div>
-        ))
-      ) : (
-        <p>Aucun cours disponible pour le moment.</p>
-      )}
-    </>
-  );
+        </div>
+      ))
+    ) : (
+      <p>Aucun cours disponible pour le moment.</p>
+    )}
+      </section>
+      </>
+);
 };
 
 export default TopicCourseDetail;

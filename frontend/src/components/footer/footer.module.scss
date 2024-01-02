@@ -4,6 +4,8 @@
 .footer {
     background-color: #2C4358;
     padding: 30px 0;
+    z-index: 10;
+    width: 100%;
     @include responsive(tablet){
     padding: 70px 0;
     }

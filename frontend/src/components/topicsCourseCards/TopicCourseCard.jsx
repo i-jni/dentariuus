@@ -1,9 +1,8 @@
-// TopicCourseCard.jsx
 
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { getAllCoursesByTopics } from '../../../service/api';
 import { Link } from 'react-router-dom';
-import styles from './TopicCourseCard.module.scss'; // Importez vos modules SCSS
+import styles from './TopicCourseCard.module.scss'; 
 import { TitleH2 } from '../../atomes/titles/Titles';
 
 const TopicCourseCard = () => {

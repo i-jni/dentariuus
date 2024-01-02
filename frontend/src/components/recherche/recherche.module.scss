@@ -1,0 +1,76 @@
+
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
+
+
+.searchBox {
+margin-top: 55px;
+background: #58A59D;
+
+input, button {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    vertical-align: top;
+    }
+
+h1 {
+color: rgb(255,255,255);
+text-align: center;
+font-size: 36px;
+font-weight: 200;
+padding: 30px 0 30px 0;
+@include responsive (mobile){
+   font-size: 42px;
+    }
+}
+
+form {
+text-align: center;
+}
+
+button {
+text-align: center;
+border: none;
+height: 60px;
+width: 70px;
+background: white;
+border-radius: 0 35px 35px 0;
+color: rgb(170, 170, 170);
+font-size: 1.4rem;
+
+@include responsive (mobile){
+    max-width: 380px;
+    height: 70px;
+    }
+}
+
+input[type="text"] {
+border: none;
+height: 60px;
+max-width: 195px;
+outline: none;
+margin-bottom: 200px;
+padding-left: 40px;
+border-radius: 35px 0 0 35px;
+color: rgb(110,110,110);
+font-size: 1.6rem;
+font-weight: 200;
+text-align: center;
+
+@include responsive (mobile){
+max-width: 380px;
+height: 70px;
+}
+}
+
+p, a {
+color: white;
+text-align: center;
+font-weight: 300;
+text-decoration: none;
+}
+
+}
