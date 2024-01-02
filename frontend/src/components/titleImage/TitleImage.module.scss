@@ -1,0 +1,20 @@
+
+.textImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  
+  .image {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px;
+    width: 500px;
+  }
+  
+  .text {
+    font-size: 16px;
+    max-width: 400px; // Ajustez selon vos besoins
+  } }
+  

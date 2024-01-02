@@ -50,6 +50,7 @@ demain:
 page courses: card topics et en sous All course + barre de recherche: ok
 
 login et signiin form:
-page FAQ / 404
+page FAQ : ok
+/ 404 :
 ----
 recherche
