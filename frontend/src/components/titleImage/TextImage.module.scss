@@ -1,0 +1,29 @@
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
+
+.textImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0 20px 0;
+
+  .image {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
+    width: 120px;
+    @include responsive(mobile){
+        width: 200px;
+        }
+  }
+  
+  .text {
+    font-size: 24px;
+    max-width: 400px; 
+
+    @include responsive(mobile){
+        font-size: 32px;
+        }
+  } }
+  

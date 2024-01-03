@@ -6,7 +6,7 @@ const Faq = () => {
     return (
         <section className={styles.faqsection}>
 
-      <div className={styles.faqheader}>Vos questions les plus frequentes</div>
+      <div className={styles.faqheader}>... les plus frequentes</div>
 
       <div className={styles.faqcontent}>
         <div className={styles.faqquestion}>

@@ -39,7 +39,7 @@ const TopicCourseDetail = () => {
             <TitleH3 h3={limitText(course.course_name, 100)} />
             <p>{limitText(course.content, 120)}</p>
             <Link to={`/courses/${course.id}`}>
-              <button>Learn more</button>
+              <button>Voir plus</button>
             </Link>
           </div>
         </div>

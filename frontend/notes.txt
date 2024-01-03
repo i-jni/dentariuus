@@ -44,7 +44,7 @@ text media reverse: OK ! Ajouter padding txt
 Footer: ok: mettre liens
 List cards topics : ok redirection ok, si pas user -> login/register: ok! permettre de rajouter une liste pour nav: ?
 ---
-card course: https://codepen.io/that_boy_curt/pen/mdbvxoW:
+
 ---
 demain:
 page courses: card topics et en sous All course + barre de recherche: ok
@@ -52,5 +52,13 @@ page courses: card topics et en sous All course + barre de recherche: ok
 login et signiin form:
 page FAQ : ok
 / 404 :
+setting user : ok
+
 ----
-recherche
+recherche:
+coursedetail:
+editcourse:
+studentdetail:
+btns:
+add topic item in nav
+login/singin

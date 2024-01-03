@@ -22,6 +22,7 @@ const Homepage = () => {
         <>
             <Navigation/>
             <HeroBanner />
+            {/* <Quatre/> */}
             <p>Homepage :</p>
             <p>user :{user?.firstname}</p>
             <Objectifs />

@@ -39,7 +39,7 @@ const CourseCard = () => {
                             <p>
                             {limitText (course.content, 120)}
                             </p>
-                            <Link to={`/courses/${course.id}`}><button>Learn more</button></Link>
+                            <Link to={`/courses/${course.id}`}><button>Voir plus</button></Link>
                         </div>
                     </div>
                 ))

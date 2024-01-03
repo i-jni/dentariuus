@@ -22,6 +22,7 @@ import EditCourse from '../src/components/editCourse/EditCourse.jsx';
 import TopicCourseCard from '../src/components/topicsCourseCards/TopicCourseCard.jsx';
 import ListeCoursePage from '../src/page/ListeCourse/ListeCoursePage.jsx';
 import FaqPage from '../src/page/FaqPage/FaqPage.jsx';
+import SettingPage from '../src/page/SettingPage/SettingPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: 'faq',
                 element: <FaqPage />
+            },
+            {
+                path: 'profilsetting',
+                element: <SettingPage />
             },
 
             {

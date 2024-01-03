@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getStudent, deleteStudentById } from '../../../service/api.jsx';
 import Navigation from '../navigation/Navigation.jsx';
+import { useContext } from "react";
+import { UserContext } from "../../context/UserProvider";
 
 const StudentDetail = () => {
   const navigate = useNavigate();
@@ -9,6 +11,7 @@ const StudentDetail = () => {
     const [student, setstudent] = useState({});
     const [isDeleted, setIsDeleted] = useState(false); 
     const { id } = useParams();
+    const { user, setUser } = useContext(UserContext);
     
     useEffect(() => {
         getStudent(id)
@@ -47,7 +50,7 @@ const StudentDetail = () => {
             <Navigation/>
             <article>
                 <h2>id: {student.id}</h2>
-                <h2>complet name : {student.firstname} {student.lastname}</h2>
+                <h2>complet name : {student.firstname} {student.lastname} user: {user?.firstname}</h2>
                 <h2>email: {student.email}</h2>
                 <h2>country: {student.country_id}</h2>
                 <h2>level: {student.levell_id}</h2>

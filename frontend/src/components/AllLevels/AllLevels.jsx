@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const AllLevels = ({ displayAsDropdown = false , onSelectLevel}) => {
     const [levels, setlevels] = useState([]);
-    const [selectedLevel, setSelectedLevel] = useState(''); // Pour la liste déroulante
+    const [selectedLevel, setSelectedLevel] = useState(''); // Pour liste déroulante
 
     useEffect(() => {
         getAllLevels()

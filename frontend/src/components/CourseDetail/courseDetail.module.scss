@@ -1,0 +1,32 @@
+/* CourseDetail.module.scss */
+
+.courseDetailContainer {
+   
+
+    .courseBanner{
+        background: #58A59D;
+        height: 200px;
+        width: 100%;
+        color: white;
+
+        h2{
+            align-items: center;
+            margin: auto;
+        }
+    }
+    .courseInfo{
+    // background: url(../../../public/images/illustrations/font.svg) no-repeat;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    .info{
+        justify-content: flex-start;
+    }
+    }
+    .pdfDownload{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+}

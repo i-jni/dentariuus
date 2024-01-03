@@ -45,7 +45,7 @@ function Login() {
   };
 
   return (
-    <main className="login-screen">
+    <section className="login-screen">
       
       <div className="login-form-wrapper">
         <h1 className="login-title">Connexion</h1>
@@ -90,7 +90,7 @@ function Login() {
          
         </section>
       </div>
-    </main>
+    </section>
   );
 }
 
