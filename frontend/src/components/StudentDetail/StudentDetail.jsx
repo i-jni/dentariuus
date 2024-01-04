@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getStudent, deleteStudentById } from '../../../service/api.jsx';
-import Navigation from '../navigation/Navigation.jsx';
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
+import styles from './StudentDetail.module.scss';
 
 const StudentDetail = () => {
   const navigate = useNavigate();
@@ -47,15 +47,21 @@ const StudentDetail = () => {
   console.log("student:", student);
     return (
       <>
-            <Navigation/>
-            <article>
-                <h2>id: {student.id}</h2>
-                <h2>complet name : {student.firstname} {student.lastname} user: {user?.firstname}</h2>
-                <h2>email: {student.email}</h2>
-                <h2>country: {student.country_id}</h2>
-                <h2>level: {student.levell_id}</h2>
-                <h2>role: {student.role}</h2>
-
+            <article className={styles.studentDetail}>
+          <h2>id:</h2>
+          <h2> {student.id}</h2>
+          
+          <h2>complet name :</h2>
+          <h2>{student.firstname} {student.lastname} user: {user?.firstname}</h2>
+          <h2>email:</h2>
+          <h2>{student.email}</h2>
+          
+          <h2>country: </h2>
+          <h2>{student.country_id}</h2>
+          
+          <h2>level</h2>
+          <h2>{student.levell_id}</h2>
+        
             </article>
             <section>
         {isDeleted && (

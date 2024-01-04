@@ -23,6 +23,8 @@ import TopicCourseCard from '../src/components/topicsCourseCards/TopicCourseCard
 import ListeCoursePage from '../src/page/ListeCourse/ListeCoursePage.jsx';
 import FaqPage from '../src/page/FaqPage/FaqPage.jsx';
 import SettingPage from '../src/page/SettingPage/SettingPage.jsx';
+import SettingCoursePage from '../src/page/SettingCourse/SettingCoursePage.jsx';
+import CourseDetailPage from '../src/page/CourseDetailPage/CourseDetailPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,8 +45,17 @@ const router = createBrowserRouter([
                 element: <FaqPage />
             },
             {
-                path: 'profilsetting',
+                path: 'profil_setting',
                 element: <SettingPage />
+            },
+            {
+                path: 'course_detail/:id',
+                element: <CourseDetailPage />
+            },
+            // a faire:
+            {
+                path: 'course_setting',
+                element: <SettingCoursePage />
             },
 
             {

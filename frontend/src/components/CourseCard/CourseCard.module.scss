@@ -9,7 +9,7 @@
   gap: 20px;
   padding: 0 20px 0 20px;
 
-    @media (responsive(tablet)) {
+    @include responsive(tablet) {
         gap: 40px;
 
     }
@@ -45,7 +45,6 @@
     
     @include responsive(tablet){
       min-width: 220px;
-  
       }
   }
   

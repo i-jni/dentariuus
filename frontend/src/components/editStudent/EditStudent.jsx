@@ -71,7 +71,7 @@ const StudentSetting = () => {
   };
 
   return (
-    <>
+    <form>
       <article className={styles.container}>
         <label>Prénom </label>
         <input type="text" name="firstname" value={student.firstname} onChange={handleChange} />
@@ -104,7 +104,7 @@ const StudentSetting = () => {
           <button>Retour au profil</button>
         </Link>
       </section>
-    </>
+    </form>
   );
 };
 

@@ -3,24 +3,24 @@
 -delete cours = ok
 
 --
--mdp oublié, temps d'attente apres 3 saisi de mdp incorrect
+-mdp oublié, temps d'attente apres 3 saisi de mdp incorrect: a faire
 
-- dynamiser parti role dans le studentadd
-- acces a liste de cours uniququmnt si t'es connecter
+- dynamiser parti role dans le studentadd: a faire
+- acces a liste de cours uniququmnt si t'es connecter : a faire
 -
 
 --addcourse: 
-checkout radio : limité a 1 seul topic
+checkout radio : limité a 1 seul topic: ok mais remplacer par select
 
 
--- obliger l'utilisateur a poster uniquement des fichier .pdf -> faire la verif necessaire : raiosn -> securité
+-- obliger l'utilisateur a poster uniquement des fichier .pdf -> faire la verif necessaire : raiosn -> securité : a faire
 
 - coursedetail:
-ajout partage reseau sociaux
+ajout partage reseau sociaux : fait
 
 --  raiting
 soit faire une ligne dans la table cours : rainting de type integer (1-5)
-soit table avec user id course id et rainting
+soit table avec user id course id et rainting : a faire si possible
 
 
 ___
@@ -56,9 +56,11 @@ setting user : ok
 
 ----
 recherche:
-coursedetail:
-editcourse:
-studentdetail:
-btns:
+coursedetail: 9O% - edit btns:
+editcourse: ok
+studentdetail: ok mais moche
+----
+btns:edit et supprimet en atomes ou en style general
 add topic item in nav
 login/singin
+finir 404:

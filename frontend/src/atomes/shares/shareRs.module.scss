@@ -1,0 +1,53 @@
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
+
+.share {
+    text-align: center;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    flex-direction: column;
+    display:flex;
+    z-index: 1;
+
+    a {
+      width: 26px;
+      height: 26px;
+      display: inline-block;
+      margin: 8px;
+      border-radius: 50%;
+      font-size: 24px;
+      color: #fff;
+      opacity: 0.75;
+      transition: opacity 0.15s linear;
+  
+      &:hover {
+        opacity: 1;
+      }
+      @include responsive(tablet){
+        width: 35px;
+        height: 35px;
+  
+      }
+    }
+  
+    i {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  
+    .facebook {
+      background: #3b5998;
+    }
+  
+    .twitter {
+      background: #55acee;
+    }
+  
+    .googleplus {
+      background: #dd4b39;
+    }
+  
+  }
+  

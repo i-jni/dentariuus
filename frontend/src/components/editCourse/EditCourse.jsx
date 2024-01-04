@@ -1,10 +1,11 @@
-// import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';ange
 import { useState, useEffect, useContext } from 'react';
 import { getAllLevels, getCourse, updateCourse } from '../../../service/api';
 import { getAllTopics } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
 import { useParams } from 'react-router-dom';
 import { Page, Document } from 'react-pdf';
+import styles from './editCourse.module.scss';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -107,11 +108,11 @@ const EditCourse = () => {
     }));
   };
 
-  const handleTopicChange = topicId => {
-    console.log('click');
+  const handleTopicChange = selectedOptions => {
+    const selectedTopics = Array.from(selectedOptions, option => option.value);
     setCourseData(prevData => ({
       ...prevData,
-      topics: [...(prevData.topics || []), topicId],
+      topics: selectedTopics,
     }));
   };
   const handleSubmit = e => {
@@ -120,7 +121,7 @@ const EditCourse = () => {
     console.log("Données du formulaire lors de la soumission :", courseData);
 
 
-    // Mettre à jour le cours avec les données du formulaire
+    // Misee à jour le cours avec les datas du formulaire
     updateCourse(courseId, courseData)
       .then(data => {
         console.log('Cours mis à jour avec succès :', data);
@@ -132,7 +133,7 @@ const EditCourse = () => {
   };
   
   return (
-        <form onSubmit={handleSubmit} encType='multipart/form-data'>
+        <form className={styles.editCourseForm} onSubmit={handleSubmit} encType='multipart/form-data'>
           <label>
             Course Name:
             <input
@@ -170,7 +171,7 @@ const EditCourse = () => {
           <Document
          file={`${apiUrl}/pdf/${course.document}`}
          >
-         <Page pageNumber={1}   renderAnnotationLayer={false} />
+         <Page pageNumber={1} width={350} renderTextLayer={false} renderAnnotationLayer={false} />
         </Document>
       </label>
             <label>
@@ -203,23 +204,25 @@ const EditCourse = () => {
                 ))}
               </select>
     
-              <label>
-              topics:
-              <div>
-                {topics.map(topic => (
-                  <label key={topic.id}>
-                    <input
-                      type="checkbox"
-                      value={topic.id}
-                      onChange={e => handleTopicChange(e.currentTarget.value)}
-                    />
-                    {topic.topic_name}
-                  </label>
-                ))}
-              </div>
-            </label>
-    
-          
+
+            <label>
+            Topics:
+            <select
+              name="topics"
+
+              value={courseData.topics}
+              onChange={e => handleTopicChange(e.currentTarget.selectedOptions)}
+              required
+            >
+              {topics.map(topic => (
+                <option key={topic.id} value={topic.id}>
+                  {topic.topic_name}
+                </option>
+              ))}
+            </select>
+          </label>
+
+   
           <button type="submit">Update Course</button>
         </form>
       );

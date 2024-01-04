@@ -4,6 +4,7 @@ import { getAllTopics } from '../../../service/api';
 import { createNewCourse } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
 import Navigation from '../navigation/Navigation';
+import styles from './AddCourse.module.scss'
 
 const AddCourse = () => {
   const { user, setUser } = useContext(UserContext);
@@ -104,7 +105,7 @@ const AddCourse = () => {
       <Navigation />
       
       <h2>Ajouter un nouveau cours</h2>
-      <form onSubmit={handleSubmit} encType='multipart/form-data'>
+      <form className={styles.addCourseForm} onSubmit={handleSubmit} encType='multipart/form-data'>
         <label>
           Nom du cours:
           <input
@@ -170,9 +171,9 @@ const AddCourse = () => {
         </label>
         <br />
 
-        <label>
+        {/* <label>
           topics:
-          <div>
+          <div className={styles.topicContainer}>
             {topics.map(topic => (
               <label key={topic.id}>
                 <input
@@ -184,7 +185,23 @@ const AddCourse = () => {
               </label>
             ))}
           </div>
-        </label>
+        </label> */}
+        <label>
+  Sujet:
+  <select
+    name="topic"
+    value={courseData.topics.length > 0 ? courseData.topics[0] : ''}
+    onChange={e => handleTopicChange([e.currentTarget.value])}
+    required
+  >
+    <option value="" disabled>Sélectionnez un sujet</option>
+    {topics.map(topic => (
+      <option key={topic.id} value={topic.id}>
+        {topic.topic_name}
+      </option>
+    ))}
+  </select>
+</label>
         <br />
 
         <button type="submit">Ajouter le cours</button>
@@ -195,6 +212,4 @@ const AddCourse = () => {
 
 export default AddCourse;
 
-// ajout : liste de level
-// map les topics:
-// remplacer student-id par le student-il acutellement login
+

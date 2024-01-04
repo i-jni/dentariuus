@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   justify-content: center; 
   align-items: center; 
+  flex-direction: row;
 }
 
 .objectifItem {
@@ -34,7 +35,6 @@
     width: calc(33.333% - 20px); 
     .objectifItem{
         max-width: 500px; 
-        border: red solid 2px;
 
       img{
         max-width: 300px ;
