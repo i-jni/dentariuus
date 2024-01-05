@@ -26,7 +26,7 @@ const app = express();
 // routage de l'application
 const router = express.Router();
 
-app.use('/api', router);
+app.use(router);
 
 router.use(cors());
 

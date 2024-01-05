@@ -11,7 +11,7 @@ import StudentDetail from '../src/components/StudentDetail/StudentDetail.jsx';
 import Register from '../src/components/AddStudent/AddStudent.jsx';
 import Allcountrys from '../src/components/Countrys/Countrys.jsx';
 import Login from '../src/components/Login/Login.jsx';
-import UserSpace from '../src/page/user-space/Userspace.jsx';
+import UserSpace from '../src/page/ProfilPage/ProfilPage.jsx';
 import StudentSetting from '../src/components/editStudent/EditStudent.jsx';
 import CourseForm from '../src/components/addCourse/AddCourse.jsx';
 import AllTopics from '../src/components/topics/AllTopics.jsx';
@@ -25,6 +25,7 @@ import FaqPage from '../src/page/FaqPage/FaqPage.jsx';
 import SettingPage from '../src/page/SettingPage/SettingPage.jsx';
 import SettingCoursePage from '../src/page/SettingCourse/SettingCoursePage.jsx';
 import CourseDetailPage from '../src/page/CourseDetailPage/CourseDetailPage.jsx';
+import ProfilPage from '../src/page/ProfilPage/ProfilPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -52,10 +53,17 @@ const router = createBrowserRouter([
                 path: 'course_detail/:id',
                 element: <CourseDetailPage />
             },
-            // a faire:
             {
                 path: 'course_setting',
                 element: <SettingCoursePage />
+            },
+            {
+                path: 'addcourse',
+                element: <CourseForm />
+            },
+            {
+                path: 'profil',
+                element: <ProfilPage />
             },
 
             {
