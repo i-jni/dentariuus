@@ -3,10 +3,11 @@ import styles from './faq.module.scss';
 
 
 const Faq = () => {
-    return (
+  return (
+      <><h2 className={styles.faqheader}>... les plus frequentes</h2>
         <section className={styles.faqsection}>
 
-      <div className={styles.faqheader}>... les plus frequentes</div>
+      
 
       <div className={styles.faqcontent}>
         <div className={styles.faqquestion}>
@@ -48,7 +49,8 @@ const Faq = () => {
         
       </div>
 
-    </section>
+      </section>
+      </>
   );
 };
 

@@ -1,8 +1,14 @@
 .faqheader {
-    font-size: 42px;
-    border-bottom: 1px dotted #ccc;
+    font-size: 32px;
     padding: 24px;
+    text-align: center;
   }
+.faqsection{
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
   
   .faqcontent {
     margin: 0 auto;
@@ -59,4 +65,3 @@
   .panel {
     display: none;
   }
-  

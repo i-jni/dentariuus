@@ -1,4 +1,4 @@
-import styles from './404.module.scss'
+import styles from './Quatre.module.scss'
 const Quatre = () => {
     return (
         <div className={styles.erroring}>404</div>

@@ -31,7 +31,7 @@ const AllLevels = ({ displayAsDropdown = false , onSelectLevel}) => {
 
     return (
         <div>
-            <h2>Liste des levels:</h2>
+            {/* <h2>Liste des levels:</h2> */}
 
             {displayAsDropdown ? ( // Affichage sous forme de liste déroulante
                 <select name="level" value={selectedLevel} onChange={handleDropdownChange}>

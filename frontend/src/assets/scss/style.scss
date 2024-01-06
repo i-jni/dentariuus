@@ -23,6 +23,24 @@ main {
   margin: 0 auto;
 }
 
+label{
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+
+input,
+textarea,
+ select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
 .centered {
   margin: auto;
   text-align: center;
@@ -31,17 +49,59 @@ main {
 .btn {
   position: relative;
   display: inline-block;
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
+  padding: 11px 20px;
+  border-radius: 8px;
   border: none;
   font: 1rem/1 "FlameRegular";
   line-height: 1;
   &:hover,
   &:focus,
   &:active {
-    text-decoration: underline;
   }
 }
+.red {
+  background-color: #FF5252;
+  color: white;
+  &:hover{
+    transform: scale(1.01);
+  }
+}
+
+
+  .beige {
+    background-color: #aa905f;;
+    color: white;
+    &:hover{
+      transform: scale(1.01);
+    }
+  }
+
+
+.green {
+  background-color: #58ad5b;
+  color: white;
+  &:hover{
+    transform: scale(1.01);
+  }
+}
+
+.blue {
+  background-color: #2196F3;
+  color: white;
+  &:hover{
+    transform: scale(1.01);
+  }
+}
+
+.darkblue{
+background: #002439;
+color: white;
+&:hover{
+  background: #002439df;
+  }
+
+}
+
 p{
   font-family: $RobotoSlab;
   font-size: 16px;

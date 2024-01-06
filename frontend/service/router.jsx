@@ -26,6 +26,10 @@ import SettingPage from '../src/page/SettingPage/SettingPage.jsx';
 import SettingCoursePage from '../src/page/SettingCourse/SettingCoursePage.jsx';
 import CourseDetailPage from '../src/page/CourseDetailPage/CourseDetailPage.jsx';
 import ProfilPage from '../src/page/ProfilPage/ProfilPage.jsx';
+import AddCoursePage from '../src/page/AddCoursePage/AddCoursePage.jsx';
+import LoginPage from '../src/page/LoginPage/LoginPage.jsx';
+import RegisterPage from '../src/page/registerPage/RegisterPage.jsx';
+import QuatreCentPage from '../src/page/errorPage/QuatreCentQuatrePage.jsx';
 
 
 const router = createBrowserRouter([
@@ -46,6 +50,10 @@ const router = createBrowserRouter([
                 element: <FaqPage />
             },
             {
+                path: '*',
+                element: <QuatreCentPage/>
+            },
+            {
                 path: 'profil_setting',
                 element: <SettingPage />
             },
@@ -59,11 +67,19 @@ const router = createBrowserRouter([
             },
             {
                 path: 'addcourse',
-                element: <CourseForm />
+                element: <AddCoursePage />
             },
             {
                 path: 'profil',
                 element: <ProfilPage />
+            },
+            {
+                path: 'login',
+                element: <LoginPage />
+            },
+            {
+                path: 'register',
+                element: <RegisterPage />
             },
 
             {
@@ -162,7 +178,7 @@ const router = createBrowserRouter([
                 path: 'login',
                 element: (
                     <LoggedinRestriction>
-                        <Login />
+                        <LoginPage />
                     </LoggedinRestriction>)
             },
             

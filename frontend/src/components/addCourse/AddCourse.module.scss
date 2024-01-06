@@ -1,5 +1,4 @@
 
-/* Container styles */
 .addCourseContainer {
     width: 100%;
     max-width: 600px;
@@ -7,14 +6,12 @@
     padding: 20px;
   }
   
-  /* Heading styles */
   .addCourseContainer h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
   }
   
-  /* Form styles */
   .addCourseForm {
     display: flex;
     flex-direction: column;
@@ -24,27 +21,10 @@
     margin-bottom: 10px;
   }
   
-  .addCourseForm input,
-  .addCourseForm textarea,
-  .addCourseForm select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
+
   
-  .addCourseForm button {
-    background-color: #58A59D;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+
   
-  /* Responsive styles */
   @media (min-width: 768px) {
     .addCourseContainer {
       padding: 40px;
@@ -56,9 +36,8 @@
     }
   }
 
-  /* ... */
 
-/* Radio button container styles */
+
 .topicContainer {
     display: flex;
     flex-direction: row;

@@ -30,7 +30,7 @@ const Allcountrys = ({ displayAsDropdown = false, onSelectCountry }) => {
 
     return (
         <div>
-            <h2>Liste des pays:</h2>
+            {/* <h2>Liste des pays:</h2> */}
 
             {displayAsDropdown ? ( // Display as dropdown list
                 <select name="country_id" value={selectedCountry} onChange={handleDropdownChange}>

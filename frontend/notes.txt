@@ -62,5 +62,5 @@ studentdetail: ok mais moche
 ----
 btns:edit et supprimet en atomes ou en style general
 add topic item in nav
-login/singin
-finir 404:
+login/singin : ok mais 90%
+finir 404: ok mais a appeler lorsque l'user cherche une page qui n'existe pas 

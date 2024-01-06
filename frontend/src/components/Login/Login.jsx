@@ -2,6 +2,8 @@ import {useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../../../service/api.jsx";
 import { UserContext } from "../../context/UserProvider.jsx";
+import { TitleH2 } from "../../atomes/titles/Titles.jsx";
+import styles from './login.module.scss'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -48,11 +50,11 @@ function Login() {
     <section className="login-screen">
       
       <div className="login-form-wrapper">
-        <h1 className="login-title">Connexion</h1>
+        <TitleH2 h2="Connexion"/>
         <section className="loginform-container">
           <div id="login">
             <form className="login-form" onSubmit={handleSubmit}>
-              <span className="fa fa-user" />
+              <label>E-mail</label> 
               <input
                 autoFocus
                 maxLength="25"
@@ -62,7 +64,8 @@ function Login() {
                 value={email}
                 required
               />
-              <span className="fa fa-lock" />
+              <label>Mot de passe</label> 
+
               <input
                 autoComplete="off"
                 maxLength="12"
@@ -76,11 +79,12 @@ function Login() {
                 type="submit"
                 value="Se connecter"
                 disabled={isLoading}
+                className="btn green"
               />
               {error && <div className="error" style={{ color: "red" }}>{error}</div>}
             </form>
           </div>
-          <div className="notmember-container">
+          <div className={styles.notmemberContainer}>
             <p>
               Pas membre ? <Link to="/register">Inscription</Link>{" "}
               <span className="fa fa-arrow-right" />

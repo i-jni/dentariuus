@@ -3,6 +3,8 @@ import AllLevels from "../Alllevels/AllLevels";
 import Allcountrys from "../Countrys/Countrys";
 import { Link, useNavigate } from "react-router-dom";
 import { createStudent } from "../../../service/api.jsx";
+import styles from './AddStudent.module.scss'
+import { TitleH2 } from "../../atomes/titles/Titles.jsx";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -42,36 +44,36 @@ const Register = () => {
   };
 
   return (
-    <>
-      <h2>Inscription</h2>
+    <section className={styles.registerContainer} >
+      <TitleH2 h2='Inscription'/>
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <form method="post" onSubmit={handleAddStudentSubmit}>
-        <p>Prénom:</p>
+        <label>Prénom</label>
         <input type="text" name="firstname" placeholder="Prénom" required />
 
-        <p>Nom de famille:</p>
+        <label>Nom de famille</label>
         <input type="text" name="lastname" placeholder="Nom de famille" required />
 
-        <p>E-mail:</p>
+        <label>E-mail</label>
         <input type="email" name="email" placeholder="E-mail" required />
 
-        <p>Mot de passe:</p>
+        <label>Mot de passe</label>
         <input type="password" name="password" placeholder="Mot de passe" required />
 
         <div>
-          <label>Niveau :</label>
+          <label>Niveau </label>
           <AllLevels displayAsDropdown={true} onSelectLevel={handleLevelSelection} />
         </div>
 
         <div>
-          <label>Pays :</label>
+          <label>Pays </label>
           <Allcountrys displayAsDropdown={true} onSelectCountry={handleCountrySelection} />
         </div>
 
         {/* make default: user, and hide it: */}
         <div>
-          <label htmlFor="role">Rôle:</label>
+          <label htmlFor="role">Rôle</label>
           <select name="role">
             <option value="visitor">Visiteur</option>
             <option value="user">Utilisateur</option>
@@ -79,12 +81,12 @@ const Register = () => {
           </select>
         </div>
 
-        <button type="submit">Création</button>
+        <button  className="btn green"type="submit">Création</button>
       </form>
       <div>
         <p>Déjà membre ? <Link to="/login">Connexion</Link></p>
       </div>
-    </>
+    </section>
   );
 };
 

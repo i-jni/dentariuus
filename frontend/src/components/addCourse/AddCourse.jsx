@@ -3,8 +3,8 @@ import { getAllLevels } from '../../../service/api';
 import { getAllTopics } from '../../../service/api';
 import { createNewCourse } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
-import Navigation from '../navigation/Navigation';
 import styles from './AddCourse.module.scss'
+import { TitleH2 } from '../../atomes/titles/Titles';
 
 const AddCourse = () => {
   const { user, setUser } = useContext(UserContext);
@@ -102,9 +102,8 @@ const AddCourse = () => {
 
   return (
     <div>
-      <Navigation />
       
-      <h2>Ajouter un nouveau cours</h2>
+      <TitleH2 h2='Ajouter un nouveau cours'/>
       <form className={styles.addCourseForm} onSubmit={handleSubmit} encType='multipart/form-data'>
         <label>
           Nom du cours:
@@ -204,7 +203,7 @@ const AddCourse = () => {
 </label>
         <br />
 
-        <button type="submit">Ajouter le cours</button>
+        <button className="btn green"type="submit">Ajouter le cours</button>
       </form>
     </div>
   );

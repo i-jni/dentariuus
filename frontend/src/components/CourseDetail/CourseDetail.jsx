@@ -152,7 +152,7 @@ const CourseDetail = () => {
         </section>
         
         <div className={styles.pdfDownload}>
-        <button> <a href={`${apiUrl}/pdf/${course.document}`} onClick={handleDownloadClick}>
+        <button className="btn darkblue"> <a href={`${apiUrl}/pdf/${course.document}`} onClick={handleDownloadClick}>
             Télécharger
           </a></button>
           <p>Téléchargements : {downloadCount}</p>
@@ -162,10 +162,10 @@ const CourseDetail = () => {
       {/* {isOwner && ( */}
           <div>
             <Link to={'/liste'}>
-              <button onClick={handleDelete}> Supprimer </button>
+              <button className="btn red" onClick={handleDelete}> Supprimer </button>
             </Link>
             <Link to={`/editcourse/${course.id}`}>
-              <button> Éditer </button>
+              <button className="btn blue"> Éditer </button>
             </Link>
           </div>
         {/* )} */}

@@ -223,7 +223,7 @@ const EditCourse = () => {
           </label>
 
    
-          <button type="submit">Update Course</button>
+          <button className="btn blue" type="submit">Update Course</button>
         </form>
       );
 };

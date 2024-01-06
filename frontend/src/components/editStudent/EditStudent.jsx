@@ -98,10 +98,10 @@ const StudentSetting = () => {
               </select>
       </article>
       <section>
-        <button onClick={handleUpdate}>Enregistrer les modifications</button>
+        <button className="btn green" onClick={handleUpdate}>Enregistrer les modifications</button>
         {modificationsValidees && successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
         <Link to={`/students/${id}`}>
-          <button>Retour au profil</button>
+          <button className="btn red">Retour au profil</button>
         </Link>
       </section>
     </form>

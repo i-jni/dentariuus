@@ -68,17 +68,18 @@ const StudentDetail = () => {
           <div style={{ color: 'red' }}>
             <p>Ton compte a été supprimé.</p>
           </div>
-        )}
-        <button onClick={handleDelete}>Supprimer</button>
-        </section>
+          )}
+          <div></div>
+        <button className="btn red" onClick={handleDelete}>Supprimer</button>
+        
         
         {/* go to setting */}
-        <Link to={`/setting/${student.id}`}>editer</Link>
+        <button className="btn blue" ><Link to={`/setting/${student.id}`}>editer</Link></button>
 
         {/* logout */}
-        <button onClick={() => { localStorage.removeItem('jwtToken'); navigate('/login'); }}>
+        <button className="btn red" onClick={() => { localStorage.removeItem('jwtToken'); navigate('/login'); }}>
         Déconnexion </button>
-            
+        </section>
         </>
     )
 }
