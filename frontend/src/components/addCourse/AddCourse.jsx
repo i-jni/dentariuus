@@ -106,19 +106,19 @@ const AddCourse = () => {
       <TitleH2 h2='Ajouter un nouveau cours'/>
       <form className={styles.addCourseForm} onSubmit={handleSubmit} encType='multipart/form-data'>
         <label>
-          Nom du cours:
+          Nom du cours: </label>
           <input
             type="text"
             name="course_name"
             value={courseData.course_name}
             onChange={handleInputChange}
-            required
+            
           />
-        </label>
+        
         <br />
 
         <label>
-          Titre du cours:
+          Titre du cours: </label>
           <input
             type="text"
             name="title"
@@ -126,34 +126,34 @@ const AddCourse = () => {
             onChange={handleInputChange}
             required
           />
-        </label>
+        
         <br />
 
         <label>
-          Contenu du cours:
+          Contenu du cours: </label>
           <textarea
             name="content"
             value={courseData.content}
             onChange={handleInputChange}
             required
           />
-        </label>
+        
         <br />
 
         <br />
         <label>
-          Document (PDF):
+          Document (PDF): </label>
           <input
             type="file"
             accept=".pdf"
             onChange={handleDocumentChange}
             required
           />
-        </label>
+        
         <br />
 
         <label>
-          Niveau:
+          Niveau: </label>
           <select
             name="levell_id"
             value={courseData.levell_id}
@@ -167,7 +167,7 @@ const AddCourse = () => {
               </option>
             ))}
           </select>
-        </label>
+        
         <br />
 
         {/* <label>
@@ -186,26 +186,26 @@ const AddCourse = () => {
           </div>
         </label> */}
         <label>
-  Sujet:
-  <select
-    name="topic"
-    value={courseData.topics.length > 0 ? courseData.topics[0] : ''}
-    onChange={e => handleTopicChange([e.currentTarget.value])}
-    required
-  >
-    <option value="" disabled>Sélectionnez un sujet</option>
-    {topics.map(topic => (
-      <option key={topic.id} value={topic.id}>
-        {topic.topic_name}
-      </option>
-    ))}
-  </select>
-</label>
-        <br />
+        Matière: </label>
+        <select
+          name="topic"
+          value={courseData.topics.length > 0 ? courseData.topics[0] : ''}
+          onChange={e => handleTopicChange([e.currentTarget.value])}
+          required
+        >
+          <option value="" disabled>Sélectionnez une matière</option>
+          {topics.map(topic => (
+            <option key={topic.id} value={topic.id}>
+              {topic.topic_name}
+            </option>
+          ))}
+        </select>
+      
+              <br />
 
-        <button className="btn green"type="submit">Ajouter le cours</button>
-      </form>
-    </div>
+              <button className="btn green"type="submit">Ajouter le cours</button>
+            </form>
+          </div>
   );
 };
 

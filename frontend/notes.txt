@@ -55,12 +55,17 @@ page FAQ : ok
 setting user : ok
 
 ----
-recherche:
+
 coursedetail: 9O% - edit btns:
 editcourse: ok
 studentdetail: ok mais moche
 ----
 btns:edit et supprimet en atomes ou en style general
-add topic item in nav
+
 login/singin : ok mais 90%
-finir 404: ok mais a appeler lorsque l'user cherche une page qui n'existe pas 
+finir 404: ok 
+--
+
+ajout bon url dans nav: revoir la structure
+add topic item in nav : s'ouvre en desctop mais ne se ferme pas, mobile voir le arrow
+recherche:

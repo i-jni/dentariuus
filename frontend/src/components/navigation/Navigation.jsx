@@ -1,17 +1,28 @@
 import { useContext, useState } from 'react';
 import { UserContext } from "../../context/UserProvider";
-                                                                                  
 import styles from './navigation.module.scss';
 import { Link } from 'react-router-dom';
-
+import TopicListe from '../TopicCourseListe/TopicListe';
+import { IoMdArrowDropdown } from "react-icons/io";
 const Navigation = () => {
-    const { user, setUser } = useContext(UserContext);
-    console.log(user, "user ?");
-
+  const { user } = useContext(UserContext);
   const [isNavActive, setIsNavActive] = useState(false);
+  const [isTopicsVisible, setIsTopicsVisible] = useState(false);
 
   const handleNavToggle = () => {
     setIsNavActive(!isNavActive);
+  };
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      setIsTopicsVisible(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      setIsTopicsVisible(true);
+    }
   };
 
   return (
@@ -30,25 +41,34 @@ const Navigation = () => {
             <span></span>
             <span></span>
             <span></span>
-
           </div>
-          <ul className={`${styles.navWrapper} ${isNavActive ? styles.active : ''}`}>
+          <ul
+            className={`${styles.navWrapper} ${isNavActive ? styles.active : ''}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <li className={styles.navItem}>
-            <li><Link to="/">Home</Link></li>
+              <Link to="/">Home</Link>
             </li>
             <li className={styles.navItem}>
-            <Link to={`/students/${user?.id}`}> Profile</Link>
+              <Link to={`/students/${user?.id}`}>Profile</Link>
             </li>
             <li className={styles.navItem}>
-            <Link to={`/setting/${user?.id}`}>My Setting User</Link>
+              {/* <Link to={`/setting/${user?.id}`}>My Setting User</Link> */}
             </li>
             <li className={`${styles.navItem} ${styles.auth}`}>
-            <Link to="/courses">Courses</Link>
+              <Link to="/liste">Courses</Link>
             </li>
             <li className={`${styles.navItem} ${styles.auth}`}>
-            <Link to="/addcourse">Ajout Cours</Link>
+              <Link to="/addcourse">Ajout Cours</Link>
             </li>
-            <li className={`${styles.navItem} ${styles.auth}`}><Link to="/editcourse">Edit Cours</Link></li>
+            <li className={`${styles.navItem} ${styles.auth}`}>
+              <Link to="/editcourse">Edit Cours</Link>
+            </li>
+            <li className={`${styles.navItem} ${styles.dropdown}`}>
+              Topics <IoMdArrowDropdown />
+              {isTopicsVisible && <TopicListe onHide={false} />}
+            </li>
           </ul>
         </nav>
       </div>

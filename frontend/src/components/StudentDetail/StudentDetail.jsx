@@ -42,11 +42,16 @@ const StudentDetail = () => {
           console.error(error.message);
         }
   };
+
+  const isOwner = user && user.id === student.id;
+
   
 
   console.log("student:", student);
     return (
       <>
+        {isOwner && (
+          <>
             <article className={styles.studentDetail}>
           <h2>id:</h2>
           <h2> {student.id}</h2>
@@ -77,9 +82,12 @@ const StudentDetail = () => {
         <button className="btn blue" ><Link to={`/setting/${student.id}`}>editer</Link></button>
 
         {/* logout */}
+        
+            </section>
+            </>
+        )} 
         <button className="btn red" onClick={() => { localStorage.removeItem('jwtToken'); navigate('/login'); }}>
         Déconnexion </button>
-        </section>
         </>
     )
 }

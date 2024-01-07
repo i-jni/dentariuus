@@ -70,7 +70,7 @@ const router = createBrowserRouter([
                 element: <AddCoursePage />
             },
             {
-                path: 'profil',
+                path: 'students/:id',
                 element: <ProfilPage />
             },
             {

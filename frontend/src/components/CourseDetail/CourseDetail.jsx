@@ -159,7 +159,7 @@ const CourseDetail = () => {
         </div>
 
       </section>
-      {/* {isOwner && ( */}
+      {isOwner && (
           <div>
             <Link to={'/liste'}>
               <button className="btn red" onClick={handleDelete}> Supprimer </button>
@@ -168,7 +168,7 @@ const CourseDetail = () => {
               <button className="btn blue"> Éditer </button>
             </Link>
           </div>
-        {/* )} */}
+           )} 
         <ShareRs url={url} title={course.course_name}/>
         
     </>

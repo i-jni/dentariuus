@@ -14,7 +14,7 @@ const FaqPage = () => {
             <Faq />
             <TextMedia
                 reverse={false}
-                image='../../../public/images/boy-studi.png'
+                image='/images/boy-studi.png'
                 title="Des questions ?"
                 text="Contactez nous !"
                 ctaText="Par e-mail"
