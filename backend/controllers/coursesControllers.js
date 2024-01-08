@@ -1,5 +1,5 @@
 
-import { updateTopicsOfCourse } from "../repositories/courseTopicRepo.js";
+import { addTopicsToCourse, updateTopicsOfCourse } from "../repositories/courseTopicRepo.js";
 import { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById } from "../repositories/coursesRepo.js";
 import fs from 'fs/promises';
 

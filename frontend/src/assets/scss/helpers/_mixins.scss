@@ -67,10 +67,3 @@
     -o-filter: brightness($filter);
     filter: brightness($filter);
 }
-  
-@mixin box-shadow($horizontalShadow, $verticalShadow, $blur, $spread, $color) {
-    -moz-box-shadow:    $horizontalShadow $verticalShadow $blur $spread $color;
-    -webkit-box-shadow: $horizontalShadow $verticalShadow $blur $spread $color;
-    -o-box-shadow:      $horizontalShadow $verticalShadow $blur $spread $color;
-    box-shadow:         $horizontalShadow $verticalShadow $blur $spread $color;
-}

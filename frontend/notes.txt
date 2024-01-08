@@ -69,3 +69,4 @@ finir 404: ok
 ajout bon url dans nav: revoir la structure
 add topic item in nav : s'ouvre en desctop mais ne se ferme pas, mobile voir le arrow
 recherche:
+modal : etes vous sur de supprimer: student, course

@@ -72,9 +72,9 @@ const Register = () => {
         </div>
 
         {/* make default: user, and hide it: */}
-        <div>
+        <div className={styles.hideselect}>
           <label htmlFor="role">Rôle</label>
-          <select name="role">
+          <select name="role" defaultValue="user">
             <option value="visitor">Visiteur</option>
             <option value="user">Utilisateur</option>
             <option value="admin">Administrateur</option>

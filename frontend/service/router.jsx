@@ -30,6 +30,7 @@ import AddCoursePage from '../src/page/AddCoursePage/AddCoursePage.jsx';
 import LoginPage from '../src/page/LoginPage/LoginPage.jsx';
 import RegisterPage from '../src/page/registerPage/RegisterPage.jsx';
 import QuatreCentPage from '../src/page/errorPage/QuatreCentQuatrePage.jsx';
+import CourseByTopicPage from '../src/page/CoursebyTopicDetail/CoursebyTopicDetailPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -161,7 +162,7 @@ const router = createBrowserRouter([
                 path: 'topics_courses/:id',
                 element: (
                     <PrivateRoute>
-                        <TopicCourseDetail />
+                        <CourseByTopicPage/>
                     </PrivateRoute >
                     )
             },

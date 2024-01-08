@@ -8,6 +8,8 @@ import { TitleH2 } from '../../atomes/titles/Titles';
 
 const AddCourse = () => {
   const { user, setUser } = useContext(UserContext);
+  const [created, setisCreated] = useState(false);
+  
   
   const [courseData, setCourseData] = useState({
     course_name: '',
@@ -91,6 +93,7 @@ const AddCourse = () => {
     createNewCourse(courseData)
       .then(data => {
         console.log('Nouveau cours créé avec succès :', data);
+        setisCreated(true)
       })
       .catch(error => {
         console.error('Erreur addcourse lors de la création du cours :', error);
@@ -115,7 +118,6 @@ const AddCourse = () => {
             
           />
         
-        <br />
 
         <label>
           Titre du cours: </label>
@@ -127,7 +129,6 @@ const AddCourse = () => {
             required
           />
         
-        <br />
 
         <label>
           Contenu du cours: </label>
@@ -138,7 +139,6 @@ const AddCourse = () => {
             required
           />
         
-        <br />
 
         <br />
         <label>
@@ -150,7 +150,6 @@ const AddCourse = () => {
             required
           />
         
-        <br />
 
         <label>
           Niveau: </label>
@@ -168,7 +167,6 @@ const AddCourse = () => {
             ))}
           </select>
         
-        <br />
 
         {/* <label>
           topics:
@@ -201,10 +199,14 @@ const AddCourse = () => {
           ))}
         </select>
       
-              <br />
-
-              <button className="btn green"type="submit">Ajouter le cours</button>
-            </form>
+       
+        <button className="btn green" type="submit">Ajouter le cours</button>
+        {created &&
+          <p className='successText'>Le cours est crée avec succes ! </p>} : {
+          <p></p>
+            }
+      </form>
+      
           </div>
   );
 };
