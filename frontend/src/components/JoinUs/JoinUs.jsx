@@ -1,7 +1,7 @@
 
 import styles from './joinUs.module.scss';
 
-import groupeImg from '../../../public/images/illustrations/groupe.png'
+import groupeImg from '/images/illustrations/groupe.png'
 import { TitleH1 } from '../../atomes/titles/Titles'
 
 const JoinUs = () => {

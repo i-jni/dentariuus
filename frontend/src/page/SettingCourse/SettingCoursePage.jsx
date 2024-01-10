@@ -9,7 +9,7 @@ const SettingCoursePage = () => {
     return (
         <>
             <Navigation />
-            <TextImage text="Vos questions..." imageUrl="../../../public/images/illustrations/fille-happy.png" />
+            <TextImage text="Vos questions..." imageUrl="/images/illustrations/fille-happy.png" />
             <EditCourse />
             <Footer/>
         

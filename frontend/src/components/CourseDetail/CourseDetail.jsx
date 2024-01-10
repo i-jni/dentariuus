@@ -143,9 +143,9 @@ const CourseDetail = () => {
             <p>{limitText(course?.content || '', 750)}</p>
           </div>
           
-        <div className={styles.pdfContainer}>
-          <Document file={`${apiUrl}/pdf/${course.document}`} onLoadSuccess={onDocumentLoadSuccess}>
-            <Page width={350} renderTextLayer={false}  pageNumber={1} renderAnnotationLayer={false} />
+        <div className={styles.pdfContainer} width={350}>
+          <Document file={`${apiUrl}/pdf/${course.document}`} onLoadSuccess={onDocumentLoadSuccess} width={350}>
+            <Page width={350} textAlign="center" justifyContent='center' renderTextLayer={false}  pageNumber={1} renderAnnotationLayer={false} />
           </Document>
           <p>Page 1 sur {numPages}</p>
           </div>

@@ -9,7 +9,7 @@ const CourseDetailPage = () => {
         <>
             <Navigation />
             <CourseDetail/>
-            {/* <TextImage text="Deposer un cours" imageUrl="../../../public/images/illustrations/fille-happy.png" /> */}
+            {/* <TextImage text="Deposer un cours" imageUrl="/images/illustrations/fille-happy.png" /> */}
             <Footer/>
         
         </>

@@ -42,7 +42,7 @@ const Homepage = () => {
             
               <TextMedia
                 reverse={false}
-                image='../../../public/images/girl-studi.png'
+                image='/images/girl-studi.png'
                 title="Titre de l'image pas inversée"
                 text="Description de l'image pass inversée"
                 ctaText="Bouton pas inversé"

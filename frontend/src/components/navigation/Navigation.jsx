@@ -1,11 +1,13 @@
 import { useContext, useState } from 'react';
 import { UserContext } from "../../context/UserProvider";
 import styles from './navigation.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TopicListe from '../TopicCourseListe/TopicListe';
 import { IoMdArrowDropdown } from "react-icons/io";
 const Navigation = () => {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const [isNavActive, setIsNavActive] = useState(false);
   const [isTopicsVisible, setIsTopicsVisible] = useState(false);
 
@@ -21,9 +23,15 @@ const Navigation = () => {
 
   const handleMouseLeave = () => {
     if (window.innerWidth > 768) {
-      setIsTopicsVisible(true);
+      setIsTopicsVisible(false);
     }
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    setUser(null);
+    navigate('/login')
+  }
 
   return (
     <header className={styles.siteHeader}>
@@ -44,8 +52,6 @@ const Navigation = () => {
           </div>
           <ul
             className={`${styles.navWrapper} ${isNavActive ? styles.active : ''}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
           >
             <li className={styles.navItem}>
               <Link to="/">Home</Link>
@@ -65,10 +71,19 @@ const Navigation = () => {
             <li className={`${styles.navItem} ${styles.auth}`}>
               <Link to="/editcourse">Edit Cours</Link>
             </li>
-            <li className={`${styles.navItem} ${styles.dropdown}`}>
-              Topics <IoMdArrowDropdown />
-              {isTopicsVisible && <TopicListe onHide={false} />}
-            </li>
+            <li className={`${styles.navItem} ${styles.dropdown}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}>
+          Topics <IoMdArrowDropdown />
+          <div className={styles.topicListContainer}>
+          {isTopicsVisible && <TopicListe onHide={false} />}
+          </div>
+          </li>
+             {
+              user ? <button className="btn red" onClick={handleLogout}>
+              Déconnexion </button> :
+                <button className="btn green"><Link to="/login">Connexion</Link></button> 
+            }
           </ul>
         </nav>
       </div>

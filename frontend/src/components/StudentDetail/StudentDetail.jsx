@@ -43,8 +43,14 @@ const StudentDetail = () => {
         }
   };
 
+
   const isOwner = user && user.id === student.id;
 
+  const handleLogout = () => {
+    localStorage.removeItem('jwtToken');
+    setUser(null);
+    navigate('/login')
+  }
   
 
   console.log("student:", student);
@@ -86,8 +92,8 @@ const StudentDetail = () => {
             </section>
             </>
         )} 
-        <button className="btn red" onClick={() => { localStorage.removeItem('jwtToken'); navigate('/login'); }}>
-        Déconnexion </button>
+        {/* <button className="btn red" onClick={handleLogout}>
+        Déconnexion </button> */}
         </>
     )
 }

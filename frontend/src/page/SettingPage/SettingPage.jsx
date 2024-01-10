@@ -9,7 +9,7 @@ const SettingPage = () => {
     return (
         <>
             <Navigation />       
-            <TextImage text="Modifier le profile:" imageUrl="../../../public/images/illustrations/settings.svg"/>
+            <TextImage text="Modifier le profile:" imageUrl="/images/illustrations/settings.svg"/>
             <StudentSetting />
             
             <Footer/>

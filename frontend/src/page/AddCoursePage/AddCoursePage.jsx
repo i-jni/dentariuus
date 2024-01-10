@@ -11,7 +11,7 @@ const AddCoursePage = () => {
         <>
             <Navigation />
             <AddCourse/>
-            <TextImage text="Merci de ... " imageUrl="../../../public/images/illustrations/fille-happy.png" />
+            <TextImage text="Merci de ... " imageUrl="/images/illustrations/fille-happy.png" />
             <Footer/>
         
         </>
