@@ -107,7 +107,7 @@
     }
 
     .dropdownList {
-      display: none;
+      display: block;
       position: absolute;
       top: 100%;
       left: 0;
@@ -126,14 +126,14 @@
           background-color: #23c057;
         }
       }
+      @include responsive(tablet) {
+       display: none;
+      }
     }
-    @media screen and (max-width: 767px) {
 
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      
-    }
+  }
+  .topicListContainer{
+    display: block;
   }
 
 }

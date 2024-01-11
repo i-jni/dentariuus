@@ -5,17 +5,23 @@ import { UserContext } from '../../context/UserProvider';
 import { Page, Document, pdfjs } from 'react-pdf';
 import styles from './CourseDetail.module.scss';
 import ShareRs from '../../atomes/shares/ShareRs';
+import DeleteConfirmationModal from '../modal/Modal';
 
 const CourseDetail = () => {
   const [course, setCourse] = useState({});
-  const { user, setUser } = useContext(UserContext);
+  const { user} = useContext(UserContext);
   const [student, setStudent] = useState({});
   const [levels, setLevels] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const Navigate = useNavigate()
   const [downloadCount, setDownloadCount] = useState(
     parseInt(localStorage.getItem('downloadCount')) || 0
   );
+
+  const navigateToListe = () => {
+    Navigate('/liste')
+  }
   
   const apiUrl = import.meta.env.VITE_API_URL;
   const isOwner = user && user.id === course.student_id;
@@ -34,7 +40,8 @@ const CourseDetail = () => {
   
     
   useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+    pdfjs.GlobalWorkerOptions.workerSrc =
+      `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
     getCourse(id)
       .then((data) => {
         console.log("data-courses", data);
@@ -55,13 +62,15 @@ const CourseDetail = () => {
   };
 
   const handleDelete = async () => {
+    
     try {
       const result = await deleteCourseById(id);
       // console.log("click delet");
       if (result.success) {
         console.log(result.message);
         setIsDeleted(true);
-        Navigate('/');
+        handleCloseModal();
+        navigateToListe();
       } else {
         console.error(result.message);
       }
@@ -69,6 +78,13 @@ const CourseDetail = () => {
       console.error(error.message);
     }
   };
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const getStudentDetails = async (studentId) => {
     try {
       const studentData = await getStudent(studentId);
@@ -161,14 +177,16 @@ const CourseDetail = () => {
       </section>
       {isOwner && (
           <div>
-            <Link to={'/liste'}>
-              <button className="btn red" onClick={handleDelete}> Supprimer </button>
-            </Link>
+          
+              <button className="btn red" onClick={handleShowModal}> Supprimer </button>
+            
             <Link to={`/editcourse/${course.id}`}>
               <button className="btn blue"> Éditer </button>
             </Link>
           </div>
-           )} 
+      )} 
+      {showModal && <DeleteConfirmationModal onCloseModal={handleCloseModal} onDelete={ handleDelete} />}
+      
         <ShareRs url={url} title={course.course_name}/>
         
     </>

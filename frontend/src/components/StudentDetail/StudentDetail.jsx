@@ -4,6 +4,7 @@ import { getStudent, deleteStudentById } from '../../../service/api.jsx';
 import { useContext } from "react";
 import { UserContext } from "../../context/UserProvider";
 import styles from './StudentDetail.module.scss';
+import DeleteConfirmationModal from '../modal/Modal.jsx';
 
 const StudentDetail = () => {
   const navigate = useNavigate();
@@ -11,7 +12,9 @@ const StudentDetail = () => {
     const [student, setstudent] = useState({});
     const [isDeleted, setIsDeleted] = useState(false); 
     const { id } = useParams();
-    const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const [showModal, setShowModal] = useState(false);
+  
     
     useEffect(() => {
         getStudent(id)
@@ -25,6 +28,12 @@ const StudentDetail = () => {
                 console.error(error);
             });
     }, [id]);
+    const handleShowModal = () => {
+      setShowModal(true);
+    };
+    const handleCloseModal = () => {
+      setShowModal(false);
+    };
 
     const handleDelete = async () => {
         try {
@@ -34,7 +43,9 @@ const StudentDetail = () => {
             console.log(result.message);
             localStorage.removeItem('jwtToken');
             setIsDeleted(true);
-            navigate('/'); // Redirige vers la liste des étudiants ou une autre page
+            handleCloseModal();
+            handleLogout(true)
+            navigate('/'); 
           } else {
             console.error(result.message);
           }
@@ -42,6 +53,7 @@ const StudentDetail = () => {
           console.error(error.message);
         }
   };
+
 
 
   const isOwner = user && user.id === student.id;
@@ -81,7 +93,8 @@ const StudentDetail = () => {
           </div>
           )}
           <div></div>
-        <button className="btn red" onClick={handleDelete}>Supprimer</button>
+              <button className="btn red" onClick={handleShowModal}>Supprimer</button>
+              {showModal && <DeleteConfirmationModal onCloseModal={handleCloseModal} onDelete={ handleDelete} />}
         
         
         {/* go to setting */}

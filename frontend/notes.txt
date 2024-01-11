@@ -60,13 +60,18 @@ coursedetail: 9O% - edit btns:
 editcourse: ok
 studentdetail: ok mais moche
 ----
-btns:edit et supprimet en atomes ou en style general
+btns:edit et supprimer en atomes ou en style general ok s.general
 
 login/singin : ok mais 90%
 finir 404: ok 
 --
 
-ajout bon url dans nav: revoir la structure
-add topic item in nav : s'ouvre en desctop mais ne se ferme pas, mobile voir le arrow
+add topic item in nav : ok desktop; mobile voir si autre solution
+
+modal : etes vous sur de supprimer: student, course : c'est gooooooood
+---
 recherche:
-modal : etes vous sur de supprimer: student, course
+ajout bon url dans nav: revoir la structure
+revois les liens, parcours;
+profil scss:
+btn:

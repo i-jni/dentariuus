@@ -14,17 +14,16 @@ const Navigation = () => {
   const handleNavToggle = () => {
     setIsNavActive(!isNavActive);
   };
-
+  const isMobile = () => {
+    return window.innerWidth <= 768;
+  };
   const handleMouseEnter = () => {
-    if (window.innerWidth > 768) {
       setIsTopicsVisible(true);
-    }
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth > 768) {
       setIsTopicsVisible(false);
-    }
+    
   };
 
   const handleLogout = () => {
@@ -73,7 +72,8 @@ const Navigation = () => {
             </li>
             <li className={`${styles.navItem} ${styles.dropdown}`}
             onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}>
+              onMouseLeave={handleMouseLeave}
+            onClick={handleMouseEnter}>
           Topics <IoMdArrowDropdown />
           <div className={styles.topicListContainer}>
           {isTopicsVisible && <TopicListe onHide={false} />}
