@@ -102,8 +102,27 @@ const updateCourseById = async (id, [course_name, title, content, document, stud
     throw error;
   }
 };
+// ------------ search -------------------
+// LIKE LOWER : pour evité la casse mettre tout en minuscule et ameliorer la recherche
+const searchCourses = async (query) => {
+  const sql = `
+    SELECT *
+    FROM dentarius.course
+    WHERE LOWER(title) LIKE :query OR LOWER(content) LIKE :query;
+  `;
+
+  try {
+    const [results] = await dbConnection.query(sql, {
+      query: `%${query}%`,
+    });
+    return results;
+  } catch (error) {
+    console.error("Error searching courses:", error);
+    throw error;
+  }
+};
 
 
   
   
-export { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById };
+export { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById, searchCourses };

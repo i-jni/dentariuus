@@ -1,3 +1,5 @@
+@import '../../assets/scss/helpers/variables';
+@import '../../assets/scss/helpers/mixins';
 
 .studentDetail {
     padding: 20px;
@@ -17,7 +19,12 @@
   }
   
  button{
+  margin: 10px;
+  @include responsive (tablet){
   margin-right: 10px;
+  
+  }
+  
  }
 
  a{

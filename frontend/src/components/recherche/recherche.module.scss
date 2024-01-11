@@ -46,6 +46,21 @@ font-size: 1.4rem;
     height: 70px;
     }
 }
+.reset{
+text-align: center;
+border: none;
+height: 60px;
+width: 70px;
+background: white;
+color: rgb(170, 170, 170);
+font-size: 1.4rem;
+
+@include responsive (mobile){
+    max-width: 380px;
+    height: 70px;
+    }
+}
+
 
 input[type="text"] {
 border: none;

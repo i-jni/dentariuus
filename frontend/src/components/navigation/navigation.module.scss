@@ -9,8 +9,8 @@
   z-index: 11;
 
   @include responsive(tablet) {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    // padding-top: 1rem;
+    // padding-bottom: 1rem;
     background-color: #ffffffaf;
     backdrop-filter: blur(5px);
   }

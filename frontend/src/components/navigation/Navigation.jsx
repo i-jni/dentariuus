@@ -80,9 +80,9 @@ const Navigation = () => {
           </div>
           </li>
              {
-              user ? <button className="btn red" onClick={handleLogout}>
+              user ? <button className="btn beige" onClick={handleLogout}>
               Déconnexion </button> :
-                <button className="btn green"><Link to="/login">Connexion</Link></button> 
+                <Link to="/login"><button className="btn green">Connexion</button> </Link>
             }
           </ul>
         </nav>

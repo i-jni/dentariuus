@@ -70,7 +70,7 @@ add topic item in nav : ok desktop; mobile voir si autre solution
 
 modal : etes vous sur de supprimer: student, course : c'est gooooooood
 ---
-recherche:
+recherche: ok 3 coposant different , bar, result et card. il faut gestion erreur : pas de result : msg, et empty search 
 ajout bon url dans nav: revoir la structure
 revois les liens, parcours;
 profil scss:

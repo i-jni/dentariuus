@@ -229,6 +229,28 @@ export const deleteCourseById = async (id) => {
   }
 };
 
+// Search
+
+export async function getSearchCourses(query) {
+  const URL = `${apiUrl}/courses/search/${query}`;
+
+  try {
+      const requestInfos = new Request(URL, {
+          method: "get",
+      });
+
+      const req = await fetch(requestInfos);
+
+      if (!req.ok) {
+          throw new Error(`Erreur lors de la recherche dans les cours : ${req.status}`);
+      }
+
+      const res = await req.json();
+      return res;
+  } catch (error) {
+      throw new Error(`Erreur lors de la recherche dans les courss : ${error.message}`);
+  }
+}
 
 
 // levels

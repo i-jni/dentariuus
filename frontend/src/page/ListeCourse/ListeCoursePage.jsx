@@ -12,10 +12,9 @@ const ListeCoursePage = () => {
         <>
             <Navigation />
             <Recherche/>
-            <TitleH2 h2="La liste des cours:"/>
+            <TitleH2 h2="La liste de tout les cours:"/>
             <CourseCard />               
             <JoinUs />
-            
             <Footer/>
         </>
     )

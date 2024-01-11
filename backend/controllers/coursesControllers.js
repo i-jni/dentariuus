@@ -1,6 +1,6 @@
 
 import { addTopicsToCourse, updateTopicsOfCourse } from "../repositories/courseTopicRepo.js";
-import { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById } from "../repositories/coursesRepo.js";
+import { getCourses, getCourseById, createCourse, deleteCourseById, updateCourseById, searchCourses } from "../repositories/coursesRepo.js";
 import fs from 'fs/promises';
 
 
@@ -174,6 +174,28 @@ const updateCourse = async (req, res) => {
     });
   }
 };
+// ---------- search --------------
+const search = (req, res) => {
+  const query = req.params.query;
 
-export { courses, getCourse, createNewCourse, deleteCourse, updateCourse };
+  searchCourses(query)
+    .then((courses) => {
+      return res.status(200).json({
+        status: 200,
+        message: "OK",
+        data: courses,
+      });
+    })
+    .catch((error) => {
+      return res.status(500).json({
+        status: 500,
+        message: "Internal Server Error",
+        error: error.message,
+      });
+    });
+  
+};
+
+
+export { courses, getCourse, createNewCourse, deleteCourse, updateCourse, search };
 
