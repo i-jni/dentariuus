@@ -70,8 +70,22 @@ add topic item in nav : ok desktop; mobile voir si autre solution
 
 modal : etes vous sur de supprimer: student, course : c'est gooooooood
 ---
-recherche: ok 3 coposant different , bar, result et card. il faut gestion erreur : pas de result : msg, et empty search 
-ajout bon url dans nav: revoir la structure
-revois les liens, parcours;
+recherche: ok 3 coposant different , bar, result et card. il faut gestion erreur : pas de result : msg, et empty search : ok sauf empty
+ajout bon url dans nav: revoir la structure : ok
+revois les liens, parcours: ok
 profil scss:
-btn:
+btn: okok
+
+----
+color : ok :
+menthe green : #59A69F --testi, 
+bleu nuit : #001534
+bleu titre : #436F96
+dark bleu btn :#002439; --testi, hero 
+rouge 
+beige
+
+--
+retirer les log
+revoir redirection,
+nav : voir si on peut detacher le search pour le laisser meme en mobile

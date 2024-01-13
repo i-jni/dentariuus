@@ -31,6 +31,9 @@ import LoginPage from '../src/page/LoginPage/LoginPage.jsx';
 import RegisterPage from '../src/page/registerPage/RegisterPage.jsx';
 import QuatreCentPage from '../src/page/errorPage/QuatreCentQuatrePage.jsx';
 import CourseByTopicPage from '../src/page/CoursebyTopicDetail/CoursebyTopicDetailPage.jsx';
+import SearchPage from '../src/page/SearchePage/SearchPage.jsx';
+import ConfidentialitePage from '../src/page/ConfidentialitePage.jsx';
+import MentionsPage from '../src/page/MentionsPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -42,10 +45,10 @@ const router = createBrowserRouter([
                 path: '',
                 element: <Homepage />
             },
-            {
-                path: 'liste',
-                element: <ListeCoursePage />
-            },
+            // {
+            //     path: 'liste',
+            //     element: <ListeCoursePage />
+            // },
             {
                 path: 'faq',
                 element: <FaqPage />
@@ -54,26 +57,26 @@ const router = createBrowserRouter([
                 path: '*',
                 element: <QuatreCentPage/>
             },
-            {
-                path: 'profil_setting',
-                element: <SettingPage />
-            },
-            {
-                path: 'course_detail/:id',
-                element: <CourseDetailPage />
-            },
-            {
-                path: 'course_setting',
-                element: <SettingCoursePage />
-            },
-            {
-                path: 'addcourse',
-                element: <AddCoursePage />
-            },
-            {
-                path: 'students/:id',
-                element: <ProfilPage />
-            },
+            // {
+            //     path: 'profil_setting/:id',
+            //     element: <SettingPage />
+            // },
+            // {
+            //     path: 'course_detail/:id',
+            //     element: <CourseDetailPage />
+            // },
+            // {
+            //     path: 'editcourse/:id',
+            //     element: <SettingCoursePage />
+            // },
+            // {
+            //     path: 'addcourse',
+            //     element: <AddCoursePage />
+            // },
+            // {
+            //     path: 'students/:id',
+            //     element: <ProfilPage />
+            // },
             {
                 path: 'login',
                 element: <LoginPage />
@@ -82,7 +85,19 @@ const router = createBrowserRouter([
                 path: 'register',
                 element: <RegisterPage />
             },
-
+            // {
+            //     path: 'search',
+            //     element: <SearchPage />
+            // },
+            {
+                path: 'confidentialite',
+                element: <ConfidentialitePage />
+            },
+            {
+                path: 'mentions_legales',
+                element: <MentionsPage/>
+            },
+// ---------------------------------
             {
                 path: 'courses',
                 element: <AllCourses />
@@ -94,10 +109,6 @@ const router = createBrowserRouter([
             {
                 path: 'addcourse',
                 element: <CourseForm />
-            },
-            {
-                path: 'editcourse/:id',
-                element: <EditCourse />
             },
             {
                 path: 'levels',
@@ -124,23 +135,94 @@ const router = createBrowserRouter([
             //     element: <TopicCourseDetail/>
             // },
 
+            // si il y a du temps, routes utiles pour admin:
             {
                 path: 'students',
                 element: <AllStudents />
             },
             {
-                path: 'card',
-                element: <TopicCourseCard />
+                path: 'courses',
+                element: <AllCourses />
             },
-            // elle est pas utiliser :!!
-            {
-                path: 'userspace',
-                element: <UserSpace />
-            },
-
 
             // privates routes -------------------------
             // si user pas connecter = pas acces au profil, !ajouter liste de cours!
+            {
+                path: 'liste',
+                element: (
+                    <PrivateRoute>
+                        <ListeCoursePage />
+                    </PrivateRoute >
+
+                ),
+            },
+        
+            {
+                path: 'profil_setting/:id',
+                element: (
+                    <PrivateRoute>
+                        <SettingPage />
+                    </PrivateRoute >
+
+                ),
+            },
+        
+
+            {
+                path: 'course_detail/:id',
+                element: (
+                    <PrivateRoute>
+                        <CourseDetailPage/>
+                    </PrivateRoute >
+
+                ),
+            },
+
+       
+                {
+                path: 'editcourse/:id',
+                element: (
+                    <PrivateRoute>
+                        <SettingCoursePage />
+                    </PrivateRoute >
+
+                ),
+            },
+
+            {
+                path: 'course_detail/:id',
+                element: (
+                    <PrivateRoute>
+                        <CourseDetailPage/>
+                    </PrivateRoute >
+
+                ),
+            },
+            {
+                path: 'students/:id',
+                element: <ProfilPage />
+            },
+            {
+                path: 'students/:id',
+                element: (
+                    <PrivateRoute>
+                        <ProfilPage/>
+                    </PrivateRoute >
+
+                ),
+            },
+
+            {
+                path: 'search',
+                element: (
+                    <PrivateRoute>
+                        <SearchPage/>
+                    </PrivateRoute >
+
+                ),
+            },
+
+// --------------------- pas utilisé:
             {
                 path: 'setting/:id',
                 element: (
@@ -167,7 +249,7 @@ const router = createBrowserRouter([
                     )
             },
 
-            // si user est connecté : ne peut pas acceder a ces pages:
+            // si user est connecté : ne peut pas acceder a ces pages: BEUG
             {
                 path: 'register',
                 element: (

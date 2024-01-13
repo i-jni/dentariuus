@@ -168,7 +168,7 @@ const CourseDetail = () => {
         </section>
         
         <div className={styles.pdfDownload}>
-        <button className="btn darkblue"> <a href={`${apiUrl}/pdf/${course.document}`} onClick={handleDownloadClick}>
+        <button className="btn beige"> <a href={`${apiUrl}/pdf/${course.document}`} onClick={handleDownloadClick}>
             Télécharger
           </a></button>
           <p>Téléchargements : {downloadCount}</p>
@@ -181,7 +181,7 @@ const CourseDetail = () => {
               <button className="btn red" onClick={handleShowModal}> Supprimer </button>
             
             <Link to={`/editcourse/${course.id}`}>
-              <button className="btn blue"> Éditer </button>
+              <button className="btn darkblue"> Éditer </button>
             </Link>
           </div>
       )} 

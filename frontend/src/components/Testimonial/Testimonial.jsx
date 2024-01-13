@@ -1,8 +1,8 @@
 
 import styles from './Testimonial.module.scss';
-import image1 from '../../../public/images/testimonial/dentarius1.jpg'
-import image2 from '../../../public/images/testimonial/dentarius2.jpg'
-import image4 from '../../../public/images/testimonial/dentarius4.jpg'
+import image1 from '/images/testimonial/dentarius1.jpg'
+import image2 from '/images/testimonial/dentarius2.jpg'
+import image4 from '/images/testimonial/dentarius4.jpg'
 
 
 const Testimonial = () => {

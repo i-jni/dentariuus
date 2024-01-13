@@ -1,7 +1,7 @@
 import SignInCta from '../buttons/SigninCta';
 import styles from './TextMedia.module.scss';
 
-const TextMedia = ({ reverse, image, title, text, ctaText, reversecolorCta }) => {
+const TextMedia = ({ reverse, image, title, text, ctaText, reversecolorCta, linkto }) => {
   const containerStyles = reverse ? `${styles.boxTextMedia} ${styles.reverse}` : styles.boxTextMedia;
 
   return (
@@ -13,7 +13,7 @@ const TextMedia = ({ reverse, image, title, text, ctaText, reversecolorCta }) =>
       <div className={styles.text}>
         <h3>{title}</h3>
         <p>{text}</p>
-        <SignInCta text={ctaText} reversecolorCta={reversecolorCta} />
+        <SignInCta text={ctaText} reversecolorCta={reversecolorCta} linkto={ linkto} />
       </div>
     </section>
   );

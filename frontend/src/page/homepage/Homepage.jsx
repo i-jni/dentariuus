@@ -29,11 +29,12 @@ const Homepage = () => {
             {/* <SignInCta text="Custom Tehehxt" reversecolor={true}/> */}
             <TextMedia
                 reverse={true}
-                image='../../../public/images/boy-studi.png'
+                image='/images/boy-studi.png'
                 title="Titre de l'image inversée"
                 text="Description de l'image inversée"
                 ctaText="Bouton inversé"
-                reversecolorCta={true} />
+                reversecolorCta={true}
+                linkto='/register'/>
             <Testimonial/>
             <TitleH1 h1="UN GRAND TITRE un grand titre!"/>
             <TitleH2 h2="UN GRAND TITRE un grand titre !"/>
@@ -46,7 +47,8 @@ const Homepage = () => {
                 title="Titre de l'image pas inversée"
                 text="Description de l'image pass inversée"
                 ctaText="Bouton pas inversé"
-                reversecolorCta={false} />
+                reversecolorCta={false}
+                linkto='/register'/>
             <TopicCourseCard/>
             <JoinUs />
             <Footer />

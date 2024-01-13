@@ -4,39 +4,6 @@
 .topicsList {
     display: block;
   
-  
-    li {
-    //   padding: 8px;
-    //   color: #333;
-    //   cursor: pointer;
-  
-      &:hover {
-        // background-color: #f0f0f0;
-      }
-    }
-    @include responsive(tablet){
-    position: absolute;
-    top: 100%;
-    left: -30px;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    list-style: none;
-    margin: 0;
-    z-index: 0; 
-  
-    li {
-      padding: 8px;
-      color: #333;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #dd2020;
-      }
-    }
-    
-  
-      }
   }
   
   .topicsList.active {
@@ -53,22 +20,24 @@
       padding: 8px;
       color: #333;
       cursor: pointer;
+      font-weight: 800;
+
   
       &:hover {
         background-color: #f0f0f0;
       }
     }
     @include responsive(tablet){
-    position: absolute;
-    top: 100%;
-    left: -30px;
-    background-color: #fff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    list-style: none;
-    margin: 0;
-    z-index: 0; 
-  
+      position: absolute;
+      top: 100%;
+      left: -30px;
+      background-color: #ffffffaf;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      list-style: none;
+      margin: 0;
+      z-index: -2; 
+      backdrop-filter: blur(5px);
   
       }
   }

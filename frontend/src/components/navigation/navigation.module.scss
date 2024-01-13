@@ -101,6 +101,8 @@
 
   &.dropdown {
     position: relative;
+    font-weight: 800;
+
 
     &:hover .dropdownList {
       display: block;
@@ -121,9 +123,12 @@
         padding: 8px;
         color: #333;
         cursor: pointer;
+      font-weight: 800;
+
 
         &:hover {
           background-color: #23c057;
+          
         }
       }
       @include responsive(tablet) {
@@ -135,14 +140,23 @@
   .topicListContainer{
     display: block;
   }
+  img{
+    width: 22px;
+    height: 25px;
+  }
+
 
 }
 
 .navItem a {
   display: block;
   border-left: 4px solid transparent;
-  text-decoration: none;
-  color: rgb(32, 62, 164);
+  color: black;
+  font-weight: 800;
+  :hover{
+    text-decoration: none;
+
+  }
 
   @include responsive(tablet) {
     text-align: center;
@@ -150,9 +164,6 @@
     border-bottom: 4px solid transparent;
   }
 
-  &:hover {
-    background-color: #f0f0f0;
-  }
 }
 
 .auth {

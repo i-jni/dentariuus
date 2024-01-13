@@ -108,7 +108,7 @@ const searchCourses = async (query) => {
   const sql = `
     SELECT *
     FROM dentarius.course
-    WHERE LOWER(title) LIKE :query OR LOWER(content) LIKE :query;
+    WHERE LOWER(course_name) LIKE :query OR LOWER(content) LIKE :query;
   `;
 
   try {

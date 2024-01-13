@@ -98,7 +98,7 @@ const StudentDetail = () => {
         
         
         {/* go to setting */}
-        <button className="btn blue" ><Link to={`/setting/${student.id}`}>editer</Link></button>
+        <button className="btn darkblue" ><Link to={`/profil_setting/${student.id}`}>editer</Link></button>
 
         {/* logout */}
         

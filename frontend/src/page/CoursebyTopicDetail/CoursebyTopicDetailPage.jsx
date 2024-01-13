@@ -8,7 +8,7 @@ const CourseByTopicPage = () => {
     return (
         <>
             <Navigation />
-            {/* <TextImage text="Vos questions..." imageUrl="../../../public/images/illustrations/meuf-face-tel.png" /> */}
+            {/* <TextImage text="Vos questions..." imageUrl="/images/illustrations/meuf-face-tel.png" /> */}
             <TopicCourseDetail />
             <Footer/>
         

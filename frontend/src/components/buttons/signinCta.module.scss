@@ -14,7 +14,7 @@
     transition: all 0.4s ease-in-out;
 
     &.bluecta {
-      background-image: linear-gradient(to right, #B2DEDB, #4481eb, #04befe, #005A8A);
+      background-image: linear-gradient(to right, #59A69F, #001534, #436F96, #002439);
       box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
     }
   }
@@ -28,11 +28,11 @@
       // color: #00a7ee;
 
       &:hover{
-      border: #5691E8 solid 1px;
+      border: #46857f solid 1px;
       }
 
       &.bluecta {
-        background-color: #5691E8;
+        background-color: #59A69F;
         box-shadow: none; 
       }
       

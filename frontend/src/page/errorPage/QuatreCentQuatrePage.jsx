@@ -12,7 +12,7 @@ const QuatreCentPage = () => {
             <Navigation />
             <Quatre />
             <TitleH2 h2='La page recherchée est introuvable...' />
-            <TextImage imageUrl="../../../public/images/illustrations/meuf-face-tel.png"/>
+            <TextImage imageUrl="/images/illustrations/meuf-face-tel.png"/>
             <Footer/>
         
         </>

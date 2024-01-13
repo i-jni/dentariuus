@@ -1,20 +1,21 @@
-import { TitleH2 } from "../../atomes/titles/Titles";
-import CourseCard from "../../components/CourseCard/CourseCard";
-import TextMedia from "../../components/TextMedia/TextMedia";
 
+import JoinUs from "../../components/JoinUs/JoinUs";
+import TextMedia from "../../components/TextMedia/TextMedia";
 import Footer from "../../components/footer/Footer";
 import Navigation from "../../components/navigation/Navigation"
+import Recherche from "../../components/recherche/Recherche";
 
-const ListeCoursePage = () => { 
+const SearchPage = () => { 
 
     return (
         <>
             <Navigation />
-            <TitleH2 h2="La liste de tout les cours:"/>
-            <CourseCard />               
+            <Recherche/>
+            {/* <TitleH2 h2="La liste de tout les cours:"/>
+            <CourseCard />                */}
             <TextMedia
                 reverse={true}
-                image='/images/illustrations/mec-tel2.png'
+                image='/images/illustrations/diplomer.png'
                 title="N'hesitez pas a partager vos cours"
                 ctaText="Ajouter un nouveau"
                 reversecolorCta={false}
@@ -27,4 +28,4 @@ const ListeCoursePage = () => {
 
 }
 
-export default ListeCoursePage;
+export default SearchPage;

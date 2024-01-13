@@ -1,9 +1,9 @@
 
 
 import styles from './objectifs.module.scss';
-import obj1 from '../../../public/images/illustrations/progress.png'
-import obj2 from '../../../public/images/illustrations/solidaire.png'
-import obj3 from '../../../public/images/illustrations/diplom.png'
+import obj1 from '/images/illustrations/progress.png'
+import obj2 from '/images/illustrations/solidaire.png'
+import obj3 from '/images/illustrations/diplom.png'
 import { TitleH2 } from '../../atomes/titles/Titles';
 
 

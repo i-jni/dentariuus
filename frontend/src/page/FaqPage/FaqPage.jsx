@@ -18,7 +18,8 @@ const FaqPage = () => {
                 title="Des questions ?"
                 text="Contactez nous !"
                 ctaText="Par e-mail"
-                reversecolorCta={true} />
+                reversecolorCta={true}
+            linkto="https://mail.google.com/mail/u/0/"/>
             <Footer/>
         
         </>

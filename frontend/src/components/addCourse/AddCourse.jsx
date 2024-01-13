@@ -202,8 +202,7 @@ const AddCourse = () => {
        
         <button className="btn green" type="submit">Ajouter le cours</button>
         {created &&
-          <p className='successText'>Le cours est crée avec succes ! </p>} : {
-          <p></p>
+          <p className='successText'>Le cours est crée avec succes ! </p>
             }
       </form>
       

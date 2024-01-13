@@ -15,7 +15,7 @@ body {
 
 }
 main {
-  margin-top: 50px; 
+  margin-top: 57px; 
   min-height: calc(100vh - 50px); 
   }
 .layout-container {
@@ -40,6 +40,12 @@ textarea,
   border-radius: 5px;
   box-sizing: border-box;
   text-align: center;
+  
+  &:focus,
+  &:active {
+    border: 1px solid #979393;
+
+  }
 }
 
 .centered {
@@ -61,7 +67,7 @@ textarea,
   }
 }
 .red {
-  background-color: #FF5252;
+  background-color: #B15252;
   color: white;
   &:hover{
     transform: scale(1.01);
@@ -79,7 +85,7 @@ textarea,
 
 
 .green {
-  background-color: #58ad5b;
+  background-color: #58a39d;
   color: white;
   &:hover{
     transform: scale(1.01);
@@ -114,8 +120,19 @@ p{
   font-size: 18px;
 
 }
-
+// ----------- search results: ----------
 .flexcard{
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+.cardes{
+
+  .card{
+
+
+  }
+}
+.marges{
+  margin: 50px;
 }

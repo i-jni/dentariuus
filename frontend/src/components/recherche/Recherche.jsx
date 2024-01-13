@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import style from './recherche.module.scss'; 
 import Resultats from './Resultats';
-import { GrPowerReset } from "react-icons/gr";
+// import { GrPowerReset } from "react-icons/gr";
 
 const Recherche = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
+  const [error, setError] = useState(null);
+  
   const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleSearch = async (e) => {
@@ -16,6 +18,10 @@ const Recherche = () => {
     );
     const data = await response.json();
     setResults(data.data);
+    if (!searchTerm.trim()) {
+      setError("Veuillez saisir un terme de recherche");
+      return;
+    }
   };
 
   return (
@@ -33,7 +39,7 @@ const Recherche = () => {
         <button onClick={handleSearch}>
           <i className="fa fa-search" aria-hidden="true"></i>
           </button>
-          <button className={style.reset}> <GrPowerReset /></button>
+          {/* <button className={style.reset}> <GrPowerReset /></button> */}
         </form>
       </section>
         <Resultats results={results} />

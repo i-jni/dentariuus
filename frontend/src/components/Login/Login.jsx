@@ -37,10 +37,10 @@ function Login() {
         // navigate('/');
       } else {
         
-        setError(result.message || "Une erreur s'est produite");
+        setError(result.message );
       }
     } catch (err) {
-      setError("Une erreur s'est produite");
+      setError("Une erreur s'est produite, reessayez");
     }
   
     setIsLoading(false);
@@ -89,7 +89,7 @@ function Login() {
               Pas membre ? <Link to="/register">Inscription</Link>{" "}
               <span className="fa fa-arrow-right" />
             </p>
-            <a href="">Mot de passe oublié ?</a>
+            <a href="">Mot de passe oublié ? Contactez l'admin</a>
           </div>
          
         </section>
