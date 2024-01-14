@@ -1,15 +1,12 @@
 import TextMedia from "../../components/TextMedia/TextMedia";
 import Faq from "../../components/faq/Faq";
-import Footer from "../../components/footer/Footer";
 
-import Navigation from "../../components/navigation/Navigation"
 import TextImage from "../../components/titleImage/TextImage";
 
 const FaqPage = () => {
     // const { user, setUser } = useContext(UserContext);
     return (
         <>
-            <Navigation />
             <TextImage text="Vos questions..." imageUrl="/images/illustrations/meuf-face-tel.png" />
             <Faq />
             <TextMedia
@@ -20,7 +17,6 @@ const FaqPage = () => {
                 ctaText="Par e-mail"
                 reversecolorCta={true}
             linkto="https://mail.google.com/mail/u/0/"/>
-            <Footer/>
         
         </>
 

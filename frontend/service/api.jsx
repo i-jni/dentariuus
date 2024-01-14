@@ -396,35 +396,42 @@ export const createStudent = async (data) => {
 
 
 export const loginUser = async (data) => {
-    const URL = `${apiUrl}/student/login`;
-    // const token = getToken();
-    const request = new Request(URL, {
-      method: "POST",
-      headers: {
-        // 'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+  const URL = `${apiUrl}/student/login`;
+  const request = new Request(URL, {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
   
-    try {
-      const response = await fetch(request);
+  try {
+    const response = await fetch(request);
   
-      if (!response.ok) {
-          const errorData = await response.text();
-          console.log('Error response from server:', errorData);
-        throw new Error(errorData.message || 'Erreur lors de la connexion.');
-      }
-  
-      const userData = await response.json();
-      return {
-        success: true,
-        userData,
-      };
-    } catch (error) {
-      throw new Error(`Erreur lors de la communication avec le serveur: ${error.message}`);
+    if (response.status === 400) {
+      throw new Error("Email et mot de passe requis.");
+    } else if (response.status === 401) {
+      throw new Error("Mot de passe incorrect.");
+    } else if (response.status === 404) {
+      throw new Error("Utilisateur non trouvé. Veuillez vérifier votre email.");
+    } else if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Error response from server:', errorData);
+      throw new Error(errorData.message || 'Erreur lors de la connexion.');
     }
-  };
+  
+    const userData = await response.json();
+    console.log('Login successful. User data:', userData);
+  
+    return {
+      success: true,
+      userData,
+    };
+  } catch (error) {
+    throw new Error(`Erreur: ${error.message}`);
+  }
+}
+  
   
 //   delete student :
 export const deleteStudentById = async (id) => {

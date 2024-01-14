@@ -106,10 +106,10 @@ const router = createBrowserRouter([
                 path: 'courses/:id',
                 element: <CourseDetail />
             },
-            {
-                path: 'addcourse',
-                element: <CourseForm />
-            },
+            // {
+            //     path: 'addcourse',
+            //     element: <CourseForm />
+            // },
             {
                 path: 'levels',
                 element: <AllLevels />
@@ -166,6 +166,16 @@ const router = createBrowserRouter([
 
                 ),
             },
+            {
+                path: 'addcourse',
+                element: (
+                    <PrivateRoute>
+                        <AddCoursePage />
+                    </PrivateRoute >
+
+                ),
+            },
+
         
 
             {

@@ -19,7 +19,6 @@ const StudentDetail = () => {
     useEffect(() => {
         getStudent(id)
             .then((data) => {
-                console.log("data-students!!", data);
                 if (data && data.data) { 
                     setstudent(data.data);
                 }
@@ -65,7 +64,6 @@ const StudentDetail = () => {
   }
   
 
-  console.log("student:", student);
     return (
       <>
         {isOwner && (

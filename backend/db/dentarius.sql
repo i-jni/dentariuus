@@ -57,8 +57,12 @@ CREATE TABLE dentarius.course_topic (
 
 INSERT INTO dentarius.levell
 VALUES
-    (NULL, 'bac1'),
-    (NULL, 'bac2')
+    (NULL, '1er année'),
+    (NULL, '2eme année'),
+    (NULL, '3eme année'),
+    (NULL, '4eme année'),
+    (NULL, '5eme année'),
+    (NULL, '6eme année')
 ;
 
 INSERT INTO dentarius.country
@@ -71,10 +75,10 @@ VALUES
 
 INSERT INTO dentarius.student
 VALUES
-    (NULL, 'toto', 'nomtoto', 'toto@mail.fr', '1234', 'visitor', 1, 2),
-    (NULL, 'tata', 'nomtata', 'tata@mail.fr', '1234', 'user', 2, 1),
-    (NULL, 'titi', 'nomtiti', 'titi@mail.fr', '1234', 'admin', 2, 1),
-    (NULL, 'tutu', 'nomtutu', 'tutu@mail.fr', '1234', 'user', 2, 1);
+    (NULL, 'toto', 'nomtoto', 'toto@mail.fr', '123456478', 'visitor', 1, 2),
+    (NULL, 'tata', 'nomtata', 'tata@mail.fr', '123456478', 'user', 2, 1),
+    (NULL, 'titi', 'nomtiti', 'admin@mail.fr', '123456478', 'admin', 2, 1),
+    (NULL, 'tutu', 'nomtutu', 'tutu@mail.fr', '123456478', 'user', 2, 1);
 
 
 INSERT INTO dentarius.course (course_name, title, content, document, creation_at, edit_at, student_id, levell_id)
@@ -88,9 +92,15 @@ VALUES
 
 INSERT INTO dentarius.topic
 VALUES
-    (NULL, 'biologie'),
-    (NULL, 'science'),
-    (NULL, 'medecine')
+    (NULL, 'Chimie'),
+    (NULL, 'Biochimie'),
+    (NULL, 'Biologie'),
+    (NULL, 'Histologie'),
+    (NULL, 'Physique'),
+    (NULL, 'Physiologie'),
+    (NULL, 'Anatomie'),
+    (NULL, 'Medicament'),
+    (NULL, 'Odontologie')
 ;
 
 INSERT INTO dentarius.course_topic (course_id, topic_id)

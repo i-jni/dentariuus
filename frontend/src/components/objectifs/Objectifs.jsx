@@ -19,11 +19,11 @@ const Objectifs = () => {
       </div>
       <div className={styles.objectifItem}>
         <img src={obj1} alt="Objectif 2" />
-        <p>Par consequent, augmenter le savoir et vos notes !</p>
+        <p>Augmenter le savoir et vos notes !</p>
       </div>
       <div className={styles.objectifItem}>
         <img src={obj3} alt="Objectif 3" />
-        <p>Assurer la réussite en médecine dentaires</p>
+        <p>Assurer la réussite en dentaire</p>
       </div>
       </section>
       </>

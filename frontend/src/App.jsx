@@ -4,6 +4,7 @@ import router from '../service/router';
 // import '/src/assets/scss/style'
 
 import { UserProvider } from './context/UserProvider';
+import Navigation from './components/navigation/Navigation';
 
 const App = () => {
 

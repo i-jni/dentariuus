@@ -1,5 +1,6 @@
 
 // import SignInCta from '../buttons/SigninCta';
+import SignInCta from '../buttons/SigninCta';
 import styles from './heroBanner.module.scss';
 
 const HeroBanner = () => {
@@ -9,9 +10,9 @@ const HeroBanner = () => {
       <div className={`${styles.innerherobanner} ${styles.flex}`}>
         {/* Logo */}
        <picture className={styles.logo}></picture>
-        <h1>Bienvenue Dentarius</h1>
-        <h2>Inscrivez vous</h2>
-        {/* <SignInCta text="Custom Text banner"/> */}
+        <h1>Dentarius</h1>
+        <h2>Site collaboratif entre étudiants en médecine dentaire</h2>
+        <SignInCta text="Inscription" linkto="/register" reversecolorCta={true}/>
         
       </div>
 

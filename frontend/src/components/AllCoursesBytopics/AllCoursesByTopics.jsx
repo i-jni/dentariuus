@@ -41,7 +41,7 @@ const AllCoursesByTopic = () => {
           </div>
         ))
       ) : (
-        <p>Aucun cours disponible pour le moment.</p>
+        <p>Matières pas disponibles pour le moment.</p>
       )}
     </>
   );

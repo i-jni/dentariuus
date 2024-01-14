@@ -18,7 +18,6 @@ const StudentSetting = () => {
   useEffect(() => {
     getStudent(id)
       .then((data) => {
-        console.log("data-students!!", data);
         if (data && data.data) {
           setStudent(data.data);
         }

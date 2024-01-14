@@ -1,15 +1,9 @@
-import { useContext } from "react";
-import { UserContext } from "../../context/UserProvider";
-import Navigation from "../../components/navigation/Navigation";
-import './homepage.css';
 import TextMedia from "../../components/TextMedia/TextMedia";
 import HeroBanner from "../../components/Header/HeroBanner";
-import SignInCta from "../../components/buttons/SigninCta";
 import Testimonial from "../../components/Testimonial/Testimonial";
-import { TitleH1, TitleH2, TitleH3, TitleH4 } from "../../atomes/titles/Titles";
+import { TitleH2} from "../../atomes/titles/Titles";
 import JoinUs from "../../components/JoinUs/JoinUs";
 import Objectifs from "../../components/objectifs/Objectifs";
-import Footer from "../../components/footer/Footer";
 import TopicCourseCard from "../../components/topicsCourseCards/TopicCourseCard";
 
 
@@ -17,41 +11,34 @@ import TopicCourseCard from "../../components/topicsCourseCards/TopicCourseCard"
 
 
 const Homepage = () => {
-    const { user, setUser } = useContext(UserContext);
+    // const { user, setUser } = useContext(UserContext);
     return (
         <>
-            <Navigation/>
             <HeroBanner />
             {/* <Quatre/> */}
-            <p>Homepage :</p>
-            <p>user :{user?.firstname}</p>
             <Objectifs />
             {/* <SignInCta text="Custom Tehehxt" reversecolor={true}/> */}
+            <TitleH2 h2="Pourquoi rejoindre Dentarius ?"/>
+
             <TextMedia
-                reverse={true}
-                image='/images/boy-studi.png'
-                title="Titre de l'image inversée"
-                text="Description de l'image inversée"
-                ctaText="Bouton inversé"
-                reversecolorCta={true}
-                linkto='/register'/>
-            <Testimonial/>
-            <TitleH1 h1="UN GRAND TITRE un grand titre!"/>
-            <TitleH2 h2="UN GRAND TITRE un grand titre !"/>
-            <TitleH3 h3="UN GRAND TITRE un grand titre !"/>
-            <TitleH4 h4="UN GRAND TITREun grand titre !" />
-            
-              <TextMedia
                 reverse={false}
-                image='/images/girl-studi.png'
-                title="Titre de l'image pas inversée"
-                text="Description de l'image pass inversée"
-                ctaText="Bouton pas inversé"
+                image='/images/illustrations/fille-assise-long.png'
+                title="Tu es étudiant(e) en médecine dentaire ?"
+                text="Et tu veux accéder à une source illimitée de savoir, partager tes propres cours et enrichir la communauté étudiante ?  Ne cherche plus, tu es au bon endroit !"
+                ctaText="Inscris-toi !"
                 reversecolorCta={false}
                 linkto='/register'/>
+            <TextMedia
+                reverse={true}
+                image='/images/illustrations/mec-tel.png'
+                title=" Partage et Apprends"
+                text="Partage tes propres cours pour aider tes pairs. Ensemble, nous pouvons créer une base de connaissances exceptionnelle !"
+                ctaText="Connecte-toi !"
+                reversecolorCta={true}
+                linkto='/login'/>
+            <Testimonial/>
             <TopicCourseCard/>
             <JoinUs />
-            <Footer />
 
             
 

@@ -11,7 +11,7 @@ const CourseCard = () => {
     useEffect(() => {
         getAllCourses()
             .then((data) => {
-                console.log("data-courses", data);
+                // console.log("data-courses", data);
                 if (data && data.data) { 
                     setCourses(data.data);
                 } else {

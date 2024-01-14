@@ -7,7 +7,7 @@ import styles from './AddCourse.module.scss'
 import { TitleH2 } from '../../atomes/titles/Titles';
 
 const AddCourse = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [created, setisCreated] = useState(false);
   
   

@@ -10,7 +10,7 @@ const AllStudents = () => {
     useEffect(() => {
         getAllStudents()
             .then((data) => {
-                console.log("data-students", data);
+                // console.log("data-students", data);
                 if (data && data.data) { 
                     setstudents(data.data);
                 }

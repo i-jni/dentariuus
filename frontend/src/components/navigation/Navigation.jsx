@@ -37,7 +37,7 @@ const Navigation = () => {
     <header className={styles.siteHeader}>
       <div className={`${styles.wrapper}`}>
         <a href="/" className={styles.brand}>
-          Dentarius
+         <img src="/images/loogo.png" alt="logo dentarius" />
         </a>
         <nav className={styles.nav}>
           <div

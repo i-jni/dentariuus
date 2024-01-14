@@ -3,7 +3,6 @@ import { Navigate } from 'react-router-dom';
 
 export const PrivateRoute = ({ children }) => {
   const jwtToken = localStorage.getItem('jwtToken');
-  console.log('jwtToken:', jwtToken);
 
   const isLoggedIn = jwtToken !== null;
   console.log('isLoggedIn:', isLoggedIn);

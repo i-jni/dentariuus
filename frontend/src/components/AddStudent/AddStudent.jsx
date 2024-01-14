@@ -4,7 +4,7 @@ import Allcountrys from "../Countrys/Countrys";
 import { Link, useNavigate } from "react-router-dom";
 import { createStudent } from "../../../service/api.jsx";
 import styles from './AddStudent.module.scss'
-import { TitleH2 } from "../../atomes/titles/Titles.jsx";
+import { TitleH1 } from "../../atomes/titles/Titles.jsx";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const Register = () => {
       const result = await createStudent(data);
       if (result.success) {
         setSuccessMessage('Compte créé avec succès!');
-        navigate(`/students/${result.studentId}`);
+        navigate('/login');
       } else {
         setErrorMessage(result.message);
       }
@@ -45,7 +45,7 @@ const Register = () => {
 
   return (
     <section className={styles.registerContainer} >
-      <TitleH2 h2='Inscription'/>
+      <TitleH1 h1='Inscription'/>
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <form method="post" onSubmit={handleAddStudentSubmit}>

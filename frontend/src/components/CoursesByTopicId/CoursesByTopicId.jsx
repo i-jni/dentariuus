@@ -11,7 +11,7 @@ const TopicCourseDetail = () => {
   useEffect(() => {
     getAllCoursesByTopicsId(id)
       .then((data) => {
-        console.log("data-courses-by-topic-id", data);
+        // console.log("data-courses-by-topic-id", data);
         if (data && data.data) {
           setCoursesByTopic(data.data);
         }
@@ -38,14 +38,14 @@ const TopicCourseDetail = () => {
           <div className='centered'>
             <TitleH3 h3={limitText(course.course_name, 100)} />
             <p>{limitText(course.content, 120)}</p>
-            <Link to={`/courses/${course.id}`}>
+            <Link to={`/course_detail/${course.id}`}>
               <button className="btn darkblue">Voir plus</button>
             </Link>
           </div>
         </div>
       ))
     ) : (
-      <p>Aucun cours disponible pour le moment.</p>
+      <p>Matières pas disponibles pour le moment.</p>
     )}
       </section>
       </>

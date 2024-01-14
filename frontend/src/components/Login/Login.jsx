@@ -10,37 +10,44 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // const { user, setUser } = useContext(UserContext);
-  const { user, setUser } = useContext(UserContext);
+  const [attempts, setAttempts] = useState(0);
+  const [timeout, setTimeout] = useState(false);
+
+  const { setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
+    if (timeout) {
+      setError("Veuillez patienter 30 secondes avant de réessayer.");
+      setIsLoading(false);
+      return;
+    }
   
-    // note : si je retire token ici , privateRoute ne fonctionne plus: a revoir----
     try {
       const result = await loginUser({ email, password });
       const studentId = result.userData?.data?.id;
       const token = result.userData?.data?.token;
+      console.log(result, 'rrr');
   
-      console.log(result, studentId);
-      console.log(result.success &&  studentId !== null );
-
       if (result.success && studentId !== null) {
-        // Gestion de réussite de la connexion:
         localStorage.setItem('jwtToken', token);
-        
-        setUser( result.userData?.data );
-        
+        setUser(result.userData?.data);
         navigate(`/students/${studentId}`);
-        // navigate('/');
-      } else {
-        
-        setError(result.message );
       }
     } catch (err) {
-      setError("Une erreur s'est produite, reessayez");
+      setError(err.message);
+      setAttempts(attempts + 1);
+      if (attempts >= 4) {
+        setTimeout(true);
+        setError("Trop de tentatives échouées... Veuillez patienter 30 secondes avant de réessayer.");
+        setTimeout(() => {
+          setTimeout(false);
+          setAttempts(0);
+        }, 30000); 
+      }
     }
   
     setIsLoading(false);
@@ -78,7 +85,7 @@ function Login() {
               <input
                 type="submit"
                 value="Se connecter"
-                disabled={isLoading}
+                disabled={isLoading || timeout}
                 className="btn green"
               />
               {error && <div className="error" style={{ color: "red" }}>{error}</div>}
@@ -87,7 +94,6 @@ function Login() {
           <div className={styles.notmemberContainer}>
             <p>
               Pas membre ? <Link to="/register">Inscription</Link>{" "}
-              <span className="fa fa-arrow-right" />
             </p>
             <a href="">Mot de passe oublié ? Contactez l'admin</a>
           </div>
