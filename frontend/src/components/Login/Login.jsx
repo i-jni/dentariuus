@@ -30,7 +30,7 @@ function Login() {
       const result = await loginUser({ email, password });
       const studentId = result.userData?.data?.id;
       const token = result.userData?.data?.token;
-      console.log(result, 'rrr');
+      // console.log(result, 'rrres');
   
       if (result.success && studentId !== null) {
         localStorage.setItem('jwtToken', token);

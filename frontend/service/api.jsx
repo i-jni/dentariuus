@@ -421,7 +421,7 @@ export const loginUser = async (data) => {
     }
   
     const userData = await response.json();
-    console.log('Login successful. User data:', userData);
+    // console.log('Login successful. User data:', userData);
   
     return {
       success: true,
