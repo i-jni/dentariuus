@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AllLevels from "../Alllevels/AllLevels";
+import AllLevels from "../AllLevels/AllLevels";
 import Allcountrys from "../Countrys/Countrys";
 import { Link, useNavigate } from "react-router-dom";
 import { createStudent } from "../../../service/api.jsx";

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { deleteCourseById, getAllLevels, getCourse, getStudent } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
 import { Page, Document, pdfjs } from 'react-pdf';
-import styles from './CourseDetail.module.scss';
+import styles from "./CourseDetail.module.scss";
 import ShareRs from '../../atomes/shares/ShareRs';
 import DeleteConfirmationModal from '../modal/Modal';
 
