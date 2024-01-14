@@ -59,7 +59,7 @@ const Register = () => {
         <input type="email" name="email" placeholder="E-mail" required />
 
         <label>Mot de passe</label>
-        <input type="password" name="password" placeholder="Mot de passe" required />
+        <input type="password" name="password" placeholder="Mot de passe" minlength="8" required />
 
         <div>
           <label>Niveau </label>
