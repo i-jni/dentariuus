@@ -7,10 +7,8 @@ const ConfidentialitePage = () => {
 
     return (
         <>
-            <Navigation />       
             <Confident/>
             
-            <Footer/>
         </>
     )
 
