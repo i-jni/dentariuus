@@ -81,7 +81,7 @@ const Register = () => {
           </select>
         </div>
 
-        <button  className="btn green"type="submit">Création</button>
+        <button  className="btn green"type="submit">Inscription</button>
       </form>
       <div>
         <p>Déjà membre ? <Link to="/login">Connexion</Link></p>

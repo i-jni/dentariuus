@@ -210,10 +210,6 @@ const router = createBrowserRouter([
             },
             {
                 path: 'students/:id',
-                element: <ProfilPage />
-            },
-            {
-                path: 'students/:id',
                 element: (
                     <PrivateRoute>
                         <ProfilPage/>

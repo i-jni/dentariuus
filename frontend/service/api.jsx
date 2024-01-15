@@ -277,7 +277,7 @@ export async function getAllLevels() {
 }
 
 export async function getLevel(id) {
-    const URL = `${apiUrl}/api/levels/${id}`;
+    const URL = `${apiUrl}/levels/${id}`;
 
     try {
         const requestInfos = new Request(URL, {
@@ -320,6 +320,28 @@ export async function getAllCountries() {
         throw new Error(`Erreur lors de la récupération des Students : ${error.message}`);
     }
 }
+
+export async function getCountryById(countryId) {
+  const URL = `${apiUrl}/country/${countryId}`;
+
+  try {
+    const requestInfos = new Request(URL, {
+      method: "get",
+    });
+
+    const req = await fetch(requestInfos);
+
+    if (!req.ok) {
+      throw new Error(`Erreur lors de la récupération du pays : ${req.status}`);
+    }
+
+    const res = await req.json();
+    return res;
+  } catch (error) {
+    throw new Error(`Erreur lors de la récupération du pays : ${error.message}`);
+  }
+}
+
 
 
 // -------------------- STUDENT -----------------------------------
