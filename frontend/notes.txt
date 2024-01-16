@@ -6,7 +6,7 @@
 -mdp oublié, temps d'attente apres 3 saisi de mdp incorrect: a faire
 
 - dynamiser parti role dans le studentadd: a faire
-- acces a liste de cours uniququmnt si t'es connecter : a faire
+- acces a liste de cours uniququmnt si t'es connecter : ok
 -
 
 --addcourse: 
