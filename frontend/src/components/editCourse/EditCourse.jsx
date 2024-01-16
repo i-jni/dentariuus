@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import { getAllLevels, getCourse, updateCourse } from '../../../service/api';
 import { getAllTopics } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Page, Document } from 'react-pdf';
 import styles from './editCourse.module.scss';
 
@@ -15,7 +15,9 @@ const EditCourse = () => {
   const [course, setCourse] = useState({});
 
   const { user, setUser } = useContext(UserContext);
-    const { id: courseId } = useParams();
+  const { id: courseId } = useParams();
+  const [successMessage, setSuccessMessage] = useState('');
+  
 
   
   const [courseData, setCourseData] = useState({
@@ -125,6 +127,7 @@ const EditCourse = () => {
     updateCourse(courseId, courseData)
       .then(data => {
         console.log('Cours mis à jour avec succès :', data);
+        setSuccessMessage('Cours mis à jour avec succès !')
       })
       .catch(error => {
         console.error('Erreur lors de la mise à jour du cours :', error);
@@ -222,8 +225,11 @@ const EditCourse = () => {
             </select>
           </label>
 
-   
-          <button className="btn blue" type="submit">Update Course</button>
+      <div className={styles.btnsEdit}>
+      <button className="btn green" type="submit">Update Course</button>
+      <p className='successText'>{successMessage}  </p>
+      <Link to='/liste'>  <button className='btn darkblue'>Retour à la liste </button> </Link>
+      </div>
         </form>
       );
 };

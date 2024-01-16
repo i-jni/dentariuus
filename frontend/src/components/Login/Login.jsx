@@ -76,7 +76,7 @@ function Login() {
               <input
                 autoComplete="off"
                 maxLength="12"
-                minlength="8"
+                minLength="8"
                 placeholder="Mot de passe"
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}

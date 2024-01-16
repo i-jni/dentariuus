@@ -174,7 +174,7 @@ const CourseDetail = () => {
 
       </section>
       {isOwner && (
-          <div>
+          <div className={styles.btnsCourse}>
           
               <button className="btn red" onClick={handleShowModal}> Supprimer </button>
             

@@ -104,7 +104,7 @@ const updateStudentById = async (studentId, updatedData) => {
   
     const sql = `
       UPDATE dentarius.student
-      SET firstname = :firstname, lastname = :lastname, email = :email, role = :role, levell_id = :level_id, country_id = :country_id
+      SET firstname = :firstname, lastname = :lastname, email = :email, role = :role, levell_id = :levell_id, country_id = :country_id
       WHERE id = :studentId;
     `;
   

@@ -13,7 +13,8 @@ const StudentSetting = () => {
   const { id } = useParams();
   const [levels, setLevels] = useState([]);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     getStudent(id)
@@ -36,24 +37,25 @@ const StudentSetting = () => {
         console.error(error);
       });
 
-  const handleUpdate = async () => {
-    try {
-        const result = await updateStudent(id, student);
-        if (result.success) {
+      const handleUpdate = async (e) => {
+        e.preventDefault();
+        try {
+          const result = await updateStudent(id, student);
+          if (result.success) {
             setSuccessMessage('Modifications enregistrées avec succès');
             setModificationsValidees(true);
-          
             console.log(result.message);
-            // setTimeout(() => {
-            //     navigate(`/students/${id}`);
-            // }, 2000);        
-      } else {
-        console.error(result.message);
-      }
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
+            setTimeout(() => {
+              navigate(`/students/${id}`);
+            }, 2000);
+          } else {
+            console.error(result.message);
+          }
+        } catch (error) {
+          console.error(error.message);
+        }
+      };
+      
 
   const handleChange = (e) => {
     setStudent((prevStudent) => ({
@@ -81,14 +83,13 @@ const StudentSetting = () => {
         <label>Pays </label>
         <input type="text" name="country_id" value={student.country_id} onChange={handleChange} />
         <label>Niveau </label>
-        {/* <input type="text" name="levell_id" value={student.levell_id} onChange={handleChange} /> */}
         <select
                 name="levell_id"
                 value={student.levell_id}
                 onChange={e => handleLevelChange(e.currentTarget.value)}
                 required
               >
-                <option value="">Sélectionnez un niveau</option>
+                <option value="levell_id">Sélectionnez un niveau</option>
                 {levels.map(level => (
                   <option key={level.id} value={level.id}>
                     {level.name}
