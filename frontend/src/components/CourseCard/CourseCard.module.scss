@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 0 20px 0 20px;
+  padding: 0 20px 20px 20px;
     @include responsive(tablet) {
         gap: 40px;
 

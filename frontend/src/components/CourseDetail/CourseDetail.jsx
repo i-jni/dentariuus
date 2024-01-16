@@ -145,8 +145,6 @@ const CourseDetail = () => {
 
       <section className={styles.courseDetailContainer}>
         <div className={styles.courseBanner}>
-        <h2>{user?.firstname}</h2>
-          {/* <h2>id: {course.id}</h2> */}
           <h3>{levels.find(level => level.id === course.levell_id)?.name}</h3>
           <h2> {course.course_name}</h2>
           <p>Publié par <span>{student?.firstname}</span>  </p>

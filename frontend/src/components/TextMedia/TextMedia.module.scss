@@ -34,7 +34,6 @@
     justify-content: space-between;
     max-width: 600px;
     height: auto;
-    margin: auto;
   
     @include responsive (tablet) {
       width: 600px;
@@ -68,6 +67,12 @@
       @include responsive(desktop){
           font-size: 22px;
       }
+    }
+    p{
+      font-size: 17px;
+      @include responsive(desktop){
+        font-size: 20px;
+    }
     }
   }
 }

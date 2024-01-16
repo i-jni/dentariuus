@@ -7,16 +7,19 @@
     background-color: #f0f0f0;
     border-radius: 8px;
     margin: 20px;
-    height: 50vh;
+    height: 40vh;
     text-align: center;
     border: #002439 solid 3px ;
+    position: relative;
     @include responsive (tablet){
       margin: auto;
       width: 760px;
       
       }
 
-  
+  div{
+    position: inherit;
+    top: 13%;
   .studentDetail h2 {
     color: #333;
   }
@@ -28,6 +31,10 @@
     font-size: 18px;
   }
 }
+}
+
+.btnsUser{
+  text-align: center;
 
  button{
   margin: 10px;
@@ -41,3 +48,4 @@
  a{
   color: white
  }
+}

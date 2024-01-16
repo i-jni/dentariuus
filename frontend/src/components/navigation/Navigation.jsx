@@ -32,7 +32,12 @@ const Navigation = () => {
     setUser(null);
     navigate('/login')
   }
+  const handlelogin = () => {
+    
+    navigate('/login')
+  }
 
+  
   return (
     <header className={styles.siteHeader}>
       <div className={`${styles.wrapper}`}>
@@ -68,7 +73,7 @@ const Navigation = () => {
             {
               user &&
               <li className={styles.navItem}>
-                <Link to={`/students/${user?.id}`}><img src="/images/illustrations/icon-user.png" alt="" /></Link>
+                <Link to={`/students/${user?.id}`}><img src="/images/illustrations/icon-user.png" alt="profil" /></Link>
               </li>}
 
             <li className={`${styles.navItem} ${styles.auth}`}>
@@ -76,13 +81,13 @@ const Navigation = () => {
             </li>
        
             <li className={styles.navItem}>
-              <Link to= '/search'> <i className="fa fa-search" ></i></Link>
+              <Link to= '/search'> <i className="fa fa-search"></i></Link>
             </li>
           
              {
               user ? <button className="btn beige" onClick={handleLogout}>
              <MdLogout /></button> :
-                <Link to="/login"><button className="btn green">Connexion</button> </Link>
+             <button className="btn green" onClick={handlelogin}> Connexion </button>
             }
           </ul>
         </nav>

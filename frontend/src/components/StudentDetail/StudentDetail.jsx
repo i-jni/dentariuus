@@ -84,6 +84,7 @@ const StudentDetail = () => {
         {isOwner && (
           <>
             <article className={styles.studentDetail}>
+              <div>
           
           <h2>Nom complet :</h2>
           <p>{student.firstname} {student.lastname}</p>
@@ -95,15 +96,14 @@ const StudentDetail = () => {
           
           <h2>Niveau d'étude:</h2>
           <p>  {student.levell_id}  </p>
-        
+          </div>
             </article>
-            <section>
+            <section className={styles.btnsUser}>
         {isDeleted && (
-          <div style={{ color: 'red' }}>
+          <div style={{ color: 'red' }}>i
             <p>Ton compte a été supprimé !</p>
           </div>
           )}
-          <div></div>
               <button className="btn red" onClick={handleShowModal}>Supprimer</button>
               {showModal && <DeleteConfirmationModal onCloseModal={handleCloseModal} onDelete={ handleDelete} />}
         

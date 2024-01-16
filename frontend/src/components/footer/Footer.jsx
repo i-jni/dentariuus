@@ -32,9 +32,9 @@ const Footer = () => {
           <div className={styles.footerCol}>
             <h4>Suivez-nous</h4>
             <div className={styles.socialLinks}>
-              <a href="/twitter"><i><RiTwitterXFill/></i></a>
-              <a href="/instagram"><i><FaInstagram/></i></a>
-              <a href="/facebook"><i><FaFacebookF/></i></a>
+              <a href="https://twitter.com/"><i><RiTwitterXFill/></i></a>
+              <a href="https://www.instagram.com/"><i><FaInstagram/></i></a>
+              <a href="https://www.facebook.com/"><i><FaFacebookF/></i></a>
             </div>
           </div>
         </div>

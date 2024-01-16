@@ -26,15 +26,15 @@ const Faq = () => {
     <div className={styles.faqquestion}>
     <input id="q3" type="checkbox" className={styles.panel} />
     <div className={styles.plus}>+</div>
-    <label htmlFor="q3" className={styles.paneltitle}>Comment acceder a l ensemble du contenu du site?</label>
-    <div className={styles.panelcontent}> Pour cela il faut s inscire si jamais ce n est pas encore fait, vous pouvez le faire <a href='#'>ici</a>  </div>
+    <label htmlFor="q3" className={styles.paneltitle}>Comment acceder a l'ensemble du contenu du site?</label>
+    <div className={styles.panelcontent}> Pour cela il faut s'inscire si jamais ce n est pas encore fait, vous pouvez le faire <a href='#'>ici</a>  </div>
                    
                 </div>
                 
                 <div className={styles.faqquestion}>
     <input id="q4" type="checkbox" className={styles.panel} />
     <div className={styles.plus}>+</div>
-    <label htmlFor="q4" className={styles.paneltitle}>Comment puis-je obtenir de l aide si j ai des questions sur le contenu du cours?</label>
+    <label htmlFor="q4" className={styles.paneltitle}>Comment puis-je obtenir de l'aide si j ai des questions sur le contenu du cours?</label>
     <div className={styles.panelcontent}> Nous offrons un support dédié aux étudiants. Vous pouvez poser des questions sur cette addresse: support@dentarius.fr <a href='#'>ici</a>  </div>
                    
                 </div>

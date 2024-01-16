@@ -5,6 +5,7 @@ import { createNewCourse } from '../../../service/api';
 import { UserContext } from '../../context/UserProvider';
 import styles from './AddCourse.module.scss'
 import { TitleH2 } from '../../atomes/titles/Titles';
+import { Link } from 'react-router-dom';
 
 const AddCourse = () => {
   const { user } = useContext(UserContext);
@@ -202,7 +203,9 @@ const AddCourse = () => {
        
         <button className="btn green" type="submit">Ajouter le cours</button>
         {created &&
-          <p className='successText'>Le cours est crée avec succes ! </p>
+          
+          <div className='successText'>Le cours est crée avec succes !
+          <Link to='/liste'>  <button className='btn darkblue'>Voir la liste de cours</button> </Link> </div>
             }
       </form>
       

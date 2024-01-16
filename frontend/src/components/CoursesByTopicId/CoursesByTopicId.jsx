@@ -28,7 +28,7 @@ const TopicCourseDetail = () => {
   
   return (
   <>
-    <TitleH2 h2={`Matiere: ${coursesByTopic.topic_name}`}/>
+    <TitleH2 h2={coursesByTopic.topic_name}/>
   <section className={styles.containerCards}>
 
     {coursesByTopic.courses && coursesByTopic.courses.length > 0 ? (
@@ -45,7 +45,7 @@ const TopicCourseDetail = () => {
         </div>
       ))
     ) : (
-      <p>Matières pas disponibles pour le moment.</p>
+      <p>Indisponibles pour le moment.</p>
     )}
       </section>
       </>
