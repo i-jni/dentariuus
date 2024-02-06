@@ -1,7 +1,7 @@
 import TextMedia from "../../components/TextMedia/TextMedia";
 import HeroBanner from "../../components/Header/HeroBanner";
 import Testimonial from "../../components/Testimonial/Testimonial";
-import { TitleH2} from "../../atomes/titles/Titles";
+import {TitleH2} from "../../atomes/titles/Titles";
 import JoinUs from "../../components/JoinUs/JoinUs";
 import Objectifs from "../../components/objectifs/Objectifs";
 import TopicCourseCard from "../../components/topicsCourseCards/TopicCourseCard";
@@ -37,7 +37,7 @@ const Homepage = () => {
                 reversecolorCta={true}
                 linkto='/login'/>
             <Testimonial/>
-            <TopicCourseCard/>
+            <TopicCourseCard />
             <JoinUs />
 
             

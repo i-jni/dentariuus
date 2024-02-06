@@ -73,7 +73,7 @@ const createNewStudent = async (studentData) => {
 
         console.log('Results after insertion:', results);
 
-        return results.insertId; // Renvoie l'ID de l'étudiant inséré.
+        return results.insertId; // Renvoie l'ID de l'étudiant insérée
     } catch (error) {
         console.error('Error creating a new student:', error);
         throw error;

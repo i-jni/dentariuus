@@ -30,7 +30,8 @@ app.use(router);
 
 router.use(
 	cors({
-		origin: ["http://localhost:5173","https://localhost:5173", "http://dentarius.org", "https://dentarius.org", "http://www.dentarius.org", "https://www.dentarius.org"],
+		origin: ["http://localhost:5173","https://localhost:5173", "http://dentarius.org", "https://dentarius.org", "http://www.dentarius.org", 
+		"https://www.dentarius.org"],
 	}),
 );
 

@@ -46,7 +46,7 @@ export async function getTopic(id) {
   }
 }
 
-// recuperation des cours liés a chaque topic
+// recuperation des cours lié a chaque topic
 
 export async function getAllCoursesByTopics() {
   const URL = `${apiUrl}/topics/courses`;
@@ -68,6 +68,7 @@ export async function getAllCoursesByTopics() {
       throw new Error(`Erreur lors de la récupération des cours by topic: ${error.message}`);
   }
 }
+// changer les messages d'erreurs ---
 
 export async function getAllCoursesByTopicsId(id) {
   const URL = `${apiUrl}/topics/courses/${id}`;
@@ -112,7 +113,7 @@ export async function createNewCourse(courseData) {
     const req = await fetch(requestInfos);
 
     if (!req.ok) {
-      throw new Error(`Erreur create cours  lors de la création du cours : ${req.status}`);
+      throw new Error(`Erreur create cours lors de la création du cours : ${req.status}`);
     }
 
     const res = await req.json();

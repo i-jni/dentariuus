@@ -83,23 +83,23 @@ const AddCourse = () => {
   const handleSubmit = e => {
     e.preventDefault();
   
-    if (!courseData.course_name || !courseData.title || !courseData.content || !courseData.document || !courseData.student_id || !courseData.levell_id || !courseData.topics.length) {
+    if (!courseData.course_name || !courseData.title || !courseData.content || !courseData.document
+      || !courseData.student_id || !courseData.levell_id || !courseData.topics.length) {
       console.log('datas du formulaire avant envoi :', courseData);
-      alert("Veuillez remplir tous les champs obligatoires.");
+      alert("Veuillez remplir tous les champs obligatoires!!");
       return;
     }
 
 
-    // create nouveau cours avec les données du form:
     createNewCourse(courseData)
       .then(data => {
-        console.log('Nouveau cours créé avec succès :', data);
+        console.log('Nouveau cours créé avec succès !', data);
         setisCreated(true)
       })
       .catch(error => {
-        console.error('Erreur addcourse lors de la création du cours :', error);
+        console.error('Erreur addcourse lors de la création du cours.. :', error);
   
-        alert(`Erreur addcourses lors de la création du cours : ${error.message}`);
+        alert(`Erreur addcourses lors de la création du cours.. : ${error.message}`);
       });
   };
   
