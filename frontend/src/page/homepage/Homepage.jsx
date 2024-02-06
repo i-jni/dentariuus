@@ -11,7 +11,6 @@ import TopicCourseCard from "../../components/topicsCourseCards/TopicCourseCard"
 
 
 const Homepage = () => {
-    // const { user, setUser } = useContext(UserContext);
     return (
         <>
             <HeroBanner />
